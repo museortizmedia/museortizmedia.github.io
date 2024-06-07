@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  /*background-color: #0F0F0F;*/
+  display: grid;
+  place-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+  color: #676767;
+}
+.a:hover{
+  color: #ffffff;
+}
