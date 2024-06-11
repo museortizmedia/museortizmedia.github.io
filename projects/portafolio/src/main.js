@@ -18,3 +18,4 @@ const DisactiveDarkMood = ()=>{
     localStorage.theme = 'ligth';
     document.documentElement.classList.remove('dark');
 }
+if(localStorage.getItem('theme')==undefined){ActiveDarkMood();}
