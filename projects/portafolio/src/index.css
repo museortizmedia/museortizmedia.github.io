@@ -1,12 +1,59 @@
 body {
   margin: 0;
-  /*background-color: #0F0F0F;*/
   display: grid;
   place-content: center;
   min-width: 320px;
   min-height: 100vh;
   color: #676767;
 }
-.a:hover{
-  color: #ffffff;
+.scroll-container {
+  overflow: hidden;
+  white-space: nowrap; /* Evita que el texto se desplace a la siguiente línea */
+  position: relative;
 }
+
+.scroll-text {
+  /*font-size: 24px;*/
+  display: flex; /* Cambia a flex para manejar múltiples elementos */
+  white-space: nowrap; /* Evita que el texto se desplace a la siguiente línea */
+  position: relative; /* Añadido para que ::after sea relativo a este elemento */
+  animation: my-animation 15s linear infinite;
+}
+
+.content {
+  display: inline-block; /* Asegura que el contenido esté en línea */
+}
+
+/* Keyframes */
+@keyframes my-animation {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.card:hover .card-info .material-symbols-outlined {
+  color: #000;
+  cursor: pointer;
+}
+.dark .card:hover .card-info .material-symbols-outlined {
+  color: #fff;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/*.a:hover{
+  color: #ffffff !important;
+}*/
+/*
+.card{
+  border-radius: 1em;
+  background-color: #181818;
+  color: #181818;
+}*/
