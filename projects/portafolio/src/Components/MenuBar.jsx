@@ -1,7 +1,7 @@
 import TailwindComponents from '../TailwindComponents'
 import { IconPage, PageData } from '../Data'
 
-export default function MenuBar() {
+export default function MenuBar( {OnItemClick = null} ) {
 
   return (
     <div className='menu w-full h-[10vh] mb-10'>
@@ -18,7 +18,7 @@ export default function MenuBar() {
             PageData.map(({ link, label }) => (
               <li key={"page " + label}>
                 <a
-                  href={link}
+                  href="#" onClick={(e) => { e.preventDefault(); OnItemClick(link) }}
                   className="block py-2 px-3 hover:text-black hover:dark:text-white transition duration-300 ease-out hover:ease-in"
                   en='Home'
                 >

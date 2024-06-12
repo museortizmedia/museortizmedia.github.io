@@ -1,19 +1,19 @@
 const PageData = [
   {
-    link: "#",
+    link: "0",
     label: "Inicio",
   },
   {
-    link: "#",
-    label: "About"
+    link: "1",
+    label: "Sobre mí"
   },
   {
-    link: "#",
-    label: "Works"
+    link: "2",
+    label: "Portafolio"
   },
   {
-    link: "#",
-    label: "Contact"
+    link: "3",
+    label: "Contacto"
   }
 ]
 const TagLineData = "Content in local";

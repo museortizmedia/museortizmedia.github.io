@@ -19,7 +19,7 @@ body {
   display: flex; /* Cambia a flex para manejar múltiples elementos */
   white-space: nowrap; /* Evita que el texto se desplace a la siguiente línea */
   position: relative; /* Añadido para que ::after sea relativo a este elemento */
-  animation: my-animation 15s linear infinite;
+  animation: moveX 15s linear infinite;
 }
 
 .content {
@@ -27,12 +27,36 @@ body {
 }
 
 /* Keyframes */
-@keyframes my-animation {
+@keyframes moveX {
   from {
     transform: translateX(0%);
   }
   to {
     transform: translateX(-100%);
+  }
+}
+@keyframes -moveX {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes moveY {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+@keyframes -moveY {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100%);
   }
 }
 
@@ -45,17 +69,12 @@ body {
   cursor: pointer;
 }
 
-
-
-
-
-
-/*.a:hover{
-  color: #ffffff !important;
-}*/
-/*
-.card{
-  border-radius: 1em;
-  background-color: #181818;
-  color: #181818;
-}*/
+.preloader {
+  position: absolute;
+  top: 0;
+  z-index: 10000;
+  animation: moveY 2s linear ;
+}
+.preloader .loader {
+  animation: -moveX 2s linear infinite;
+}

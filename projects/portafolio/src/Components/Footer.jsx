@@ -2,7 +2,7 @@ import { useState } from "react"
 import { IconPage, PageData } from "../Data"
 import TailwindComponents from "../TailwindComponents"
 
-export default function Footer() {
+export default function Footer( {OnItemClick = null}) {
     const [hide, SetHide] = useState("hidden");
     const [personaCount, SetPersonaCount] = useState(0);
     const HandlePersonas = () => {
@@ -24,7 +24,7 @@ export default function Footer() {
                         PageData.map(({ link, label }) => (
                             <li key={"page " + label}>
                                 <a
-                                    href={link}
+                                    href="#" onClick={(e) => { e.preventDefault(); OnItemClick(link) }}
                                     className="block py-2 px-3 hover:text-black hover:dark:text-white transition duration-300 ease-out hover:ease-in"
                                 >
                                     {label}
