@@ -20,9 +20,31 @@
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
     rel="stylesheet">
   <!--Main JS config-->
-  <script src="./src/main.js"></script>
+  <script rc="./src/main.js">
+    // Configure dark mode strategy
+    tailwind.config = {
+      darkMode: 'class', /* 'class' or 'media', we use 'class' to enable dark mode manually */
+    }
+    // Preload dark mode in local or windows match
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    // Activa el dark mode
+    const ActiveDarkMood = () => {
+      localStorage.theme = 'dark';
+      document.documentElement.classList.add('dark');
+    }
+    // Desactiva el dark mode
+    const DisactiveDarkMood = () => {
+      localStorage.theme = 'ligth';
+      document.documentElement.classList.remove('dark');
+    }
+    if (localStorage.getItem('theme') == undefined) { ActiveDarkMood(); }
+  </script>
   <title>Diego Ortiz ► Portafolio</title>
-  <script type="module" crossorigin src="/assets/index-CnJ9QEAY.js"></script>
+  <script type="module" crossorigin src="/assets/index-D22lqmb4.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-CNlfmp0b.css">
 </head>
 
