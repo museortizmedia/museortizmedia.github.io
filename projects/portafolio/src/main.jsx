@@ -11,23 +11,31 @@ import TagLine from './Components/Cards/TagLine.jsx'
 import { CardContent, CardRowContent, CardColContent } from './Components/Cards/CardContent.jsx'
 import SocialButtonsCard from './Components/SocialButtonsCard.jsx'
 
-import { ProfileData } from './Data.js'
+import { ArrowIcon, ProfileData } from './Data.js'
 import TailwindComponents from './TailwindComponents.js'
 
+const CreateSocialMedia = () => {
+  return <>
+    <SocialButtonsCard SocialIcons={[
+      {name:'linkedin', link:'https://www.linkedin.com/in/museortizmedia/'},
+      {name:'github', link:'https://github.com/museortizmedia'}
+      ]}/>
+  </>;
+};
 
 const ServicesLogos = () => {
   return <>
     <div className={`grid grid-cols-4 place-content-center h-2/3 w-full space-x-3`}>
-      <div className={`col-span-1 rounded-full`}>
+      <div className={`col-span-1 rounded-full dark:text-white text-black`}>
         <span className="material-symbols-outlined text-5xl">Photo_Camera</span>
       </div>
-      <div className={`col-span-1 rounded-full`}>
+      <div className={`col-span-1 rounded-full dark:text-white text-black`}>
         <span className="material-symbols-outlined text-5xl">draft_orders</span>
       </div>
-      <div className={`col-span-1 rounded-full`}>
+      <div className={`col-span-1 rounded-full dark:text-white text-black`}>
         <span className="material-symbols-outlined text-5xl">overview_key</span>
       </div>
-      <div className={`col-span-1 rounded-full`}>
+      <div className={`col-span-1 rounded-full dark:text-white text-black`}>
         <span className="material-symbols-outlined text-5xl">screenshot</span>
       </div>
     </div>
@@ -64,10 +72,10 @@ const Cifras = () => {
 
 const CTA = () => {
   return <>
-    <div onClick={()=>{alert("ok")}} className={`card-info grid grid-cols-4 place-content-end h-full w-full text-5xl font-extrabold text-left mb-10 m-5 cursor-pointer`}>
+    <div onClick={()=>{alert("ok")}} className={`card-info grid grid-cols-4 place-content-end h-full w-full text-5xl font-extrabold text-left mb-10 m-5 cursor-pointer dark:text-white text-black`}>
       <div className="font-bold col-span-4 row-span-2">Vamos</div>
       <div className="font-bold col-span-4 row-span-2">a trabajar <span className="font-bold text-blue-800">juntos</span></div>
-      <span className={`text-[40px] material-symbols-outlined col-span-1 col-start-4 ${TailwindComponents.BotonLogo}`}>{"Login"}</span>
+      <span className={`text-[40px] material-symbols-outlined col-span-1 col-start-4 text-right mr-5 ${TailwindComponents.BotonLogo}`}>{ArrowIcon}</span>
     </div>
     
   </>;
@@ -77,11 +85,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <>
       <MenuBar />
-      <div className='space-y-52 md:space-y-40 xl:space-y-14'>
+      <div className='space-y-52 md:space-y-0 xl:space-y-14'>
 
         <CardContainer>
 
-          <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 10, }} flexType='row' OnButtonClick={() => { alert("1"); }}>
+          <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 10, 'md:col-span': 4, }} flexType='row' OnButtonClick={() => { alert("1"); }}>
             <CardRowContent
               ImageSrc={ProfileData.ImageSrc}
               SubTitle={ProfileData.Rol}
@@ -90,9 +98,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             />
           </Card>
 
-          <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 1, 'md:col-span': 2 }}><TagLine space='5' tagline='Content in red' /></Card>
+          <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 1, 'md:col-span': 4 }}><TagLine space='5' tagline='Content in red' /></Card>
 
-          <Card gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 3, 'xl:col-end': 4, 'xl:row-span': 9, 'xl:row-start': 2 }}>
+          <Card gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 3, 'xl:col-end': 4, 'xl:row-span': 9, 'xl:row-start': 2, 'md:col-span': 2 }}>
             <CardColContent
               ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
               SubTitle={'Más acerca de mi'}
@@ -101,7 +109,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             />
           </Card>
 
-          <Card gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-span': 9, 'xl:row-start': 2 }}>
+          <Card gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-span': 9, 'xl:row-start': 2,'md:col-span': 2}}>
             <CardColContent
               ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
               SubTitle={'Portafolio'}
@@ -132,7 +140,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
           <Card gridClasses={{ 'md:col-span': 2, 'xl:col-span': 1 }}>
             <CardContent
-              Component={SocialButtonsCard}
+              Component={CreateSocialMedia}
               SubTitle={'Contacta conmigo'}
               Title={'Redes Sociales'}
               OnButtonClick={() => { }}

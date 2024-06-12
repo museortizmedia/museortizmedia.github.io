@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { PageData } from "../Data"
+import { IconPage, PageData } from "../Data"
 import TailwindComponents from "../TailwindComponents"
 
 export default function Footer() {
@@ -15,7 +15,7 @@ export default function Footer() {
             <div className='footer w-full h-[10vh] grid place-content-center my-28 space-y-5'>
 
                 <a href="#" className="col-span-1 w-full">
-                    <img src="src/assets/react.svg" className="h-11 w-full" alt="Logo" />
+                    <img src={IconPage} className="h-11 w-full" alt="Logo" />
                     {/*<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">CV - Diego Ortiz</span>*/}
                 </a>
 

@@ -1,7 +1,7 @@
-import React from 'react';
+import { ArrowIcon } from '../../Data';
 import TailwindComponents from '../../TailwindComponents';
 
-const CardRowContent = ({ ImageSrc, ImageAlt, Altura, Title, SubTitle, Desc, ButonLogo = "login" }) => {
+const CardRowContent = ({ ImageSrc, ImageAlt, Altura, Title, SubTitle, Desc, ButonLogo = ArrowIcon }) => {
 
     return (
         <>
@@ -16,7 +16,7 @@ const CardRowContent = ({ ImageSrc, ImageAlt, Altura, Title, SubTitle, Desc, But
     )
 }
 
-const CardColContent = ({ ImageSrc, ImageAlt, Title, SubTitle, ButonLogo = "login" }) => {
+const CardColContent = ({ ImageSrc, ImageAlt, Title, SubTitle, ButonLogo = ArrowIcon }) => {
 
     return (
         <>
@@ -33,7 +33,7 @@ const CardColContent = ({ ImageSrc, ImageAlt, Title, SubTitle, ButonLogo = "logi
 const CardContent = ({ 
     Component, Title, SubTitle,
     HideAll = false, HideComponent = false, HideTitle = false, HideSubtitle = false, HideButton = false,
-    ButonLogo = "login",
+    ButonLogo = ArrowIcon,
     TitleClases
 }) => {
     return (

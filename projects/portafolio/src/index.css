@@ -5,6 +5,8 @@ body {
   min-width: 320px;
   min-height: 100vh;
   color: #676767;
+
+  font-family: "Lato", Times, serif;
 }
 .scroll-container {
   overflow: hidden;

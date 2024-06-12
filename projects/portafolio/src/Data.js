@@ -114,6 +114,9 @@ const SocialData = [
     Desc: "Non enim praesent",   
   },
 ];
+//PAGE DESING
+const IconPage = "src/assets/react.svg";
+const ArrowIcon = "prompt_suggestion";
 
 
 export { 
@@ -125,4 +128,7 @@ export {
   SkillsData,
   OtherData,
   SocialData,
+
+  IconPage,
+  ArrowIcon,
 };

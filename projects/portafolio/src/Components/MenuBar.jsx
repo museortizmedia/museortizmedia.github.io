@@ -1,5 +1,5 @@
 import TailwindComponents from '../TailwindComponents'
-import { PageData } from '../Data'
+import { IconPage, PageData } from '../Data'
 
 export default function MenuBar() {
 
@@ -8,7 +8,7 @@ export default function MenuBar() {
       <div className="max-w-screen-xl flex flex-wrap items-start justify-between mx-auto p-4">
 
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src="src/assets/react.svg" className="h-8" alt="Logo" />
+          <img src={IconPage} className="h-8" alt="Logo" />
           {/*<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">CV - Diego Ortiz</span>*/}
         </a>
 
@@ -20,6 +20,7 @@ export default function MenuBar() {
                 <a
                   href={link}
                   className="block py-2 px-3 hover:text-black hover:dark:text-white transition duration-300 ease-out hover:ease-in"
+                  en='Home'
                 >
                   {label}
                 </a>
