@@ -33,14 +33,18 @@ const CardColContent = ({ ImageSrc, ImageAlt, Title, SubTitle, ButonLogo = Arrow
 const CardContent = ({ 
     Component, Title, SubTitle,
     HideAll = false, HideComponent = false, HideTitle = false, HideSubtitle = false, HideButton = false,
+    cardClassNames,
     ButonLogo = ArrowIcon,
     TitleClases
 }) => {
+    const extraClassNames = cardClassNames!=undefined?Object.entries(cardClassNames)
+    .map(([key, value]) => (value ? `${key}-${value}` : ''))
+    .join(' '):undefined;
     return (
         <>
             {!HideComponent && Component()}
             {!HideAll && (
-                <div className="card-info relative flex-1 content-center pl-2 pt-3 text-left">
+                <div className={`card-info ${extraClassNames??""} relative flex-1 content-center text-left `}>
                     {!HideSubtitle && <p className='font-bold text-zinc-500 text-xs uppercase'>{SubTitle}</p>}
                     {!HideTitle && <p className={TitleClases||'font-semibold text-black dark:text-zinc-100 text-xl mb-2'}>{Title}</p>}
                     {!HideButton && (

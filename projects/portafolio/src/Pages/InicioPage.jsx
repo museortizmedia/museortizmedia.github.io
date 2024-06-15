@@ -4,10 +4,10 @@ import TagLine from '../Components/Cards/TagLine.jsx'
 import { CardContent, CardRowContent, CardColContent } from '../Components/Cards/CardContent.jsx'
 import SocialButtonsCard from '../Components/SocialButtonsCard.jsx'
 
-import { ArrowIcon, PageData, ProfileData } from '../Data.js'
+import { ArrowIcon, PageData, ProfileData, TagLineData } from '../Data.js'
 import TailwindComponents from '../TailwindComponents.js'
 
-export default function InicioPage() {
+export default function InicioPage({ ChangePage }) {
 
     const CreateSocialMedia = () => {
         return <>
@@ -17,29 +17,29 @@ export default function InicioPage() {
             ]} />
         </>;
     };
-    
+
     const ServicesLogos = () => {
         return <>
             <div className={`grid grid-cols-4 place-content-center h-2/3 w-full space-x-3`}>
-                <div className={`col-span-1 rounded-full dark:text-white text-black`}>
+                <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
                     <span className="material-symbols-outlined text-5xl">Photo_Camera</span>
                 </div>
-                <div className={`col-span-1 rounded-full dark:text-white text-black`}>
+                <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
                     <span className="material-symbols-outlined text-5xl">draft_orders</span>
                 </div>
-                <div className={`col-span-1 rounded-full dark:text-white text-black`}>
+                <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
                     <span className="material-symbols-outlined text-5xl">overview_key</span>
                 </div>
-                <div className={`col-span-1 rounded-full dark:text-white text-black`}>
+                <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
                     <span className="material-symbols-outlined text-5xl">screenshot</span>
                 </div>
             </div>
         </>;
     };
-    
+
     const Cifras = () => {
         return <>
-            <div className={`grid grid-cols-3 h-2/3 w-full space-x-3 place-content-center px-5`}>
+            <div className={`grid grid-cols-3 h-2/3 w-full space-x-3 place-content-center text-center px-5`}>
                 <div className={`col-span-1 ${TailwindComponents.BotonBgCard} dark:to-[#252525]`}>
                     <div className='relative'>
                         <strong className='text-4xl after:content'>07</strong>
@@ -59,20 +59,20 @@ export default function InicioPage() {
                         <strong className='text-4xl after:content'>21</strong>
                         <div className="absolute top-[20%] right-[70%] w-4 h-4">+</div>
                     </div>
-                    <p className='text-zinc-400 font-normal flex-wrap mx-5 uppercase text-sm pt-2'>Proyectos realizado</p>
+                    <p className='text-zinc-400 font-normal flex-wrap mx-5 uppercase text-sm pt-2'>Proyectos realizados</p>
                 </div>
             </div>
         </>;
     };
-    
+
     const CTA = () => {
         return <>
             <div onClick={() => { alert("ok") }} className={`card-info grid grid-cols-4 place-content-end h-full w-full text-5xl font-extrabold text-left mb-10 m-5 cursor-pointer dark:text-white text-black`}>
                 <div className="font-bold col-span-4 row-span-2">Vamos</div>
-                <div className="font-bold col-span-4 row-span-2">a trabajar <span className="font-bold text-blue-800">juntos</span></div>
+                <div className="font-bold col-span-4 row-span-2">a trabajar <span className="font-bold text-rose-700">juntos</span></div>
                 <span className={`text-[40px] material-symbols-outlined col-span-1 col-start-4 text-right mr-5 ${TailwindComponents.BotonLogo}`}>{ArrowIcon}</span>
             </div>
-    
+
         </>;
     };
 
@@ -80,8 +80,11 @@ export default function InicioPage() {
     return (
         <div className='space-y-52 md:space-y-0 xl:space-y-14'>
 
-            <CardContainer>
-                <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 10, 'md:col-span': 4, }} flexType='row' OnButtonClick={() => { alert("1"); }}>
+            <CardContainer xtraClasses={{ 'bg-red': 900 }}>
+                <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 10, 'md:col-span': 4, }}
+                    flexType='row'
+                    OnButtonClick={() => { ChangePage(1) }}
+                >
                     <CardRowContent
                         ImageSrc={ProfileData.ImageSrc}
                         SubTitle={ProfileData.Rol}
@@ -90,29 +93,38 @@ export default function InicioPage() {
                     />
                 </Card>
 
-                <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 1, 'md:col-span': 4 }}><TagLine space='5' tagline='Content in red' /></Card>
+                <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 1, 'md:col-span': 4 }}>
+                    <TagLine space='5' tagline={TagLineData} Color='text-white' />
+                </Card>
 
-                <Card gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 3, 'xl:col-end': 4, 'xl:row-span': 9, 'xl:row-start': 2, 'md:col-span': 2 }}>
+                <Card
+                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 3, 'xl:col-end': 4, 'xl:row-span': 9, 'xl:row-start': 2, 'md:col-span': 2 }}
+                    OnButtonClick={() => { ChangePage(4) }}
+                >
                     <CardColContent
                         ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
                         SubTitle={'Más acerca de mi'}
                         Title={'Credenciales'}
-                        OnButtonClick={() => { }}
                     />
                 </Card>
 
-                <Card gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-span': 9, 'xl:row-start': 2, 'md:col-span': 2 }}>
+                <Card
+                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-span': 9, 'xl:row-start': 2, 'md:col-span': 2 }}
+                    OnButtonClick={() => { ChangePage(2) }}
+                >
                     <CardColContent
                         ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
                         SubTitle={'Portafolio'}
                         Title={'Proyectos'}
-                        OnButtonClick={() => { }}
                     />
                 </Card>
             </CardContainer>
 
-            <CardContainer>
-                <Card gridClasses={{ 'col-span': 1, 'md:col-span': 2, 'xl:col-span': 1 }}>
+            <CardContainer xtraClasses={{ 'bg-red': 800 }}>
+                <Card
+                gridClasses={{ 'col-span': 1, 'md:col-span': 2, 'xl:col-span': 1 }}
+                OnButtonClick={() => { ChangePage(5) }}
+                >
                     <CardColContent
                         ImageSrc='https://unity.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ffuvbjjlp%2Fproduction%2Fa8a7d413c81ac8a5cf104d3dab696a61010b8838-1920x1080.jpg&w=1920&q=75'
                         SubTitle={'blog'}
@@ -140,7 +152,7 @@ export default function InicioPage() {
                 </Card>
             </CardContainer>
 
-            <CardContainer>
+            <CardContainer xtraClasses={{ 'bg-red': 700 }}>
                 <Card gridClasses={{ 'xl:col-span': 2, 'md:col-span': 2, }}>
                     <CardContent
                         Component={Cifras}

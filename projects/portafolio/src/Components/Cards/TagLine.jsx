@@ -1,13 +1,17 @@
 import { TagLineData } from "../../Data";
 
-export default function TagLine({ tagline = "Esto es una tagline", space = "10" }) {
+export default function TagLine({ tagline = "Esto es una tagline", space = "10", Color }) {
 
     tagline = TagLineData;
 
     const TagLineString = (
         <>
-            <strong> {tagline.split(" ")[0]} </strong>
-            <span> {tagline.split(" ").slice(1).join(" ")} </span>
+            <strong>
+                {tagline.split(" ").slice(0, Math.ceil(tagline.split(" ").length / 2) ).join(" ")+" "}
+            </strong>
+            <span>
+                {tagline.split(" ").slice( Math.ceil(tagline.split(" ").length / 2) ).join(" ")}
+            </span>
         </>
     );
 
@@ -18,10 +22,10 @@ export default function TagLine({ tagline = "Esto es una tagline", space = "10" 
                     {
                         Array.from({ length: 8 }).map((_, index) => (
                             <div key={index} className='scroll-text'>
-                                <div className='content'>
+                                <div className={`content ${Color||''}`}>
                                     {<span> {" • "} </span>}
                                     {TagLineString}
-                                    {<span> {" • "} </span>}
+                                    {<span> {"   "} </span>}
                                 </div>
                             </div>
                         ))

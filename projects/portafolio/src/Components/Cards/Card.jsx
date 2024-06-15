@@ -9,11 +9,11 @@ export default function Card ({ gridClasses, children, flexType='col', OnButtonC
   return (
     <>
       <div className={
-        `card first:h-[52vh] first:md:h-[30vh] first:xl:h-[33vh]
-        p-4 place-content-center
+        `card appear first:h-[52vh] first:md:h-[30vh] first:xl:h-[33vh]
+        p-4 place-content-start
         bg-gradient-to-tl from-[#f5f5f5] to-[#e0e0e0] dark:from-[#121212] dark:to-[#1f1f1f]
         rounded-[30px] border-t-[1px] border-l-[1px] dark:border-zinc-700 border-zinc-200
-        w-full 
+        w-full
         ${OnButtonClick!=null?'hover:cursor-pointer':""}
         ${gridClassNames??""}`}
         onClick={OnButtonClick}

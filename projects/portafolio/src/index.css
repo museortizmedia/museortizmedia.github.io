@@ -59,6 +59,22 @@ body {
     transform: translateY(-100%);
   }
 }
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.appear{
+  opacity: 0;
+  animation: appear 1s ease;
+  animation-fill-mode: forwards;
+}
 
 .card:hover .card-info .material-symbols-outlined {
   color: #000;
@@ -68,7 +84,6 @@ body {
   color: #fff;
   cursor: pointer;
 }
-
 .preloader {
   position: absolute;
   top: 0;
