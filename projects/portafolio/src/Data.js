@@ -170,7 +170,7 @@ const SocialData = [
 ];
 
 //PAGE DESING
-const IconPage = "src/assets/react.svg";
+const IconPage = "/react.svg";
 const ArrowIcon = "prompt_suggestion";
 
 

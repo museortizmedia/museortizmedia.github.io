@@ -10,6 +10,7 @@ import PortafolioPage from './Pages/PortafolioPage.jsx'
 import ContactoPage from './Pages/ContactoPage.jsx'
 import CVPage from './Pages/CVPage.jsx'
 import BlogPage from './Pages/BlogPage.jsx'
+import ServicesPage from './Pages/ServicesPage.jsx'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
     { id:3, label: "Contacto", page: ContactoPage },
     { id:4, label: "CV", page: CVPage },
     { id:5, label: "Blog", page: BlogPage },
+    { id:6, label: "Servicios", page: ServicesPage },
   ]
 
   // VARIABLES
@@ -55,7 +57,7 @@ function App() {
 
   return (
     <>
-      <MenuBar OnItemClick={(e) => { handleMenuClick(e) }} />
+      <MenuBar OnItemClick={(e) => { handleMenuClick(e) }} currentPage={pages[currentPage]}/>
       {IsLoading ?
         <>
           <div className='h-[90vh]'></div>

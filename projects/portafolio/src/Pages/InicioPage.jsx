@@ -22,16 +22,16 @@ export default function InicioPage({ ChangePage }) {
         return <>
             <div className={`grid grid-cols-4 place-content-center h-2/3 w-full space-x-3`}>
                 <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
-                    <span className="material-symbols-outlined text-5xl">Photo_Camera</span>
+                    <span className="material-symbols-outlined text-5xl" translate="no">Photo_Camera</span>
                 </div>
                 <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
-                    <span className="material-symbols-outlined text-5xl">draft_orders</span>
+                    <span className="material-symbols-outlined text-5xl" translate="no">draft_orders</span>
                 </div>
                 <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
-                    <span className="material-symbols-outlined text-5xl">overview_key</span>
+                    <span className="material-symbols-outlined text-5xl" translate="no">overview_key</span>
                 </div>
                 <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
-                    <span className="material-symbols-outlined text-5xl">screenshot</span>
+                    <span className="material-symbols-outlined text-5xl" translate="no">screenshot</span>
                 </div>
             </div>
         </>;
@@ -67,10 +67,10 @@ export default function InicioPage({ ChangePage }) {
 
     const CTA = () => {
         return <>
-            <div onClick={() => { alert("ok") }} className={`card-info grid grid-cols-4 place-content-end h-full w-full text-5xl font-extrabold text-left mb-10 m-5 cursor-pointer dark:text-white text-black`}>
+            <div className={`card-info grid grid-cols-4 place-content-end h-full w-full text-5xl font-extrabold text-left mb-10 m-5 cursor-pointer dark:text-white text-black`}>
                 <div className="font-bold col-span-4 row-span-2">Vamos</div>
                 <div className="font-bold col-span-4 row-span-2">a trabajar <span className="font-bold text-rose-700">juntos</span></div>
-                <span className={`text-[40px] material-symbols-outlined col-span-1 col-start-4 text-right mr-5 ${TailwindComponents.BotonLogo}`}>{ArrowIcon}</span>
+                <span className={`text-[40px] material-symbols-outlined col-span-1 col-start-4 text-right mr-5 ${TailwindComponents.BotonLogo}`} translate="no">{ArrowIcon}</span>
             </div>
 
         </>;
@@ -83,7 +83,7 @@ export default function InicioPage({ ChangePage }) {
             <CardContainer xtraClasses={{ 'bg-red': 900 }}>
                 <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 10, 'md:col-span': 4, }}
                     flexType='row'
-                    OnButtonClick={() => { ChangePage(1) }}
+                    OnCardClick={() => { ChangePage(1) }}
                 >
                     <CardRowContent
                         ImageSrc={ProfileData.ImageSrc}
@@ -94,12 +94,12 @@ export default function InicioPage({ ChangePage }) {
                 </Card>
 
                 <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 1, 'md:col-span': 4 }}>
-                    <TagLine space='5' tagline={TagLineData} Color='text-white' />
+                    <TagLine space='5' tagline={TagLineData} Color='text-black dark:text-white ' />
                 </Card>
 
                 <Card
                     gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 3, 'xl:col-end': 4, 'xl:row-span': 9, 'xl:row-start': 2, 'md:col-span': 2 }}
-                    OnButtonClick={() => { ChangePage(4) }}
+                    OnCardClick={() => { ChangePage(4) }}
                 >
                     <CardColContent
                         ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
@@ -110,7 +110,7 @@ export default function InicioPage({ ChangePage }) {
 
                 <Card
                     gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-span': 9, 'xl:row-start': 2, 'md:col-span': 2 }}
-                    OnButtonClick={() => { ChangePage(2) }}
+                    OnCardClick={() => { ChangePage(2) }}
                 >
                     <CardColContent
                         ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
@@ -123,31 +123,34 @@ export default function InicioPage({ ChangePage }) {
             <CardContainer xtraClasses={{ 'bg-red': 800 }}>
                 <Card
                 gridClasses={{ 'col-span': 1, 'md:col-span': 2, 'xl:col-span': 1 }}
-                OnButtonClick={() => { ChangePage(5) }}
+                OnCardClick={() => { ChangePage(5) }}
                 >
                     <CardColContent
                         ImageSrc='https://unity.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ffuvbjjlp%2Fproduction%2Fa8a7d413c81ac8a5cf104d3dab696a61010b8838-1920x1080.jpg&w=1920&q=75'
                         SubTitle={'blog'}
                         Title={'Unity POC'}
-                        OnButtonClick={() => { }}
                     />
                 </Card>
 
-                <Card gridClasses={{ 'col-span': 1, 'xl:col-span': 2, 'md:col-span': 4 }}>
+                <Card
+                gridClasses={{ 'col-span': 1, 'xl:col-span': 2, 'md:col-span': 4 }}
+                OnCardClick={() => { ChangePage(6) }}
+                >
                     <CardContent
                         Component={ServicesLogos}
                         SubTitle={'Especialización'}
                         Title={'Servicios Ofrecidos'}
-                        OnButtonClick={() => { }}
                     />
                 </Card>
 
-                <Card gridClasses={{ 'md:col-span': 2, 'xl:col-span': 1 }}>
+                <Card
+                gridClasses={{ 'md:col-span': 2, 'xl:col-span': 1 }}
+                OnCardClick={() => { ChangePage(3) }}
+                >
                     <CardContent
                         Component={CreateSocialMedia}
                         SubTitle={'Contacta conmigo'}
                         Title={'Redes Sociales'}
-                        OnButtonClick={() => { }}
                     />
                 </Card>
             </CardContainer>
@@ -160,11 +163,13 @@ export default function InicioPage({ ChangePage }) {
                     />
                 </Card>
 
-                <Card gridClasses={{ 'xl:col-span': 2, 'md:col-span': 2, }}>
+                <Card
+                gridClasses={{ 'xl:col-span': 2, 'md:col-span': 2, }}
+                OnCardClick={()=>{ChangePage(3)}}
+                >
                     <CardContent
                         HideAll
                         Component={CTA}
-                        OnButtonClick={() => { }}
                     />
                 </Card>
             </CardContainer>

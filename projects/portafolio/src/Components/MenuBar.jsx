@@ -1,7 +1,16 @@
 import TailwindComponents from '../TailwindComponents'
 import { IconPage, PageData } from '../Data'
+import { useEffect } from 'react';
 
-export default function MenuBar( {OnItemClick = null} ) {
+export default function MenuBar( {OnItemClick = null, currentPage} ) {
+
+  
+  useEffect(
+    ()=>{
+      console.log(currentPage);
+    },
+    [currentPage]
+  );
 
   return (
     <div className='menu w-full h-[10vh] mb-10'>
@@ -19,8 +28,11 @@ export default function MenuBar( {OnItemClick = null} ) {
               <li key={"page " + label}>
                 <a
                   href="#" onClick={(e) => { e.preventDefault(); OnItemClick(link) }}
-                  className="block py-2 px-3 hover:text-black hover:dark:text-white transition duration-300 ease-out hover:ease-in"
-                  en='Home'
+                  className={`
+                    block py-2 px-3 
+                    transition duration-300 ease-out hover:ease-in 
+                    ${link == currentPage.id ? 'text-black dark:text-white':'hover:text-black hover:dark:text-white'}                    
+                    `}
                 >
                   {label}
                 </a>
@@ -42,7 +54,7 @@ export default function MenuBar( {OnItemClick = null} ) {
           <button className='hover:text-white' onClick={() => {  }}>EN</button>
         </div>
 
-        <button className={TailwindComponents.Boton}>
+        <button className={`${TailwindComponents.Boton} disabled `} onClick={()=>{if(currentPage.id!=3)OnItemClick(3)} }>
           Lets talk
         </button>
       </div>

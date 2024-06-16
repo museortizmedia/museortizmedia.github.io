@@ -1,4 +1,10 @@
 const TailwindComponents = {
+  Card: `
+  card appear
+  p-4 place-content-start
+  bg-gradient-to-tl from-[#f5f5f5] to-[#e0e0e0] dark:from-[#121212] dark:to-[#1f1f1f]
+  rounded-[30px] border-t-[1px] border-l-[1px] dark:border-zinc-700 border-zinc-200
+  w-full`,
   Boton: `
   py-2 px-8 rounded-[13px] 
   text-md font-semibold
@@ -36,6 +42,14 @@ const TailwindComponents = {
   bg-gradient-to-tl from-[#f5f5f5] to-[#e0e0e0] dark:from-[#121212] dark:to-[#1f1f1f]
   hover:from-[#121212] hover:to-[#1f1f1f] hover:dark:from-[#f5f5f5] hover:dark:to-[#e0e0e0]
   rounded-[30px] border-t-[1px] border-l-[1px] dark:border-zinc-700 border-zinc-200
+  `,
+  Input: `
+  text-base font-normal
+  py-3 px-4
+  rounded-[.6em] border-0
+  bg-gradient-to-br from-[#f1f1f1] to-[#f5f5f5] dark:from-[#252525] dark:to-[#202020]
+  focus:outline-none focus:ring-0
+  text-black dark:text-white placeholder:text-zinc-500
   `,
 
 };

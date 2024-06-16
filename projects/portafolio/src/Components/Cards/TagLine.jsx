@@ -18,7 +18,7 @@ export default function TagLine({ tagline = "Esto es una tagline", space = "10",
     return (
         <>
             <div className='rounded-lg w-auto overflow-hidden relative'>
-                <div className={"scroll-container flex align-middle text-black dark:text-white space-x-"+space}>
+                <div className={"scroll-container flex align-middle space-x-"+space}>
                     {
                         Array.from({ length: 8 }).map((_, index) => (
                             <div key={index} className='scroll-text'>

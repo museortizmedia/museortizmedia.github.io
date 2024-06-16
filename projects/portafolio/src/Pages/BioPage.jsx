@@ -3,9 +3,10 @@ import CardContainer from '../Components/Cards/CardContainer.jsx'
 import { CardContent, CardRowContent, CardColContent } from '../Components/Cards/CardContent.jsx'
 import SocialButtonsCard from '../Components/SocialButtonsCard.jsx'
 
-import { ArrowIcon, PageData, ProfileData, fetchBookData } from '../Data.js'
+import { ArrowIcon, PageData, EducationData, ExperienceData, ProfileData, fetchBookData } from '../Data.js'
+import TailwindComponents from '../TailwindComponents.js'
 
-export default function BioPage() {
+export default function BioPage({ChangePage}) {
     const ProfileImage = () => (
         <img className="m-5 h-3/4 object-cover rounded-tl-[30px] rounded-br-[30px]" src={ProfileData.ImageSrc} alt={ProfileData.Apodo} height={"20px"} />)
 
@@ -20,11 +21,25 @@ export default function BioPage() {
         </>;
     };
 
+    const CTA = () => {
+        return <>
+            <div className={`card-info grid grid-cols-4 place-content-end h-full w-full text-5xl font-extrabold text-left mb-10 m-5 cursor-pointer dark:text-white text-black`}>
+                <div className="font-bold col-span-4 row-span-2">Vamos</div>
+                <div className="font-bold col-span-4 row-span-2">a trabajar <span className="font-bold text-rose-700">juntos</span></div>
+                <span className={`text-[40px] material-symbols-outlined col-span-1 col-start-4 text-right mr-5 ${TailwindComponents.BotonLogo}`} translate="no">{ArrowIcon}</span>
+            </div>
+
+        </>;
+    };
+
 
     return (
         <div className='space-y-52 md:space-y-0 xl:space-y-14'>
-            <CardContainer xlCols={6} extraClasses={{ 'bg-red': 500 }}>
-                <Card gridClasses={{ 'xl:col-start': 1, 'xl:col-end': 3, 'xl:row-start': 1, 'xl:row-end': 4, }} flexType='row' OnButtonClick={() => { alert("1"); }}>
+            <CardContainer xlCols={6} xtraClasses={{ 'bg-red': 500 }}>
+                <Card
+                gridClasses={{ 'xl:col-start': 1, 'xl:col-end': 3, 'xl:row-start': 1, 'xl:row-end': 4, }}
+                flexType='row'
+                >
                     <CardContent
                         Component={ProfileImage}
                         HideAll
@@ -32,10 +47,10 @@ export default function BioPage() {
                     />
                 </Card>
 
-                <div className='col-start-3 col-end-7 row-start-1 text-5xl font-extrabold text-center'>
-                    <span className={`text-[40px] material-symbols-outlined select-none`}>airwave</span>
+                <div className='col-start-3 col-end-7 row-start-1 text-5xl font-extrabold text-center uppercase'>
+                    <span className={`text-[40px] material-symbols-outlined select-none`} translate="no">airwave</span>
                     Resumen Personal
-                    <span className={`text-[40px] material-symbols-outlined select-none`}>airwave</span>
+                    <span className={`text-[40px] material-symbols-outlined select-none`} translate="no">airwave</span>
                 </div>
 
                 <Card gridClasses={{ 'xl:col-start': 3, 'xl:col-end': 7, 'xl:row-start': 2, 'xl:row-end': 4 }}>
@@ -49,42 +64,45 @@ export default function BioPage() {
 
 
 
-            <CardContainer extraClasses={{ 'bg-red': 700 }}>
-                <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 2, }}>
+            <CardContainer xtraClasses={{ 'bg-red': 700 }}>
+                <Card gridClasses={{ 'xl:col-start': 1, 'xl:col-end': 3, }}>
                     <section className='p-4'>
-                        <header className='uppercase font-semibold py-3'>Titulo</header>
+                        <header className='uppercase font-semibold py-3'>Experiencia</header>
                         <article className='py-3'>
-                            <span className='text-zinc-500 py-5'>fecha-fecha</span>
-                            <p className='text-xl'>Nombre</p>
-                            <footer className='text-zinc-500'>Lugar</footer>
+                        <span className='text-zinc-500 py-5'>{ExperienceData[1].InitAge+" - "+ExperienceData[1].FinishAge}</span>
+                            <p className='text-xl'>{ExperienceData[1].Cargo}</p>
+                            <footer onClick={()=>{ window.open(ExperienceData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{ExperienceData[1].Insitution}</footer>
                         </article>
                         <article className='py-3'>
-                            <span className='text-zinc-500 py-5'>fecha-fecha</span>
-                            <p className='text-xl'>Nombre</p>
-                            <footer className='text-zinc-500'>Lugar</footer>
+                        <span className='text-zinc-500 py-5'>{ExperienceData[0].InitAge+" - "+ExperienceData[0].FinishAge}</span>
+                            <p className='text-xl'>{ExperienceData[0].Cargo}</p>
+                            <footer onClick={()=>{ window.open(ExperienceData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{ExperienceData[0].Insitution}</footer>
                         </article>
                     </section>
                 </Card>
 
-                <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-end': 1, }}>
+                <Card gridClasses={{ 'xl:col-start': 3, 'xl:col-end': 5, }}>
                     <section className='p-4'>
-                        <header className='uppercase font-semibold py-3'>Titulo</header>
+                        <header className='uppercase font-semibold py-3'>Educación</header>
                         <article className='py-3'>
-                            <span className='text-zinc-500 py-5'>fecha-fecha</span>
-                            <p className='text-xl'>Nombre</p>
-                            <footer className='text-zinc-500'>Lugar</footer>
+                            <span className='text-zinc-500 py-5'>{EducationData[1].InitAge+" - "+EducationData[1].FinishAge}</span>
+                            <p className='text-xl'>{EducationData[1].Name}</p>
+                            <footer onClick={()=>{ window.open(ExperienceData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[1].Insitution}</footer>
                         </article>
                         <article className='py-3'>
-                            <span className='text-zinc-500 py-5'>fecha-fecha</span>
-                            <p className='text-xl'>Nombre</p>
-                            <footer className='text-zinc-500'>Lugar</footer>
+                        <span className='text-zinc-500 py-5'>{EducationData[0].InitAge+" - "+EducationData[0].FinishAge}</span>
+                            <p className='text-xl'>{EducationData[0].Name}</p>
+                            <footer onClick={()=>{ window.open(ExperienceData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[0].Insitution}</footer>
                         </article>
                     </section>
                 </Card>
             </CardContainer>
 
-            <CardContainer xlCols={7} extraClasses={{ 'bg-red': 700 }}>
-            <Card gridClasses={{ 'xl:col-span': 2 }}>
+            <CardContainer xlCols={7} xtraClasses={{ 'bg-red': 700 }}>
+            <Card
+            gridClasses={{ 'xl:col-span': 2 }}
+            OnCardClick={() => { ChangePage(3); }}
+            >
                     <CardContent
                         Component={CreateSocialMedia}
                         SubTitle={'Contacta conmigo'}
@@ -93,11 +111,21 @@ export default function BioPage() {
                     />
                 </Card>
 
-                <Card gridClasses={{'xl:col-span': 3}}>
-                    //
+                <Card
+                gridClasses={{ 'xl:col-span': 3, 'md:col-span': 2, }}
+                OnCardClick={()=>{ChangePage(3)}}
+                >
+                    <CardContent
+                        HideAll
+                        Component={CTA}
+                        
+                    />
                 </Card>
 
-                <Card gridClasses={{ 'xl:col-span': 2 }}>
+                <Card
+                gridClasses={{ 'xl:col-span': 2 }}
+                OnCardClick={() => { ChangePage(4); }}
+                >
                     <CardColContent
                         ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
                         SubTitle={'Más acerca de mi'}

@@ -6,9 +6,11 @@ export default function Footer( {OnItemClick = null}) {
 
     const [hide, SetHide] = useState("hidden");
     const [personaCount, SetPersonaCount] = useState(0);
-    const HandlePersonas = () => {
+    const HandlePersonas = (e) => {
+        e.preventDefault();
+        e.target.disabled = true;
         if (hide == "hidden") {
-            AddVoteHandle() /*SetPersonaCount(personaCount + 1);*/
+            AddVoteHandle()
         }
     }
 
@@ -59,7 +61,7 @@ export default function Footer( {OnItemClick = null}) {
 
                 <div className="text-center grid grid-flow-row gap-4">
                     <p className="dark:text-white font-medium text-lg">Hazme saber que estuviste aquí</p>
-                    <button className={hide?TailwindComponents.Boton:"text-white text-lg font-medium cursor-default hover:underline"} onClick={HandlePersonas}>{hide?"¡Presióname!":`¡Somos ${personaCount}!`}</button>
+                    <button className={hide?TailwindComponents.Boton:"text-white text-lg font-medium cursor-default hover:underline"} onClick={(e)=>{HandlePersonas(e)}}>{hide?"¡Presióname!":`¡Somos ${personaCount}!`}</button>
                 </div>
 
                 <p className="text-center">
