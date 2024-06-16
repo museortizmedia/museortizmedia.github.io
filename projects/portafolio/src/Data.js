@@ -64,6 +64,29 @@ const PageData = [
 
 const TagLineData = " Disponible para: Prestación de servicios";
 
+const ServicesData = [
+  {
+    label: 'photo_camera',
+    name: 'Fotografia',
+    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
+  },
+  {
+    label: 'draft_orders',
+    name: 'Diseño web',
+    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
+  },
+  {
+    label: 'overview_key',
+    name: 'Marca',
+    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
+  },
+  {
+    label: 'screenshot',
+    name: 'Desarrollo',
+    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
+  },
+]
+
 const ProfileData = {
   Nombre: "Diego Ortiz",
   Apodo: "Muse Coder",
@@ -169,6 +192,111 @@ const SocialData = [
   },
 ];
 
+const ProyectosData = [
+  { 
+    Area: "Web Desing",
+    Nombre: "1 Dynamic",  
+    Date: "2023",  
+    Titulo: "Aestetich Desing For Brand New Startup",
+    Subtitle: "Branding - raven studio",
+    NombreEmpresa: "Raven Studio",
+    DescEmpresa: "Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor rhoncus dolor purus non enim praesent in elementum sahas facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etisam dignissim diam quis enim lobortis viverra orci sagittis eu volutpat odio facilisis mauris sit. Scelerisque fermentum duisi faucibus in ornare quam sisd sit amet luctussd fav venenatis, lectus magna fringilla zac urna, porttitor rhoncus dolor purus non enim praesent cuz elementum sahas facilisis leot.",
+    Resumen: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna ve fringilla urna, porttitor rhoncus dolor purus nonds enim isi praesent elementum facilisis leo. Vel fringilla est ullamcorper eget nulla facilisi etiama ashfa dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu agv he volutpat odio asas facilisis mauris sit.",
+    Desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam facilisis dignissim diam quis enim lobortis scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam facilisis dignissim diam quis enim lobortis scelerisque iin fermentumisa dui faucibus in ornare.Lorem ipsum dolor sit.",
+    CoverImage: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    ImagePortada: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+    ImagePrimary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+    Src1: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src2: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src3: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src4: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    ImageSecondary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+   },
+   { 
+    Area: "Web Desing",
+    Nombre: "Dynamic",  
+    Date: "2023",  
+    Titulo: "Aestetich Desing For Brand New Startup",
+    Subtitle: "Branding - raven studio",
+    NombreEmpresa: "Raven Studio",
+    DescEmpresa: "Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor rhoncus dolor purus non enim praesent in elementum sahas facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etisam dignissim diam quis enim lobortis viverra orci sagittis eu volutpat odio facilisis mauris sit. Scelerisque fermentum duisi faucibus in ornare quam sisd sit amet luctussd fav venenatis, lectus magna fringilla zac urna, porttitor rhoncus dolor purus non enim praesent cuz elementum sahas facilisis leot.",
+    Resumen: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna ve fringilla urna, porttitor rhoncus dolor purus nonds enim isi praesent elementum facilisis leo. Vel fringilla est ullamcorper eget nulla facilisi etiama ashfa dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu agv he volutpat odio asas facilisis mauris sit.",
+    Desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam facilisis dignissim diam quis enim lobortis scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam facilisis dignissim diam quis enim lobortis scelerisque iin fermentumisa dui faucibus in ornare.Lorem ipsum dolor sit.",
+    CoverImage: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    ImagePortada: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+    ImagePrimary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+    Src1: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src2: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src3: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src4: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    ImageSecondary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+   },
+   { 
+    Area: "Web Desing",
+    Nombre: "Dynamic",  
+    Date: "2023",  
+    Titulo: "Aestetich Desing For Brand New Startup",
+    Subtitle: "Branding - raven studio",
+    NombreEmpresa: "Raven Studio",
+    DescEmpresa: "Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor rhoncus dolor purus non enim praesent in elementum sahas facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etisam dignissim diam quis enim lobortis viverra orci sagittis eu volutpat odio facilisis mauris sit. Scelerisque fermentum duisi faucibus in ornare quam sisd sit amet luctussd fav venenatis, lectus magna fringilla zac urna, porttitor rhoncus dolor purus non enim praesent cuz elementum sahas facilisis leot.",
+    Resumen: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna ve fringilla urna, porttitor rhoncus dolor purus nonds enim isi praesent elementum facilisis leo. Vel fringilla est ullamcorper eget nulla facilisi etiama ashfa dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu agv he volutpat odio asas facilisis mauris sit.",
+    Desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam facilisis dignissim diam quis enim lobortis scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam facilisis dignissim diam quis enim lobortis scelerisque iin fermentumisa dui faucibus in ornare.Lorem ipsum dolor sit.",
+    CoverImage: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    ImagePortada: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+    ImagePrimary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+    Src1: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src2: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src3: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src4: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    ImageSecondary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+   },
+   { 
+    Area: "Web Desing",
+    Nombre: "5 Dynamic",  
+    Date: "2023",  
+    Titulo: "Aestetich Desing For Brand New Startup",
+    Subtitle: "Branding - raven studio",
+    NombreEmpresa: "Raven Studio",
+    DescEmpresa: "Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor rhoncus dolor purus non enim praesent in elementum sahas facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etisam dignissim diam quis enim lobortis viverra orci sagittis eu volutpat odio facilisis mauris sit. Scelerisque fermentum duisi faucibus in ornare quam sisd sit amet luctussd fav venenatis, lectus magna fringilla zac urna, porttitor rhoncus dolor purus non enim praesent cuz elementum sahas facilisis leot.",
+    Resumen: "Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna ve fringilla urna, porttitor rhoncus dolor purus nonds enim isi praesent elementum facilisis leo. Vel fringilla est ullamcorper eget nulla facilisi etiama ashfa dignissim diam quis enim lobortis scelerisque fermentum dui faucibus in ornare quam viverra orci sagittis eu agv he volutpat odio asas facilisis mauris sit.",
+    Desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam facilisis dignissim diam quis enim lobortis scelerisque. Lorem ipsum dolor sit amet, consectetur adipiscing elit utsadi sfejdis aliquam, purus sit amet luctus venenatis, lectus magna sansit trandis fringilla urna, porttitor rhoncus dolor purus non enim dollors praesent tabasi elementum facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etiam facilisis dignissim diam quis enim lobortis scelerisque iin fermentumisa dui faucibus in ornare.Lorem ipsum dolor sit.",
+    CoverImage: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    ImagePortada: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+    ImagePrimary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+    Src1: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src2: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src3: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    Src4: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
+    ImageSecondary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
+   },
+];
+
+const BlogData = [
+  {
+    Title: "CONSULTED ADMITTING IS POWER ACUTENESS.",
+    Subtitle: "HOME - Consulted admitting is power acuteness.",
+    Image: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/06/blog1.jpeg",
+    Date: "June 9, 2023",
+    Category: "",
+    Info: `
+Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor rhoncus dolor purus non enim praesent in elementum sahas facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etisam dignissim diam quis enim lobortis viverra orci sagittis eu volutpat odio facilisis mauris sit.
+
+Give lady of they such they sure it. Me contained explained my education. Vulgar as hearts by garret. Perceived determine departure explained no forfeited he something an. Contrasted dissimilar get joy you instrument out reasonably. Again keeps at no meant stuff. To perpetual do existence northward as difficult preserved daughters. Continued at up to zealously necessary breakfast. Surrounded sir motionless she end literature. Giy direction neglected but supported yet her.
+
+New had happen unable uneasy. Drawings can followed improved out sociable not. Earnestly so do instantly pretended. See general few civilly amiable pleased account carried. Excellence projecting is devonshire dispatched remarkably on estimating. Side in so life past. Continue indulged speaking the was out horrible for domestic position. Seeing rather her you not esteem men settle genius excuse. Deal say over you age from. Comparison new ham melancholy son themselves.
+
+- Pretty merits waited six
+- General few civilly amiable pleased account carried.
+- Continue indulged speaking
+- Narrow formal length my highly
+- Occasional pianoforte alteration unaffected impossible
+
+Surrounded to me occasional pianoforte alteration unaffected impossible ye. For saw half than cold. Pretty merits waited.
+`,
+    Tags: ["Developement","SASS"]
+  },
+];
+
 //PAGE DESING
 const IconPage = "/react.svg";
 const ArrowIcon = "prompt_suggestion";
@@ -183,6 +311,9 @@ export {
   SkillsData,
   CertificationsData,
   SocialData,
+  ProyectosData,
+  BlogData,
+  ServicesData,
 
   IconPage,
   ArrowIcon,

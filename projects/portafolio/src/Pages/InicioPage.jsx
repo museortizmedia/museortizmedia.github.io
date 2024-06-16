@@ -4,78 +4,10 @@ import TagLine from '../Components/Cards/TagLine.jsx'
 import { CardContent, CardRowContent, CardColContent } from '../Components/Cards/CardContent.jsx'
 import SocialButtonsCard from '../Components/SocialButtonsCard.jsx'
 
-import { ArrowIcon, PageData, ProfileData, TagLineData } from '../Data.js'
-import TailwindComponents from '../TailwindComponents.js'
+import { ProfileData, TagLineData } from '../Data.js'
+import { ContenidoCTA, ContenidoCifras, ContenidoServicesLogos } from '../Components/Cards/Contenidos/Contenidos.jsx'
 
 export default function InicioPage({ ChangePage }) {
-
-    const CreateSocialMedia = () => {
-        return <>
-            <SocialButtonsCard SocialIcons={[
-                { name: 'linkedin', link: 'https://www.linkedin.com/in/museortizmedia/' },
-                { name: 'github', link: 'https://github.com/museortizmedia' }
-            ]} />
-        </>;
-    };
-
-    const ServicesLogos = () => {
-        return <>
-            <div className={`grid grid-cols-4 place-content-center h-2/3 w-full space-x-3`}>
-                <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
-                    <span className="material-symbols-outlined text-5xl" translate="no">Photo_Camera</span>
-                </div>
-                <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
-                    <span className="material-symbols-outlined text-5xl" translate="no">draft_orders</span>
-                </div>
-                <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
-                    <span className="material-symbols-outlined text-5xl" translate="no">overview_key</span>
-                </div>
-                <div className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
-                    <span className="material-symbols-outlined text-5xl" translate="no">screenshot</span>
-                </div>
-            </div>
-        </>;
-    };
-
-    const Cifras = () => {
-        return <>
-            <div className={`grid grid-cols-3 h-2/3 w-full space-x-3 place-content-center text-center px-5`}>
-                <div className={`col-span-1 ${TailwindComponents.BotonBgCard} dark:to-[#252525]`}>
-                    <div className='relative'>
-                        <strong className='text-4xl after:content'>07</strong>
-                        <div className="hidden absolute top-[20%] right-[70%] w-4 h-4">+</div>
-                    </div>
-                    <p className='text-zinc-400 font-normal flex-wrap mx-5 uppercase text-sm pt-2'>Year Experience</p>
-                </div>
-                <div className={`col-span-1 py-10 ${TailwindComponents.BotonBgCard} dark:to-[#222222]`}>
-                    <div className='relative'>
-                        <strong className='text-4xl after:content'>125</strong>
-                        <div className="absolute top-[20%] right-[70%] w-4 h-4">+</div>
-                    </div>
-                    <p className='text-zinc-400 font-normal flex-wrap mx-5 uppercase text-sm pt-2'>Usuarios Alcanzados</p>
-                </div>
-                <div className={`col-span-1 py-10 ${TailwindComponents.BotonBgCard}`}>
-                    <div className='relative'>
-                        <strong className='text-4xl after:content'>21</strong>
-                        <div className="absolute top-[20%] right-[70%] w-4 h-4">+</div>
-                    </div>
-                    <p className='text-zinc-400 font-normal flex-wrap mx-5 uppercase text-sm pt-2'>Proyectos realizados</p>
-                </div>
-            </div>
-        </>;
-    };
-
-    const CTA = () => {
-        return <>
-            <div className={`card-info grid grid-cols-4 place-content-end h-full w-full text-5xl font-extrabold text-left mb-10 m-5 cursor-pointer dark:text-white text-black`}>
-                <div className="font-bold col-span-4 row-span-2">Vamos</div>
-                <div className="font-bold col-span-4 row-span-2">a trabajar <span className="font-bold text-rose-700">juntos</span></div>
-                <span className={`text-[40px] material-symbols-outlined col-span-1 col-start-4 text-right mr-5 ${TailwindComponents.BotonLogo}`} translate="no">{ArrowIcon}</span>
-            </div>
-
-        </>;
-    };
-
 
     return (
         <div className='space-y-52 md:space-y-0 xl:space-y-14'>
@@ -137,7 +69,7 @@ export default function InicioPage({ ChangePage }) {
                 OnCardClick={() => { ChangePage(6) }}
                 >
                     <CardContent
-                        Component={ServicesLogos}
+                        Component={ContenidoServicesLogos}
                         SubTitle={'Especialización'}
                         Title={'Servicios Ofrecidos'}
                     />
@@ -148,7 +80,7 @@ export default function InicioPage({ ChangePage }) {
                 OnCardClick={() => { ChangePage(3) }}
                 >
                     <CardContent
-                        Component={CreateSocialMedia}
+                        Component={SocialButtonsCard}
                         SubTitle={'Contacta conmigo'}
                         Title={'Redes Sociales'}
                     />
@@ -158,7 +90,7 @@ export default function InicioPage({ ChangePage }) {
             <CardContainer xtraClasses={{ 'bg-red': 700 }}>
                 <Card gridClasses={{ 'xl:col-span': 2, 'md:col-span': 2, }}>
                     <CardContent
-                        Component={Cifras}
+                        Component={ContenidoCifras}
                         HideAll
                     />
                 </Card>
@@ -169,7 +101,7 @@ export default function InicioPage({ ChangePage }) {
                 >
                     <CardContent
                         HideAll
-                        Component={CTA}
+                        Component={ContenidoCTA}
                     />
                 </Card>
             </CardContainer>

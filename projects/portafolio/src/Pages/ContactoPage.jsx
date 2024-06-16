@@ -71,12 +71,12 @@ export default function ContactoPage() {
 
                 <div className="grid grid-cols-3 px-0">
                     {
-                        SocialIcons.map(({ Icon }, Index) => (
+                        SocialIcons.map((Icon, Index) => (
                             <div key={Index}
                                 className={`w-[5em] h-[5em] rounded-full cursor-pointer text-center ${TailwindComponents.BotonBgCard}`}
-                                onClick={() => { window.open(SocialIcons[Index].link, "_blank"); }}
+                                onClick={() => { window.open(Icon.link, "_blank"); }}
                             >
-                                <i className={`fab fa-${SocialIcons[Index].name} social-icon text-4xl`}></i>
+                                <i className={`fab fa-${Icon.name} social-icon text-4xl`}></i>
                             </div>
                         ))
                     }
@@ -92,7 +92,7 @@ export default function ContactoPage() {
                 <div className={`${TailwindComponents.Card} grid grid-cols-1 p-10 space-y-3 h-full`}>
 
                     <div className="text-4xl text-black dark:text-white font-bold col-span-1 w-full mb-6">
-                        Vamos a trabajar <span className="font-bold text-rose-700">juntos</span>
+                        Vamos a trabajar <span className={`font-bold ${TailwindComponents.TextPrincipal}`}>juntos</span>
                     </div>
 
                     <input

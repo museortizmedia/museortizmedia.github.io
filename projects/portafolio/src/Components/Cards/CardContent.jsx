@@ -20,7 +20,7 @@ const CardColContent = ({ ImageSrc, ImageAlt, Title, SubTitle, ButonLogo = Arrow
 
     return (
         <>
-            <img className="h-2/3 w-auto object-cover" src={ImageSrc} alt={ImageAlt} />
+            <img className="h-2/3 self-center w-auto object-cover" src={ImageSrc} alt={ImageAlt} />
             <div className="card-info relative flex-1 content-center pl-2 pt-3 text-left">
                 <p className='font-bold text-zinc-500 text-xs uppercase'>{SubTitle}</p>
                 <p className='font-semibold text-black dark:text-zinc-100 text-xl mb-2'>{Title}</p>

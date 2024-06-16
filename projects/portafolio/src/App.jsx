@@ -11,6 +11,7 @@ import ContactoPage from './Pages/ContactoPage.jsx'
 import CVPage from './Pages/CVPage.jsx'
 import BlogPage from './Pages/BlogPage.jsx'
 import ServicesPage from './Pages/ServicesPage.jsx'
+import ProyectPage from './Pages/ProyectPage.jsx'
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
     { id:4, label: "CV", page: CVPage },
     { id:5, label: "Blog", page: BlogPage },
     { id:6, label: "Servicios", page: ServicesPage },
+    { id:7, label: "ProyectoPage", page: ProyectPage },
   ]
 
   // VARIABLES
@@ -41,13 +43,13 @@ function App() {
   }, []);
 
   // FUNCTIONS
-  const handleMenuClick = (pageIndex) => {
+  const handleMenuClick = (pageIndex, data=null) => {
     SetLoading(true);
 
     setTimeout(() => {
       setCurrentPage(pageIndex);
 
-      const newUrl = `/details?page=${pages[pageIndex].label}`;
+      const newUrl = `/details?page=${pages[pageIndex].label}${data!=null?'&data='+data:''}`;
       window.history.pushState(null, '', newUrl);
 
       SetLoading(false);

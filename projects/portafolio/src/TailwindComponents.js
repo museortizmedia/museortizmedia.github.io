@@ -51,6 +51,8 @@ const TailwindComponents = {
   focus:outline-none focus:ring-0
   text-black dark:text-white placeholder:text-zinc-500
   `,
+  TextPrincipal: 'text-rose-700',
+  BgPrincipal: 'bg-rose-700',
 
 };
 
