@@ -2,17 +2,17 @@ import Card from '../Components/Cards/Card.jsx'
 import CardContainer from '../Components/Cards/CardContainer.jsx'
 import TagLine from '../Components/Cards/TagLine.jsx'
 import { CardContent, CardRowContent, CardColContent } from '../Components/Cards/CardContent.jsx'
-import SocialButtonsCard from '../Components/SocialButtonsCard.jsx'
+import {SocialButtonsCard2} from '../Components/SocialButtonsCard.jsx'
 
-import { ProfileData, TagLineData } from '../Data.js'
+import { ProfileData } from '../Data.js'
 import { ContenidoCTA, ContenidoCifras, ContenidoServicesLogos } from '../Components/Cards/Contenidos/Contenidos.jsx'
 
 export default function InicioPage({ ChangePage }) {
 
     return (
-        <div className='space-y-52 md:space-y-0 xl:space-y-14'>
+        <div className='space-y-5 md:space-y-5 xl:space-y-14'>
 
-            <CardContainer xtraClasses={{ 'bg-red': 900 }}>
+            <CardContainer hideHeigth xtraClasses={{ 'bg-red': 900 }}>
                 <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 10, 'md:col-span': 4, }}
                     flexType='row'
                     OnCardClick={() => { ChangePage(1) }}
@@ -26,11 +26,11 @@ export default function InicioPage({ ChangePage }) {
                 </Card>
 
                 <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 1, 'md:col-span': 4 }}>
-                    <TagLine space='5' tagline={TagLineData} Color='text-black dark:text-white ' />
+                    <TagLine space='5'/>
                 </Card>
 
                 <Card
-                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 3, 'xl:col-end': 4, 'xl:row-span': 9, 'xl:row-start': 2, 'md:col-span': 2 }}
+                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 3, 'xl:col-end': 4, 'xl:row-span': 9, 'xl:row-start': 2,  }}
                     OnCardClick={() => { ChangePage(4) }}
                 >
                     <CardColContent
@@ -41,7 +41,7 @@ export default function InicioPage({ ChangePage }) {
                 </Card>
 
                 <Card
-                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-span': 9, 'xl:row-start': 2, 'md:col-span': 2 }}
+                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-span': 9, 'xl:row-start': 2,  }}
                     OnCardClick={() => { ChangePage(2) }}
                 >
                     <CardColContent
@@ -52,9 +52,10 @@ export default function InicioPage({ ChangePage }) {
                 </Card>
             </CardContainer>
 
-            <CardContainer xtraClasses={{ 'bg-red': 800 }}>
+            <CardContainer xtraClasses={{ 'bg-red': 800, }} hideHeigth>
                 <Card
-                gridClasses={{ 'col-span': 1, 'md:col-span': 2, 'xl:col-span': 1 }}
+                hideHeigth
+                gridClasses={{ 'col-span': 1, 'xl:col-span': 1, 'md:col-span': 4,  }}
                 OnCardClick={() => { ChangePage(5) }}
                 >
                     <CardColContent
@@ -76,18 +77,18 @@ export default function InicioPage({ ChangePage }) {
                 </Card>
 
                 <Card
-                gridClasses={{ 'md:col-span': 2, 'xl:col-span': 1 }}
+                gridClasses={{ 'md:col-span': 2, 'xl:col-span': 1, 'md:col-span': 4  }}
                 OnCardClick={() => { ChangePage(3) }}
                 >
                     <CardContent
-                        Component={SocialButtonsCard}
+                        Component={SocialButtonsCard2}
                         SubTitle={'Contacta conmigo'}
                         Title={'Redes Sociales'}
                     />
                 </Card>
             </CardContainer>
 
-            <CardContainer xtraClasses={{ 'bg-red': 700 }}>
+            <CardContainer hideHeigth xtraClasses={{ 'bg-red': 700 }}>
                 <Card gridClasses={{ 'xl:col-span': 2, 'md:col-span': 2, }}>
                     <CardContent
                         Component={ContenidoCifras}

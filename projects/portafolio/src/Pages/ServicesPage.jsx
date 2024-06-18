@@ -1,7 +1,7 @@
 import Card from "../Components/Cards/Card";
 import { CardColContent, CardContent } from "../Components/Cards/CardContent";
 import { ContenidoCTA } from "../Components/Cards/Contenidos/Contenidos";
-import SocialButtonsCard from "../Components/SocialButtonsCard";
+import {SocialButtonsCard2} from "../Components/SocialButtonsCard";
 import { ServicesData } from "../Data";
 import TailwindComponents from "../TailwindComponents";
 
@@ -44,7 +44,7 @@ export default function ServicesPage({ChangePage}) {
                     OnCardClick={() => { ChangePage(3); }}
                 >
                     <CardContent
-                        Component={SocialButtonsCard}
+                        Component={SocialButtonsCard2}
                         SubTitle={'Contacta conmigo'}
                         Title={'Redes Sociales'}
                         OnButtonClick={() => { }}

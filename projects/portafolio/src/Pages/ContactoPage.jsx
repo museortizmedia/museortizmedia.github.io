@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import TailwindComponents from "../TailwindComponents";
+import { SocialData } from '../Data';
 
 export default function ContactoPage() {
 
@@ -16,16 +17,10 @@ export default function ContactoPage() {
         setFormData({ ...formData, [id]: value });
     };
 
-    const SocialIcons = [
-        { name: 'linkedin', link: 'https://www.linkedin.com/in/museortizmedia/' },
-        { name: 'facebook', link: 'https://www.linkedin.com/in/museortizmedia/' },
-        { name: 'twitter', link: 'https://www.linkedin.com/in/museortizmedia/' },
-    ]
-
     return (
-        <div className="grid grid-cols-7">
+        <div className="grid grid-cols-7 gap-5">
 
-            <div className="col-span-2 space-y-10">
+            <div className="xl:col-span-2 md:col-span-3 col-span-7 space-y-10">
                 <p className="col-span-1 uppercase text-black dark:text-white font-semibold text-lg " >contacto</p>
 
                 <div className="col-span-1 grid grid-cols-3 place-items-center">
@@ -69,14 +64,14 @@ export default function ContactoPage() {
 
                 <p className="col-span-1 uppercase text-black dark:text-white font-semibold text-lg" >Social</p>
 
-                <div className="grid grid-cols-3 px-0">
+                <div className="grid grid-cols-3 px-0 place-items-center">
                     {
-                        SocialIcons.map((Icon, Index) => (
+                        SocialData.slice(0, 3).map((Icon, Index) => (
                             <div key={Index}
                                 className={`w-[5em] h-[5em] rounded-full cursor-pointer text-center ${TailwindComponents.BotonBgCard}`}
-                                onClick={() => { window.open(Icon.link, "_blank"); }}
+                                onClick={() => { window.open(Icon.Link, "_blank"); }}
                             >
-                                <i className={`fab fa-${Icon.name} social-icon text-4xl`}></i>
+                                <i className={`fab fa-${Icon.Icon} social-icon text-4xl`}></i>
                             </div>
                         ))
                     }
@@ -88,7 +83,7 @@ export default function ContactoPage() {
 
 
 
-            <div className="col-span-5 mx-4">
+            <div className="xl:col-span-5 md:col-span-4 col-span-7 mx-4">
                 <div className={`${TailwindComponents.Card} grid grid-cols-1 p-10 space-y-3 h-full`}>
 
                     <div className="text-4xl text-black dark:text-white font-bold col-span-1 w-full mb-6">

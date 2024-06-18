@@ -31,12 +31,12 @@ export default function ProyectPage() {
                 <Card gridClasses={{ 'flex': 'row', 'p': 9, 'my': 5 }} flexType=''>
                     <div className={`${TailwindComponents.bgCard} w-1/2 p-6 space-y-2`}>
                         <span className='uppercase text-md font-semibold text-zinc-500'>{currentPage.NombreEmpresa}</span>
-                        <p className='text-sm text-zinc-300'>{currentPage.DescEmpresa}</p>
+                        <p className='text-sm text-zinc-800 dark:text-zinc-300'>{currentPage.DescEmpresa}</p>
                     </div>
                     <div className='mx-9'></div>
                     <div className={`${TailwindComponents.bgCard} w-1/2 p-6 space-y-2`}>
                         <span className='uppercase text-md font-semibold text-zinc-500'>sobre el proyecto</span>
-                        <p className='text-sm text-zinc-300'>{currentPage.Resumen}</p>
+                        <p className='text-sm text-zinc-800 dark:text-zinc-300'>{currentPage.Resumen}</p>
                     </div>
                 </Card>
 
@@ -64,25 +64,25 @@ export default function ProyectPage() {
                     <div className={`${TailwindComponents.bgCard} w-[30%] p-6 space-y-5`}>
                         <div>
                             <span className='uppercase text-sm font-medium text-zinc-500'>Año</span>
-                            <p className='text-md font-semibold text-zinc-300'>{currentPage.Date}</p>
+                            <p className='text-md font-semibold text-zinc-800 dark:text-zinc-300'>{currentPage.Date}</p>
                         </div>
                         <div>
                             <span className='uppercase text-sm font-medium text-zinc-500'>Cliente</span>
-                            <p className='text-md font-semibold text-zinc-300'>{currentPage.NombreEmpresa}</p>
+                            <p className='text-md font-semibold text-zinc-800 dark:text-zinc-300'>{currentPage.NombreEmpresa}</p>
                         </div>
                         <div>
                             <span className='uppercase text-sm font-medium text-zinc-500'>Servicio</span>
-                            <p className='text-md font-semibold text-zinc-300'>{currentPage.Area}</p>
+                            <p className='text-md font-semibold text-zinc-800 dark:text-zinc-300'>{currentPage.Area}</p>
                         </div>
                         <div>
                             <span className='uppercase text-sm font-medium text-zinc-500'>Proyecto</span>
-                            <p className='text-md font-semibold text-zinc-300'>{currentPage.Nombre}</p>
+                            <p className='text-md font-semibold text-zinc-800 dark:text-zinc-300'>{currentPage.Nombre}</p>
                         </div>
                     </div>
 
                     <div className='mx-9 w-[70%] space-y-5'>
                         <span className='text-md font-semibold text-zinc-500'>Descripción</span>
-                        <p className='text-md font-medium text-zinc-300'>{currentPage.Desc}</p>
+                        <p className='text-md font-medium text-zinc-800 dark:text-zinc-300'>{currentPage.Desc}</p>
                     </div>
 
                 </Card>

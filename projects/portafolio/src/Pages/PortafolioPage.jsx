@@ -7,7 +7,7 @@ export default function PortafolioPage({ ChangePage }) {
     return (
         <div className='grid grid-cols-3 gap-6'>
 
-            <div className='col-span-2 col-start-2 row-end-1 text-5xl font-extrabold text-center uppercase text-black dark:text-white'>
+            <div className='col-span-3 md:col-span-2 md:col-start-2 md:row-end-1  text-5xl font-extrabold text-center uppercase text-black dark:text-white'>
                 <span className={`text-[40px] material-symbols-outlined select-none`} translate="no">airwave</span>
                 Mis Proyectos
                 <span className={`text-[40px] material-symbols-outlined select-none`} translate="no">airwave</span>
@@ -17,7 +17,7 @@ export default function PortafolioPage({ ChangePage }) {
                 [...ProyectosData].reverse().map((Proyecto, Index) => (
                     <div
                         key={Index}
-                        className={`${TailwindComponents.bgCard} p-5 row-span-2 cursor-pointer`}
+                        className={`${TailwindComponents.bgCard} p-5 col-span-3 md:col-span-1 md:row-span-2 cursor-pointer`}
                         onClick={() => { ChangePage(7, Index) }}
                     >
                         <div className="w-full h-2/3">

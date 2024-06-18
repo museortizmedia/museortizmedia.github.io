@@ -16,7 +16,6 @@ body {
 }
 
 .scroll-text {
-  /*font-size: 24px;*/
   display: flex; /* Cambia a flex para manejar múltiples elementos */
   white-space: nowrap; /* Evita que el texto se desplace a la siguiente línea */
   position: relative; /* Añadido para que ::after sea relativo a este elemento */

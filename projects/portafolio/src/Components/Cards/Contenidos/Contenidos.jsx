@@ -1,14 +1,18 @@
-import { ArrowIcon, ServicesData, SocialData } from "../../../Data";
+import { ArrowIcon, GeneralData, ServicesData, SocialData } from "../../../Data";
 import TailwindComponents from "../../../TailwindComponents";
-import SocialButtonsCard from "../../SocialButtonsCard";
-import Card from "../Card";
-import { CardContent } from "../CardContent";
 
 export const ContenidoCTA = () => {
     return <>
         <div className={`card-info grid grid-cols-4 place-content-end h-full w-full text-5xl font-extrabold text-left mb-10 m-5 cursor-pointer dark:text-white text-black`}>
-            <div className="font-bold col-span-4 row-span-2">Vamos</div>
-            <div className="font-bold col-span-4 row-span-2">a trabajar <span className={`font-bold ${TailwindComponents.TextPrincipal}`}>juntos</span></div>
+            <div className="font-bold col-span-4 row-span-2">
+                {GeneralData.CallTo.split(" ")[0]}
+            </div>
+            <div className="font-bold col-span-4 row-span-2">
+                {GeneralData.CallTo.split(" ").slice(1).join(" ")}
+                <span className={`font-bold ${TailwindComponents.TextPrincipal}`}>
+                    {GeneralData.Action}
+                </span>
+            </div>
             <span className={`text-[40px] material-symbols-outlined col-span-1 col-start-4 text-right mr-5 ${TailwindComponents.BotonLogo}`} translate="no">{ArrowIcon}</span>
         </div>
 

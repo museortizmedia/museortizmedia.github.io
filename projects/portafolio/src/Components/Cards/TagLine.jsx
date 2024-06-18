@@ -1,8 +1,8 @@
-import { TagLineData } from "../../Data";
+import { GeneralData } from "../../Data";
 
-export default function TagLine({ tagline = "Esto es una tagline", space = "10", Color }) {
+export default function TagLine({ tagline = "Esto es una tagline", space = "10", TailswindColor='text-black dark:text-white' }) {
 
-    tagline = TagLineData;
+    tagline = GeneralData.Tagline;
 
     const TagLineString = (
         <>
@@ -22,7 +22,7 @@ export default function TagLine({ tagline = "Esto es una tagline", space = "10",
                     {
                         Array.from({ length: 8 }).map((_, index) => (
                             <div key={index} className='scroll-text'>
-                                <div className={`content ${Color||''}`}>
+                                <div className={`content ${TailswindColor||''}`}>
                                     {<span> {" • "} </span>}
                                     {TagLineString}
                                     {<span> {"   "} </span>}

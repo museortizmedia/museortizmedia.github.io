@@ -1,20 +1,13 @@
-import { ProfileData, ExperienceData, EducationData, SkillsData, CertificationsData } from "../Data";
+import { ProfileData, ExperienceData, EducationData, SkillsData, CertificationsData, SocialData } from "../Data";
 import TailwindComponents from "../TailwindComponents";
 
 export default function CVPage() {
 
-    const SocialIcons = [
-        { name: 'behance', link: 'https://www.linkedin.com/in/museortizmedia/' },
-        { name: 'linkedin', link: 'https://www.linkedin.com/in/museortizmedia/' },
-        { name: 'github', link: 'https://www.linkedin.com/in/museortizmedia/' },
-        { name: 'facebook', link: 'https://www.linkedin.com/in/museortizmedia/' },
-    ]
-
     return (
-        <div className="flex flex-row ">
+        <div className="flex flex-col md:flex-row space-y-24">
 
-            <div className="col w-[20.6vw] h-[70vh] fixed place-content-center text-center">
-                <div className={TailwindComponents.Card + " p-7"}>
+            <div className="md:w-[20.6vw] md:h-[70vh] relative md:fixed place-content-center text-center">
+                <div className={TailwindComponents.Card + " p-7 space-x-4"}>
                     <img className="m-5 h-[350px] w-[320px] mx-auto my-auto object-cover rounded-[30px]" src={ProfileData.ImageSrc} alt={ProfileData.Apodo} height={"20px"} />
                     <div>
                         <p className="text-black dark:text-white text-2xl font-medium mt-8">{ProfileData.NombreCompleto}</p>
@@ -22,12 +15,12 @@ export default function CVPage() {
                     </div>
                     <div className="grid grid-cols-4 mx-6 my-5">
                         {
-                            SocialIcons.map((Icon, Index) => (
+                            SocialData.map((Icon, Index) => (
                                 <div key={Index}
                                     className={`w-[45px] h-[45px] rounded-full cursor-pointer text-center ${TailwindComponents.BotonBgCard} p-0 m-0`}
-                                    onClick={() => { window.open(Icon.link, "_blank"); }}
+                                    onClick={() => { window.open(Icon.Link, "_blank"); }}
                                 >
-                                    <i className={`fab fa-${Icon.name} social-icon text-[20px]`}></i>
+                                    <i className={`fab fa-${Icon.Icon} social-icon text-[20px]`}></i>
                                 </div>
                             ))
                         }
@@ -37,7 +30,7 @@ export default function CVPage() {
             </div>
 
 
-            <div className="ml-[20.6vw] w-[52vw] pl-20">
+            <div className="w-full md:w-[52vw] md:ml-[20.6vw] md:pl-20">
                 <section className="mb-5">
                     <header className="text-lg text-black dark:text-white uppercase font-semibold mb-10">Perfil</header>
                     <article>

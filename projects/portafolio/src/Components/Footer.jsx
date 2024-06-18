@@ -15,7 +15,7 @@ export default function Footer( {OnItemClick = null}) {
     }
 
     useEffect(() => {
-        fetchBookData("Data").then((e) => {
+        fetchBookData("GeneralData").then((e) => {
           SetPersonaCount(parseFloat(e.Users.replace(/"/g, '')));
           console.log("somos " + personaCount);
         }).catch((error) => {
@@ -24,7 +24,7 @@ export default function Footer( {OnItemClick = null}) {
       }, [personaCount]);
     
     const AddVoteHandle = ( ) => {
-        postBookData("Data", "Users", (1+ +personaCount))
+        postBookData("GeneralData", "Users", (1+ +personaCount))
       .then((data) => {
         SetHide("");
         SetPersonaCount(1+ +personaCount);

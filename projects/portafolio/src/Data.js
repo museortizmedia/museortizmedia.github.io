@@ -62,7 +62,14 @@ const PageData = [
   }
 ];
 
-const TagLineData = " Disponible para: Prestación de servicios";
+//BD recover
+
+const GeneralData = {
+  Users: "1",
+  Tagline: "Disponible para prestación de servicios.",
+  CallTo: "Vamos a trabajar",
+  Action: " juntos.",
+};
 
 const ServicesData = [
   {
@@ -179,16 +186,34 @@ const SocialData = [
   {
     Red: "LinkedIn",
     Profile: "",
-    Link: "",
+    Link: "https://www.linkedin.com/in/museortizmedia/",
     Image: "",
     Desc: "Non enim praesent",
+    Icon: "linkedin",
   },
   {
     Red: "Github",
     Profile: "",
-    Link: "",
+    Link: "https://www.linkedin.com/in/museortizmedia/",
     Image: "",
     Desc: "Non enim praesent",
+    Icon: "github",
+  },
+  {
+    Red: "Behance",
+    Profile: "",
+    Link: "https://www.linkedin.com/in/museortizmedia/",
+    Image: "",
+    Desc: "Non enim praesent",
+    Icon: "behance",
+  },
+  {
+    Red: "Facebook",
+    Profile: "",
+    Link: "https://www.linkedin.com/in/museortizmedia/",
+    Image: "",
+    Desc: "Non enim praesent",
+    Icon: "facebook",
   },
 ];
 
@@ -304,7 +329,8 @@ const ArrowIcon = "prompt_suggestion";
 
 export {
   PageData,
-  TagLineData,
+
+  GeneralData,
   ProfileData,
   EducationData,
   ExperienceData,
