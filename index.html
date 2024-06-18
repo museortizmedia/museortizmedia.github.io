@@ -28,24 +28,29 @@
   <!--Main JS config-->
   <script>
     // Configure dark mode strategy
+    var DARKMODEVAR;
     tailwind.config = {
       darkMode: 'class', /* 'class' or 'media', we use 'class' to enable dark mode manually */
     }
     // Preload dark mode in local or windows match
     if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
+      DARKMODEVAR=true;
     } else {
       document.documentElement.classList.remove('dark');
+      DARKMODEVAR=false;
     }
     // Activa el dark mode
     const ActiveDarkMood = () => {
       localStorage.theme = 'dark';
       document.documentElement.classList.add('dark');
+      DARKMODEVAR=true;
     }
     // Desactiva el dark mode
     const DisactiveDarkMood = () => {
       localStorage.theme = 'ligth';
       document.documentElement.classList.remove('dark');
+      DARKMODEVAR=false;
     }
     // Si no hay un tema definido, añadir el dark
     if (localStorage.getItem('theme') == undefined) { ActiveDarkMood(); }
@@ -53,7 +58,7 @@
 
   <title>Diego Ortiz ► Portafolio</title>
 
-  <script type="module" crossorigin src="/assets/index-nwyh_L2o.js"></script>
+  <script type="module" crossorigin src="/assets/index-Bu1QFyfn.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-BXhP7Viy.css">
 </head>
 
