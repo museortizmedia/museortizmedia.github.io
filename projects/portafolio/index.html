@@ -1,16 +1,68 @@
 <!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <script src="./src/main.js"></script>
-    <title>Diego Ortiz ► Portafolio</title>
-  </head>
-  <body class="bg-[#f0f0f0] dark:bg-[#0f0f0f]">
-    <div id="root" class="w-[100vw] xl:w-[62vw]"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<html lang="es" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/react.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Tailwind-->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!--Icons de Material-->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!--Icons de brands-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!-- https://www.w3schools.com/icons/fontawesome_icons_webapp.asp -->
+  <!--Fuente Lato-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+
+  <!--Main JS config-->
+  <script>
+    // Configure dark mode strategy
+    var DARKMODEVAR;
+    tailwind.config = {
+      darkMode: 'class', /* 'class' or 'media', we use 'class' to enable dark mode manually */
+    }
+    // Preload dark mode in local or windows match
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+      DARKMODEVAR=true;
+    } else {
+      document.documentElement.classList.remove('dark');
+      DARKMODEVAR=false;
+    }
+    // Activa el dark mode
+    const ActiveDarkMood = () => {
+      localStorage.theme = 'dark';
+      document.documentElement.classList.add('dark');
+      DARKMODEVAR=true;
+    }
+    // Desactiva el dark mode
+    const DisactiveDarkMood = () => {
+      localStorage.theme = 'ligth';
+      document.documentElement.classList.remove('dark');
+      DARKMODEVAR=false;
+    }
+    // Si no hay un tema definido, añadir el dark
+    if (localStorage.getItem('theme') == undefined) { ActiveDarkMood(); }
+  </script>
+
+  <title>Diego Ortiz ► Portafolio</title>
+
+</head>
+
+<body class="bg-zinc-100 dark:bg-[#0f0f0f]">
+  <div id="root" class="w-[90vw] md:w-[75vw] xl:w-[62vw] min-h-screen mx-auto"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>
