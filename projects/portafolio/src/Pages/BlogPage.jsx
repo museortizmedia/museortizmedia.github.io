@@ -41,12 +41,12 @@ export default function BlogPage() {
                         <div className="mb-2 text-2xl text-zinc-900 dark:text-zinc-500">Recientes</div>
                         <div className="grid grid-flow-row space-y-6 text-zinc-500 dark:text-zinc-100">
                             {
-                                [...BlogData].reverse().map( (Post, Index)=>(
-                                        <>
-                                        <a key={Index} href={"#"} className="lowercase" >{Post.Title}</a>
+                                [...BlogData].reverse().map((Post, Index) => (
+                                    <div key={`${Index}-${Post.Title}`}>
+                                        <a href={"#"} className="lowercase">{Post.Title}</a>
                                         <hr />
-                                        </>
-                                    ))
+                                    </div>
+                                ))
                             }
                         </div>
 
@@ -58,8 +58,14 @@ export default function BlogPage() {
                     </div>
 
                     <div className={`${TailwindComponents.bgCard} w-full`}>
-                        <div className="mb-2 text-2xl text-zinc-900 dark:text-zinc-500">Categorías</div>
-                        //
+                        <div className="mb-4 text-2xl text-zinc-900 dark:text-zinc-500">Categorías</div>
+                        <div className="mx-5 my-2 grid space-y-5 text-center text-zinc-500 dark:text-zinc-100">
+                            {
+                                JSON.parse(currentPage.Tags).map((tag, index) => (
+                                    <span key={index} className="bg-zinc-300 text-zinc-500 dark:bg-zinc-600 dark:text-white rounded-lg px-2 py-3">{tag}</span>
+                                ))
+                            }
+                        </div>
                     </div>
 
                 </section>

@@ -1,7 +1,14 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbyHK3Z3f_jG0GhUbUDkKCdMmbGibyH99joOEcTBiwKllRlDbHDeYZYhdbD8B28ams5XOg/exec"
+const API_URL = {
+  "dev": "https://script.google.com/macros/s/AKfycbyn8JK5bWymcs4XzM10hnL2s_GthQ4OjP2rpGnRb53Z/dev",
+  "prod": "https://script.google.com/macros/s/AKfycbxet14zJsaoyAPrtuJXHYfe6RQvNx8kjkOnv-MxTegy79xHaSlX-nWjMwXHyYfFwfWKMA/exec",
+}
+
+const API_version = "prod";
 const endpoint = "?sheetName=";
+
+//Funcion Fetch para cualquier uso
 export const fetchBookData = async (bookName) => {
-  const url = `${API_URL}${endpoint}${bookName}`;
+  const url = `${API_URL[API_version]}${endpoint}${bookName}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -15,6 +22,7 @@ export const fetchBookData = async (bookName) => {
   }
 };
 
+//Funcion Post para cualquier uso
 export const postBookData = async (sheetName, key, value) => {
   const url = API_URL;
   const params = new URLSearchParams();
@@ -30,7 +38,7 @@ export const postBookData = async (sheetName, key, value) => {
       },
       body: params.toString(),
     });
-    
+
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
@@ -43,7 +51,129 @@ export const postBookData = async (sheetName, key, value) => {
   }
 };
 
-const PageData = [
+
+
+
+
+export const fetchBookAllData = async (callback) => {
+  const url = `https://script.google.com/macros/s/AKfycbxet14zJsaoyAPrtuJXHYfe6RQvNx8kjkOnv-MxTegy79xHaSlX-nWjMwXHyYfFwfWKMA/exec`;
+  try {
+    const response = await fetch(url, {
+      redirect: "follow",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    callback(data);
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error;
+  }
+};
+
+function TodayDateNumberFormat() {
+  const epoch = new Date(1899, 11, 30); // Google Sheets epoch start date
+  const diffInMs = new Date() - epoch;
+  const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  return Math.floor(diffInDays); // Redondear para obtener un valor entero
+}
+
+//CACHEING
+const CACHE_KEY = 'ALLDATA_CACHE';
+const DATE_KEY = 'TOKEN_DATE';
+
+const PreLoad = (CB) => {
+  const cachedData = JSON.parse(localStorage.getItem(CACHE_KEY));
+  const cachedDate = localStorage.getItem(DATE_KEY);
+
+  if (cachedDate == null || cachedData == null) {
+    // Conseguir Data
+    fetchBookAllData(
+      (AllData) => {
+        ALLDATA = AllData;
+        GeneralData = AllData.GeneralData;
+        PageData = AllData.PageData;
+        ProfileData = AllData.ProfileData;
+        EducationData = AllData.EducationData;
+        ExperienceData = AllData.ExperienceData;
+        SkillsData = AllData.SkillsData;
+        CertificationsData = AllData.CertificationsData;
+        SocialData = AllData.SocialData;
+        ProyectosData = AllData.ProyectosData; 
+        ServicesData = AllData.ServicesData;
+        BlogData = AllData.BlogData;
+        IconPage = AllData.GeneralData.IconPage;
+        ArrowIcon = AllData.GeneralData.ArrowIcon;
+        console.log(AllData.GeneralData.Date);
+        // Guardar Data y Date
+        localStorage.setItem(CACHE_KEY, JSON.stringify(ALLDATA));
+        localStorage.setItem(DATE_KEY, AllData.GeneralData.Date);
+        console.log("Cargado y cacheado");
+        CB();
+      });
+  } else {
+    //Verificar si hay un cambio en la fecha del caché y la de hoy
+    if (TodayDateNumberFormat() != cachedDate) {
+      // Actualizar Datos
+      fetchBookAllData(
+        (AllData) => {
+          ALLDATA = AllData;
+          GeneralData = AllData.GeneralData;
+          PageData = AllData.PageData;
+          ProfileData = AllData.ProfileData;
+          EducationData = AllData.EducationData;
+          ExperienceData = AllData.ExperienceData;
+          SkillsData = AllData.SkillsData;
+          CertificationsData = AllData.CertificationsData;
+          SocialData = AllData.SocialData;
+          ProyectosData = AllData.ProyectosData;
+          ServicesData = AllData.ServicesData;
+          BlogData = AllData.BlogData;
+          IconPage = AllData.GeneralData.IconPage;
+          ArrowIcon = AllData.GeneralData.ArrowIcon;
+          // Guardar Data y Date
+          localStorage.setItem(CACHE_KEY, JSON.stringify(ALLDATA));
+          localStorage.setItem(DATE_KEY, AllData.GeneralData.Date);
+          console.log("Actualizado y cacheado");
+          CB();
+        });
+    } else {
+      // No actualizar
+      GeneralData = cachedData.GeneralData;
+      PageData = cachedData.PageData;
+      ProfileData = cachedData.ProfileData;
+      EducationData = cachedData.EducationData;
+      ExperienceData = cachedData.ExperienceData;
+      SkillsData = cachedData.SkillsData;
+      CertificationsData = cachedData.CertificationsData;
+      SocialData = cachedData.SocialData;
+      ProyectosData = cachedData.ProyectosData;
+      ServicesData = cachedData.ServicesData;
+      BlogData = cachedData.BlogData;
+      IconPage = cachedData.GeneralData.IconPage;
+      ArrowIcon = cachedData.GeneralData.ArrowIcon;
+      console.log("Cargada info del caché");
+      CB();
+    }
+  }
+}
+
+//BD Recovery
+let ALLDATA = null;
+let GeneralData = {
+  Users: "1",
+  Tagline: "Disponible para prestación de servicios.",
+  CallTo: "Vamos a trabajar",
+  Action: " juntos.",
+  Cifra1: "[{name:'años de experiencia', dato:7, plus:true}]",
+  Cifra2: "[{name:'años de experiencia', dato:7, plus:true}]",
+  Cifra3: "[{name:'años de experiencia', dato:7, plus:true}]",
+};
+let PageData = [
   {
     link: "0",
     label: "Inicio",
@@ -61,40 +191,7 @@ const PageData = [
     label: "Contacto"
   }
 ];
-
-//BD recover
-
-const GeneralData = {
-  Users: "1",
-  Tagline: "Disponible para prestación de servicios.",
-  CallTo: "Vamos a trabajar",
-  Action: " juntos.",
-};
-
-const ServicesData = [
-  {
-    label: 'photo_camera',
-    name: 'Fotografia',
-    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
-  },
-  {
-    label: 'draft_orders',
-    name: 'Diseño web',
-    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
-  },
-  {
-    label: 'overview_key',
-    name: 'Marca',
-    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
-  },
-  {
-    label: 'screenshot',
-    name: 'Desarrollo',
-    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
-  },
-]
-
-const ProfileData = {
+let ProfileData = {
   Nombre: "Diego Ortiz",
   Apodo: "Muse Coder",
   NombreCompleto: "Diego Ortiz Hurtado",
@@ -104,7 +201,7 @@ const ProfileData = {
   ImageSrc: "https://media.licdn.com/dms/image/D4E03AQHD4cTeI7u7Hw/profile-displayphoto-shrink_800_800/0/1712670440594?e=1723680000&v=beta&t=jLSlBcNtD69829yHaaUTXMjM1cxddFvFocOKUog5FYQ",
   State: 1
 };
-const EducationData = [
+let EducationData = [
   {
     Name: "Tecnología en Produccion de Multimedia",
     InitAge: "2016",
@@ -122,8 +219,7 @@ const EducationData = [
     link: "",
   },
 ];
-
-const ExperienceData = [
+let ExperienceData = [
   {
     Cargo: "Desarrollador Vue",
     InitAge: "Enero 2022",
@@ -141,7 +237,7 @@ const ExperienceData = [
     link: "",
   },
 ];
-const SkillsData = [
+let SkillsData = [
   {
     Nombre: "JavaScript",
     Dominio: "85",
@@ -173,7 +269,7 @@ const SkillsData = [
     Desc: "Non enim praesent",
   },
 ];
-const CertificationsData = [
+let CertificationsData = [
   {
     Nombre: "Unity Certification",
     Date: "14 May 2020",
@@ -182,7 +278,7 @@ const CertificationsData = [
     link: "",
   },
 ];
-const SocialData = [
+let SocialData = [
   {
     Red: "LinkedIn",
     Profile: "",
@@ -216,12 +312,11 @@ const SocialData = [
     Icon: "facebook",
   },
 ];
-
-const ProyectosData = [
-  { 
+let ProyectosData = [
+  {
     Area: "Web Desing",
-    Nombre: "1 Dynamic",  
-    Date: "2023",  
+    Nombre: "1 Dynamic",
+    Date: "2023",
     Titulo: "Aestetich Desing For Brand New Startup",
     Subtitle: "Branding - raven studio",
     NombreEmpresa: "Raven Studio",
@@ -236,11 +331,11 @@ const ProyectosData = [
     Src3: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
     Src4: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
     ImageSecondary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
-   },
-   { 
+  },
+  {
     Area: "Web Desing",
-    Nombre: "Dynamic",  
-    Date: "2023",  
+    Nombre: "Dynamic",
+    Date: "2023",
     Titulo: "Aestetich Desing For Brand New Startup",
     Subtitle: "Branding - raven studio",
     NombreEmpresa: "Raven Studio",
@@ -255,11 +350,11 @@ const ProyectosData = [
     Src3: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
     Src4: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
     ImageSecondary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
-   },
-   { 
+  },
+  {
     Area: "Web Desing",
-    Nombre: "Dynamic",  
-    Date: "2023",  
+    Nombre: "Dynamic",
+    Date: "2023",
     Titulo: "Aestetich Desing For Brand New Startup",
     Subtitle: "Branding - raven studio",
     NombreEmpresa: "Raven Studio",
@@ -274,11 +369,11 @@ const ProyectosData = [
     Src3: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
     Src4: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
     ImageSecondary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
-   },
-   { 
+  },
+  {
     Area: "Web Desing",
-    Nombre: "5 Dynamic",  
-    Date: "2023",  
+    Nombre: "5 Dynamic",
+    Date: "2023",
     Titulo: "Aestetich Desing For Brand New Startup",
     Subtitle: "Branding - raven studio",
     NombreEmpresa: "Raven Studio",
@@ -293,10 +388,31 @@ const ProyectosData = [
     Src3: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
     Src4: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project1.jpeg",
     ImageSecondary: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/project-dt-1.jpeg",
-   },
+  },
 ];
-
-const BlogData = [
+let ServicesData = [
+  {
+    label: 'photo_camera',
+    name: 'Fotografia',
+    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
+  },
+  {
+    label: 'draft_orders',
+    name: 'Diseño web',
+    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
+  },
+  {
+    label: 'overview_key',
+    name: 'Marca',
+    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
+  },
+  {
+    label: 'screenshot',
+    name: 'Desarrollo',
+    desc: 'Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor asna rhoncus dolor purus non enim aberitin praesent in elementum sahas facilisis leo, vel fringilla est etisam dignissim.',
+  },
+];
+let BlogData = [
   {
     Title: "CONSULTED ADMITTING IS POWER ACUTENESS.",
     Subtitle: "HOME - Consulted admitting is power acuteness.",
@@ -318,18 +434,17 @@ New had happen unable uneasy. Drawings can followed improved out sociable not. E
 
 Surrounded to me occasional pianoforte alteration unaffected impossible ye. For saw half than cold. Pretty merits waited.
 `,
-    Tags: ["Developement","SASS"]
+    Tags: ["Developement", "SASS"]
   },
 ];
-
-//PAGE DESING
-const IconPage = "/react.svg";
-const ArrowIcon = "prompt_suggestion";
-
+let IconPage = "/react.svg";
+let ArrowIcon = "prompt_suggestion";
+//BD Recovery
 
 export {
-  PageData,
+  PreLoad,
 
+  PageData,
   GeneralData,
   ProfileData,
   EducationData,

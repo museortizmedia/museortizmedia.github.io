@@ -13,8 +13,9 @@ export default function InicioPage({ ChangePage }) {
         <div className='space-y-5 md:space-y-5 xl:space-y-14'>
 
             <CardContainer hideHeigth xtraClasses={{ 'bg-red': 900 }}>
-                <Card gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 10, 'md:col-span': 4, }}
-                    flexType='row'
+                <Card
+                gridClasses={{ 'xl:col-span': 2, 'xl:row-span': 9, 'md:col-span': 4, }}
+                flexClassNames={{'flex': 'row'}}
                     OnCardClick={() => { ChangePage(1) }}
                 >
                     <CardRowContent
@@ -30,7 +31,7 @@ export default function InicioPage({ ChangePage }) {
                 </Card>
 
                 <Card
-                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 3, 'xl:col-end': 4, 'xl:row-span': 9, 'xl:row-start': 2,  }}
+                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 3, 'xl:col-end': 4, 'xl:row-start': 2, 'xl:row-end': 10, }}
                     OnCardClick={() => { ChangePage(4) }}
                 >
                     <CardColContent
@@ -41,7 +42,7 @@ export default function InicioPage({ ChangePage }) {
                 </Card>
 
                 <Card
-                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-span': 9, 'xl:row-start': 2,  }}
+                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-start': 2, 'xl:row-end': 10, }}
                     OnCardClick={() => { ChangePage(2) }}
                 >
                     <CardColContent
@@ -66,10 +67,11 @@ export default function InicioPage({ ChangePage }) {
                 </Card>
 
                 <Card
-                gridClasses={{ 'col-span': 1, 'xl:col-span': 2, 'md:col-span': 4 }}
+                gridClasses={{ 'col-span': 1, 'xl:col-span': 2, 'md:col-span': 4,}}
                 OnCardClick={() => { ChangePage(6) }}
                 >
                     <CardContent
+                    cardClassNames={{'md:py': 5}}
                         Component={ContenidoServicesLogos}
                         SubTitle={'Especialización'}
                         Title={'Servicios Ofrecidos'}

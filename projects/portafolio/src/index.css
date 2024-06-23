@@ -91,7 +91,7 @@ body {
   position: absolute;
   top: 0;
   z-index: 10000;
-  animation: moveY 2s linear ;
+  animation: moveY 2s linear;
 }
 .preloader .loader {
   animation: -moveX 2s linear infinite;

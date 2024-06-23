@@ -1,11 +1,13 @@
 import { useState } from 'react'
 
-export default function Card ({ gridClasses, children, flexType='col', freeHeigth, OnCardClick}) {
+export default function Card ({ gridClasses, flexClassNames, children, freeHeigth, OnCardClick}) {
 
   const gridClassNames = gridClasses!=undefined?Object.entries(gridClasses)
   .map(([key, value]) => (value ? `${key}-${value}` : ''))
   .join(' '):undefined;
-
+  const divClassNames = flexClassNames!=undefined?Object.entries(gridClasses)
+  .map(([key, value]) => (value ? `${key}-${value}` : ''))
+  .join(' '):undefined;
   return (
     <>
       <div className={
@@ -18,7 +20,7 @@ export default function Card ({ gridClasses, children, flexType='col', freeHeigt
         ${gridClassNames??""}`}
         onClick={OnCardClick}
       >
-      <div className={`h-full w-full flex flex-${flexType} justify-center`}>
+      <div className={`h-full w-full flex justify-center ${divClassNames??"flex-col"} `}>
       {children}
       </div>
       </div>

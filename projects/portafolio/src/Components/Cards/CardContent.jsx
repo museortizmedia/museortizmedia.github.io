@@ -5,8 +5,8 @@ const CardRowContent = ({ ImageSrc, ImageAlt, Altura, Title, SubTitle, Desc, But
 
     return (
         <>
-            <img className="m-5 h-3/4 object-cover rounded-tl-[30px] rounded-br-[30px]" src={ImageSrc} alt={ImageAlt} height={Altura} />
-            <div className="card-info relative flex-1 content-center text-left p-5">
+            <img className="w-full md:w-auto m-5 object-cover rounded-tl-[30px] rounded-br-[30px]" src={ImageSrc} alt={ImageAlt} height={Altura} />
+            <div className=" card-info relative flex-1 content-center text-left p-5">
                 <p className={`font-semibold text-zinc-700 dark:text-zinc-400 text-lg uppercase`}>{SubTitle}</p>
                 <p className='font-bold text-black dark:text-zinc-100 text-4xl mb-2'>{Title}</p>
                 <p className='font-normal text-zinc-700 dark:text-zinc-400'>{Desc}</p>
@@ -20,7 +20,7 @@ const CardColContent = ({ ImageSrc, ImageAlt, Title, SubTitle, ButonLogo = Arrow
 
     return (
         <>
-            <img className="h-2/3 self-center w-auto object-cover" src={ImageSrc} alt={ImageAlt} />
+            <img className="self-center rounded-[15px] h-1/2 w-full object-cover" src={ImageSrc} alt={ImageAlt} />
             <div className="card-info relative flex-1 content-center pl-2 pt-3 text-left">
                 <p className='font-bold text-zinc-500 text-xs uppercase'>{SubTitle}</p>
                 <p className='font-semibold text-black dark:text-zinc-100 text-xl mb-2'>{Title}</p>

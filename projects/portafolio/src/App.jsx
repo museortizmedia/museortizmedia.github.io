@@ -12,10 +12,12 @@ import CVPage from './Pages/CVPage.jsx'
 import BlogPage from './Pages/BlogPage.jsx'
 import ServicesPage from './Pages/ServicesPage.jsx'
 import ProyectPage from './Pages/ProyectPage.jsx'
+import { PreLoad } from './Data.js'
 
 function App() {
 
   //DATA INTERNA
+  //pages router
   const pages = [
     { id:0, label: "Inicio", page: InicioPage },
     { id:1, label: "Bio", page: BioPage },
@@ -30,17 +32,23 @@ function App() {
   // VARIABLES
   const [currentPage, setCurrentPage] = useState(0);
   const CurrentPageComponent = pages[currentPage].page;
-  const [IsLoading, SetLoading] = useState(false);
+  const [IsLoading, SetLoading] = useState(true);
 
   // HOOKS
-  // Confirma si se quiere renderizar una pagina en especifico
+  
   useEffect(() => {
+    // Confirma si se quiere renderizar una pagina en especifico
     const params = new URLSearchParams(window.location.search);
     const pageLabel = params.get('page');
     if (pageLabel != null) {
       setCurrentPage(pages.findIndex(page => page.label === pageLabel));
     }
+    // Precarga los datos de la BD para dar inicio a la web
+    PreLoad(() => {
+      SetLoading(false);
+    });
   }, []);
+  
 
   // FUNCTIONS
   const handleMenuClick = (pageIndex, data=null) => {
@@ -52,7 +60,11 @@ function App() {
       const newUrl = `/details?page=${pages[pageIndex].label}${data!=null?'&data='+data:''}`;
       window.history.pushState(null, '', newUrl);
 
-      SetLoading(false);
+      // Confirmar si hay cambio de datos de la BD antes de actualizar la página
+      PreLoad(() => {
+        SetLoading(false);
+      });
+
     }, 1000);
   };
 

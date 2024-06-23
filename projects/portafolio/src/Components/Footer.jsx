@@ -1,10 +1,10 @@
 import { useState, useEffect  } from "react"
-import { IconPage, PageData, fetchBookData, postBookData } from "../Data"
+import { IconPage, PageData, GeneralData, fetchBookData, postBookData } from "../Data"
 import TailwindComponents from "../TailwindComponents"
 
 export default function Footer( {OnItemClick = null}) {
 
-    const [hide, SetHide] = useState("hidden");
+    const [hide, SetHide] = useState("");
     const [personaCount, SetPersonaCount] = useState(0);
     const HandlePersonas = (e) => {
         e.preventDefault();
@@ -15,16 +15,16 @@ export default function Footer( {OnItemClick = null}) {
     }
 
     useEffect(() => {
-        fetchBookData("GeneralData").then((e) => {
+        /*fetchBookData("GeneralData").then((e) => {
           SetPersonaCount(parseFloat(e.Users.replace(/"/g, '')));
           console.log("somos " + personaCount);
         }).catch((error) => {
           console.error('Fetch error:', error);
-        });
+        });*/
       }, [personaCount]);
     
     const AddVoteHandle = ( ) => {
-        postBookData("GeneralData", "Users", (1+ +personaCount))
+        /*postBookData("GeneralData", "Users", (1+ +personaCount))
       .then((data) => {
         SetHide("");
         SetPersonaCount(1+ +personaCount);
@@ -32,7 +32,7 @@ export default function Footer( {OnItemClick = null}) {
       })
       .catch((error) => {
         console.log('Error: '+error);
-      });
+      });*/
     }
 
     return (
@@ -61,7 +61,7 @@ export default function Footer( {OnItemClick = null}) {
 
                 <div className="text-center grid grid-flow-row gap-4">
                     <p className="dark:text-white font-medium text-lg">Hazme saber que estuviste aquí</p>
-                    <button className={hide?TailwindComponents.Boton:"text-white text-lg font-medium cursor-default hover:underline"} onClick={(e)=>{HandlePersonas(e)}}>{hide?"¡Presióname!":`¡Somos ${personaCount}!`}</button>
+                    <button className={hide?TailwindComponents.Boton:"text-white text-lg font-medium cursor-default hover:underline"} onClick={(e)=>{HandlePersonas(e)}}>{hide?"¡Presióname!":`¡Somos ${GeneralData.Users}!`}</button>
                 </div>
 
                 <p className="text-center">
