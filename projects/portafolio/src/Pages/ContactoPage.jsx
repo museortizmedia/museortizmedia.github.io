@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TailwindComponents from "../TailwindComponents";
-import { SocialData } from '../Data';
+import { ContactData, SocialData } from '../Data';
 
 export default function ContactoPage() {
 
@@ -23,44 +23,23 @@ export default function ContactoPage() {
             <div className="xl:col-span-2 md:col-span-3 col-span-7 space-y-10">
                 <p className="col-span-1 uppercase text-black dark:text-white font-semibold text-lg " >contacto</p>
 
-                <div className="col-span-1 grid grid-cols-3 place-items-center">
-                    <span
-                        className={`mx-2 h-[80px] w-[80px] text-center rounded-[20px] ${TailwindComponents.bgCard} text-black dark:text-white`}
-                    >
-                        <i className={`fa fa-envelope-o text-4xl m-auto`}></i>
-                    </span>
-                    <div className="ml-8 my-2 col-star-2 grid grid-rows-3">
-                        <span className="uppercase font-semibold">Mail info</span>
-                        <span className="text-gray-300 font-bold">info@mail.com</span>
-                        <span className="text-gray-300 font-bold">info@mail.com</span>
-                    </div>
-                </div>
-
-                <div className="col-span-1 grid grid-cols-3 place-items-center">
-                    <span
-                        className={`mx-2 h-[80px] w-[80px] text-center rounded-[20px] ${TailwindComponents.bgCard} text-black dark:text-white`}
-                    >
-                        <i className={`fa fa-phone text-4xl m-auto`}></i>
-                    </span>
-                    <div className="ml-8 my-2 col-star-2 grid grid-rows-3">
-                        <span className="uppercase font-semibold">Phone info</span>
-                        <span className="text-gray-300 font-bold">info@mail.com</span>
-                        <span className="text-gray-300 font-bold">info@mail.com</span>
-                    </div>
-                </div>
-
-                <div className="col-span-1 grid grid-cols-3 place-items-center">
-                    <span
-                        className={`mx-2 h-[80px] w-[80px] text-center rounded-[20px] ${TailwindComponents.bgCard} text-black dark:text-white`}
-                    >
-                        <i className={`fa fa-map-marker text-4xl m-auto`}></i>
-                    </span>
-                    <div className="ml-8 my-2 col-star-2 grid grid-rows-2">
-                        <span className="uppercase font-semibold">Location</span>
-                        <span className="text-gray-300 font-bold text-nowrap">Cali, Colombia</span>
-                        
-                    </div>
-                </div>
+                {
+                    ContactData.map((contact) => (
+                        <div key={contact.FaIcon} className="col-span-1 grid grid-cols-2 mr-5 place-items-center">
+                            <span
+                                className={`mx-2 h-[80px] w-[80px] text-center rounded-[20px] ${TailwindComponents.bgCard} text-black dark:text-white`}
+                            >
+                                <i className={`fa ${contact.FaIcon} fa-envelope-o text-4xl m-auto`}></i>
+                            </span>
+                            <div className="ml-8 my-2 col-star-2 grid grid-rows-3">
+                                <span className="uppercase font-semibold">{contact.Name}</span>
+                                <span className="text-gray-300 font-bold">
+                                {contact.Data}
+                                </span>
+                            </div>
+                        </div>
+                    ))
+                }
 
                 <p className="col-span-1 uppercase text-black dark:text-white font-semibold text-lg" >Social</p>
 
@@ -79,11 +58,7 @@ export default function ContactoPage() {
 
             </div>
 
-
-
-
-
-            <div className="xl:col-span-5 md:col-span-4 col-span-7 mx-4">
+            <div className="xl:col-span-5 md:col-span-4 col-span-7 mx-4 mt-5 md:mt-0">
                 <div className={`${TailwindComponents.Card} grid grid-cols-1 p-10 space-y-3 h-full`}>
 
                     <div className="text-4xl text-black dark:text-white font-bold col-span-1 w-full mb-6">

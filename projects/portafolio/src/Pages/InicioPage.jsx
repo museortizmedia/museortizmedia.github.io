@@ -4,7 +4,7 @@ import TagLine from '../Components/Cards/TagLine.jsx'
 import { CardContent, CardRowContent, CardColContent } from '../Components/Cards/CardContent.jsx'
 import {SocialButtonsCard2} from '../Components/SocialButtonsCard.jsx'
 
-import { ProfileData } from '../Data.js'
+import { GeneralData, ProfileData } from '../Data.js'
 import { ContenidoCTA, ContenidoCifras, ContenidoServicesLogos } from '../Components/Cards/Contenidos/Contenidos.jsx'
 
 export default function InicioPage({ ChangePage }) {
@@ -35,18 +35,18 @@ export default function InicioPage({ ChangePage }) {
                     OnCardClick={() => { ChangePage(4) }}
                 >
                     <CardColContent
-                        ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
+                        ImageSrc={GeneralData.PortadaCV}
                         SubTitle={'Más acerca de mi'}
-                        Title={'Credenciales'}
+                        Title={'Trayectoria'}
                     />
                 </Card>
 
                 <Card
-                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-start': 2, 'xl:row-end': 10, }}
+                    gridClasses={{ 'xl:col-span': 1, 'xl:col-start': 4, 'xl:row-start': 2, 'xl:row-end': 10, 'md:col-span': 2}}
                     OnCardClick={() => { ChangePage(2) }}
                 >
                     <CardColContent
-                        ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
+                        ImageSrc={GeneralData.PortadaPortafolio}
                         SubTitle={'Portafolio'}
                         Title={'Proyectos'}
                     />
@@ -60,9 +60,9 @@ export default function InicioPage({ ChangePage }) {
                 OnCardClick={() => { ChangePage(5) }}
                 >
                     <CardColContent
-                        ImageSrc='https://unity.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ffuvbjjlp%2Fproduction%2Fa8a7d413c81ac8a5cf104d3dab696a61010b8838-1920x1080.jpg&w=1920&q=75'
+                        ImageSrc={GeneralData.PortadaBlog}
                         SubTitle={'blog'}
-                        Title={'Unity POC'}
+                        Title={'Leer'}
                     />
                 </Card>
 
@@ -71,7 +71,6 @@ export default function InicioPage({ ChangePage }) {
                 OnCardClick={() => { ChangePage(6) }}
                 >
                     <CardContent
-                    cardClassNames={{'md:py': 5}}
                         Component={ContenidoServicesLogos}
                         SubTitle={'Especialización'}
                         Title={'Servicios Ofrecidos'}

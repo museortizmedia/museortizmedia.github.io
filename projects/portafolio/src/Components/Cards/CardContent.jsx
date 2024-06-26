@@ -5,7 +5,7 @@ const CardRowContent = ({ ImageSrc, ImageAlt, Altura, Title, SubTitle, Desc, But
 
     return (
         <>
-            <img className="w-full md:w-auto m-5 object-cover rounded-tl-[30px] rounded-br-[30px]" src={ImageSrc} alt={ImageAlt} height={Altura} />
+            <img className="w-1/2 md:w-auto m-5 object-cover rounded-tl-[30px] rounded-br-[30px]" src={ImageSrc} alt={ImageAlt} height={Altura} />
             <div className=" card-info relative flex-1 content-center text-left p-5">
                 <p className={`font-semibold text-zinc-700 dark:text-zinc-400 text-lg uppercase`}>{SubTitle}</p>
                 <p className='font-bold text-black dark:text-zinc-100 text-4xl mb-2'>{Title}</p>

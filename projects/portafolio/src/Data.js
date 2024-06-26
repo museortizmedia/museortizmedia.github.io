@@ -103,9 +103,10 @@ const PreLoad = (CB) => {
         SkillsData = AllData.SkillsData;
         CertificationsData = AllData.CertificationsData;
         SocialData = AllData.SocialData;
-        ProyectosData = AllData.ProyectosData; 
+        ProyectosData = AllData.ProyectosData;
         ServicesData = AllData.ServicesData;
         BlogData = AllData.BlogData;
+        ContactData = AllData.ContactData;
         IconPage = AllData.GeneralData.IconPage;
         ArrowIcon = AllData.GeneralData.ArrowIcon;
         console.log(AllData.GeneralData.Date);
@@ -133,6 +134,7 @@ const PreLoad = (CB) => {
           ProyectosData = AllData.ProyectosData;
           ServicesData = AllData.ServicesData;
           BlogData = AllData.BlogData;
+          ContactData = AllData.ContactData;
           IconPage = AllData.GeneralData.IconPage;
           ArrowIcon = AllData.GeneralData.ArrowIcon;
           // Guardar Data y Date
@@ -154,6 +156,7 @@ const PreLoad = (CB) => {
       ProyectosData = cachedData.ProyectosData;
       ServicesData = cachedData.ServicesData;
       BlogData = cachedData.BlogData;
+      ContactData = cachedData.ContactData;
       IconPage = cachedData.GeneralData.IconPage;
       ArrowIcon = cachedData.GeneralData.ArrowIcon;
       console.log("Cargada info del caché");
@@ -172,6 +175,9 @@ let GeneralData = {
   Cifra1: "[{name:'años de experiencia', dato:7, plus:true}]",
   Cifra2: "[{name:'años de experiencia', dato:7, plus:true}]",
   Cifra3: "[{name:'años de experiencia', dato:7, plus:true}]",
+  PortadaCV: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png",
+  PortadaPortafolio: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png",
+  PortadaBlog: "https://unity.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ffuvbjjlp%2Fproduction%2Fa8a7d413c81ac8a5cf104d3dab696a61010b8838-1920x1080.jpg&w=1920&q=75"
 };
 let PageData = [
   {
@@ -437,6 +443,31 @@ Surrounded to me occasional pianoforte alteration unaffected impossible ye. For 
     Tags: ["Developement", "SASS"]
   },
 ];
+let ContactData = [
+  {
+    FaIcon: 'fa-envelope-o',
+    Name: 'Mail info',
+    Data: `
+    info@mail.com
+    info@mail.com
+    `,
+  },
+  {
+    FaIcon: 'fa-phone',
+    Name: 'Phone info',
+    Data: `
+    info@mail.com
+    info@mail.com
+    `,
+  },
+  {
+    FaIcon: 'fa-map-marker',
+    Name: 'Location',
+    Data: `
+    Cali, Colombia
+    `,
+  },
+]
 let IconPage = "/react.svg";
 let ArrowIcon = "prompt_suggestion";
 //BD Recovery
@@ -454,6 +485,7 @@ export {
   SocialData,
   ProyectosData,
   BlogData,
+  ContactData,
   ServicesData,
 
   IconPage,

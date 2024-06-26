@@ -44,7 +44,7 @@ export default function Footer( {OnItemClick = null}) {
                     {/*<span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">CV - Diego Ortiz</span>*/}
                 </a>
 
-                <ul className="flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse">
+                <ul className="flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse text-center">
                     {
                         PageData.map(({ link, label }) => (
                             <li key={"page " + label}>

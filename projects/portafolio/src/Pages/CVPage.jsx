@@ -4,9 +4,9 @@ import TailwindComponents from "../TailwindComponents";
 export default function CVPage() {
 
     return (
-        <div className="flex flex-col md:flex-row space-y-24">
+        <div className="flex flex-col md:flex-row space-y-24 md:space-y-0">
 
-            <div className="md:w-[20.6vw] md:h-[70vh] relative md:fixed place-content-center text-center">
+            <div className="w-auto md:w-1/2 md:h-[70vh] relative md:sticky top-20 place-content-center text-center">
                 <div className={TailwindComponents.Card + " p-7 space-x-4"}>
                     <img className="m-5 h-[350px] w-[320px] mx-auto my-auto object-cover rounded-[30px]" src={ProfileData.ImageSrc} alt={ProfileData.Apodo} height={"20px"} />
                     <div>
@@ -29,8 +29,8 @@ export default function CVPage() {
                 </div>
             </div>
 
-
-            <div className="w-full md:w-[52vw] md:ml-[20.6vw] md:pl-20">
+{/* md:w-[52vw md:ml-[20.6vw md:pl-20 */}
+            <div className="w-full md:ml-20">
                 <section className="mb-5">
                     <header className="text-lg text-black dark:text-white uppercase font-semibold mb-10">Perfil</header>
                     <article>

@@ -9,11 +9,11 @@ export default function ServicesPage({ChangePage}) {
     return (
         <div className="grid grid-cols-9 gap-5">
 
-            <div className={`${TailwindComponents.bgCard} col-span-3 row-span-4 grid grid-cols-1 space-y-24 p-12 py-12 text-left`}>
+            <div className={`${TailwindComponents.bgCard} col-span-3 row-span-4 grid grid-cols-1 space-y-24 p-12 py-12`}>
                 {
                     ServicesData.map((Servicio, Index) => (
-                        <div key={Servicio.name + Index} className="flex place-items-center">
-                            <span className="material-symbols-outlined text-[30px] text-black dark:text-white" translate="no">{Servicio.label}</span>
+                        <div key={Servicio.name + Index} className="flex items-center mx-auto">
+                            <span className="material-symbols-outlined text-[3rem] text-black dark:text-white" translate="no">{Servicio.label}</span>
                             <span className="ml-7 uppercase font-semibold">{Servicio.name}</span>
                         </div>
                     ))

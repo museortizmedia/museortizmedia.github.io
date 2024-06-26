@@ -20,29 +20,28 @@ export const ContenidoCTA = () => {
 };
 
 export const ContenidoCifras = () => {
-    console.log(GeneralData.Cifra1)
     return <>
         <div className={`grid grid-cols-3 h-2/3 w-full space-x-3 place-content-center text-center px-5`}>
             <div className={`col-span-1 ${TailwindComponents.BotonBgCard} dark:to-[#252525]`}>
                 <div className='relative'>
-                    <strong className='text-4xl after:content'>07</strong>
-                    <div className={`hidden absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
+                    <strong className='text-4xl after:content'> {JSON.parse(GeneralData.Cifra1).dato} </strong>
+                    <div className={`${JSON.parse(GeneralData.Cifra1).plus||"hidden"} absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
                 </div>
-                <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>Year Experience</p>
+                <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>{JSON.parse(GeneralData.Cifra1).name}</p>
             </div>
             <div className={`col-span-1 py-10 ${TailwindComponents.BotonBgCard} dark:to-[#222222]`}>
                 <div className='relative'>
-                    <strong className='text-4xl after:content'>125</strong>
-                    <div className={`absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
+                    <strong className='text-4xl after:content'>{JSON.parse(GeneralData.Cifra2).dato}</strong>
+                    <div className={`${JSON.parse(GeneralData.Cifra2).plus||"hidden"} absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
                 </div>
-                <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>Usuarios Alcanzados</p>
+                <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>{JSON.parse(GeneralData.Cifra2).name}</p>
             </div>
             <div className={`col-span-1 py-10 ${TailwindComponents.BotonBgCard}`}>
                 <div className='relative'>
-                    <strong className='text-4xl after:content'>21</strong>
-                    <div className={`absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
+                    <strong className='text-4xl after:content'>{JSON.parse(GeneralData.Cifra3).dato}</strong>
+                    <div className={`${JSON.parse(GeneralData.Cifra3).plus||"hidden"} absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
                 </div>
-                <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>Proyectos realizados</p>
+                <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>{JSON.parse(GeneralData.Cifra3).name}</p>
             </div>
         </div>
     </>;
@@ -50,7 +49,7 @@ export const ContenidoCifras = () => {
 
 export const ContenidoServicesLogos = () => {
     return <>
-        <div className={`grid grid-cols-4 place-content-center h-2/3 w-full space-x-3`}>
+        <div className={`grid grid-cols-4 place-content-center h-2/3 w-full space-x-3 py-5`}>
             {ServicesData.map((Logo, Index) => (
                 <div key={Index} className={`col-span-1 rounded-full dark:text-white text-black text-center`}>
                     <span className="material-symbols-outlined text-5xl" translate="no">{Logo.label}</span>

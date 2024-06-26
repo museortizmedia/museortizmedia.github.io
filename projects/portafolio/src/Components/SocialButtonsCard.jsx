@@ -6,7 +6,7 @@ export function SocialButtonsCard2() {
 
     return (
         <>
-            <div className={`flex flex-row items-center h-2/3 w-full ${TailwindComponents.bgCard}`}>
+            <div className={`flex flex-row items-center h-2/3 w-full mb-5 ${TailwindComponents.bgCard}`}>
 
                 {
                     SocialData.slice(0, 2).map((Icon) => (
@@ -30,7 +30,7 @@ export function SocialButtonsCardAll() {
 
     return (
         <>
-            <div className={`flex flex-row items-center h-2/3 w-full ${TailwindComponents.bgCard}`}>
+            <div className={`flex flex-row items-center h-2/3 w-full mb-5 ${TailwindComponents.bgCard}`}>
 
                 {
                     SocialData.map((Icon) => (

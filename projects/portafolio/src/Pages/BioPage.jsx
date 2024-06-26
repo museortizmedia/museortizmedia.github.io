@@ -1,27 +1,14 @@
 import Card from '../Components/Cards/Card.jsx'
 import CardContainer from '../Components/Cards/CardContainer.jsx'
 import { CardContent, CardColContent } from '../Components/Cards/CardContent.jsx'
-import { SocialButtonsCard2, SocialButtonsCardAll } from '/src/Components/SocialButtonsCard.jsx?t=1718694515541';
+import { SocialButtonsCard2 } from '/src/Components/SocialButtonsCard.jsx?t=1718694515541';
 
+import { ContenidoCTA } from '../Components/Cards/Contenidos/Contenidos.jsx';
 
-import { ArrowIcon, EducationData, ExperienceData, ProfileData, fetchBookData } from '../Data.js'
-import TailwindComponents from '../TailwindComponents.js'
+import { EducationData, ExperienceData, GeneralData, ProfileData } from '../Data.js'
+
 
 export default function BioPage({ ChangePage }) {
-    const ProfileImage = () => (
-        <img className="m-5 h-3/4 object-cover rounded-tl-[30px] rounded-br-[30px]" src={ProfileData.ImageSrc} alt={ProfileData.Apodo} height={"20px"} />)
-
-    //fetchBookData("Data").then((e)=>{console.log(e)});
-
-    const CTA = () => {
-        return <>
-            <div className={`card-info grid grid-cols-4 place-content-end h-full w-full text-5xl font-extrabold text-left mb-10 m-5 cursor-pointer dark:text-white text-black`}>
-                <div className="font-bold col-span-4 row-span-2">Vamos</div>
-                <div className="font-bold col-span-4 row-span-2">a trabajar <span className={`font-bold ${TailwindComponents.TextPrincipal}`}>juntos</span></div>
-                <span className={`text-[40px] material-symbols-outlined col-span-1 col-start-4 text-right mr-5 ${TailwindComponents.BotonLogo}`} translate="no">{ArrowIcon}</span>
-            </div>
-        </>;
-    };
 
 
     return (
@@ -29,16 +16,11 @@ export default function BioPage({ ChangePage }) {
             <CardContainer xlCols={6} xtraClasses={{ 'bg-red': 500 }} hideHeigth >
                 <Card
                     gridClasses={{ 'xl:col-start': 1, 'xl:col-end': 3, 'xl:row-start': 1, 'xl:row-end': 4, 'col-span': 6 }}
-                    flexType='row'
                 >
-                    <CardContent
-                        Component={ProfileImage}
-                        HideAll
-                        cardClassNames={{ 'place-items': 'center' }}
-                    />
+                    <img className="m-5 h-3/4 object-cover object-top rounded-tl-[30px] rounded-br-[30px]" src={ProfileData.ImageSrc} alt={ProfileData.Apodo} height={"20px"} />
                 </Card>
 
-                <div className='col-span-6 xl:col-start-3 xl:col-end-7 xl:row-start-1 text-black dark:text-white text-5xl font-extrabold text-center uppercase'>
+                <div className='col-span-6 xl:col-start-3 xl:col-end-7 xl:row-start-1 text-black dark:text-white text-[2.5rem] font-extrabold text-center uppercase'>
                     <span className={`text-[40px] material-symbols-outlined select-none`} translate="no">airwave</span>
                     Resumen Personal
                     <span className={`text-[40px] material-symbols-outlined select-none`} translate="no">airwave</span>
@@ -84,12 +66,12 @@ export default function BioPage({ ChangePage }) {
                         <article className='py-3'>
                             <span className='text-zinc-500 py-5'>{EducationData[1].InitAge + " - " + EducationData[1].FinishAge}</span>
                             <p className='text-xl text-black dark:text-white'>{EducationData[1].Name}</p>
-                            <footer onClick={() => { window.open(ExperienceData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[1].Insitution}</footer>
+                            <footer onClick={() => { window.open(EducationData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[1].Insitution}</footer>
                         </article>
                         <article className='py-3'>
                             <span className='text-zinc-500 py-5'>{EducationData[0].InitAge + " - " + EducationData[0].FinishAge}</span>
                             <p className='text-xl text-black dark:text-white'>{EducationData[0].Name}</p>
-                            <footer onClick={() => { window.open(ExperienceData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[0].Insitution}</footer>
+                            <footer onClick={() => { window.open(EducationData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[0].Insitution}</footer>
                         </article>
                     </section>
                 </Card>
@@ -114,7 +96,7 @@ export default function BioPage({ ChangePage }) {
                 >
                     <CardContent
                         HideAll
-                        Component={CTA}
+                        Component={ContenidoCTA}
 
                     />
                 </Card>
@@ -124,7 +106,7 @@ export default function BioPage({ ChangePage }) {
                     OnCardClick={() => { ChangePage(4); }}
                 >
                     <CardColContent
-                        ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
+                        ImageSrc={GeneralData.PortadaCV}
                         SubTitle={'Más acerca de mi'}
                         Title={'Credenciales'}
                     />

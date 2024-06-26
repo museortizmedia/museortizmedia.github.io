@@ -25,7 +25,7 @@ export default function MenuBar({ OnItemClick = null, currentPage }) {
           {menuOpen?"X":"☰"}
         </button>
 
-        <nav className={`${menuOpen ? 'block' : 'hidden'} md:block absolute md:relative xl:top-0 md:top-0 sm:top-20 left-0 w-full md:w-auto text-center md:text-left bg-zinc-800 opacity-95 md:bg-transparent z-50`}>
+        <nav className={`${menuOpen ? 'block' : 'hidden'} md:block absolute md:relative xl:top-0 md:top-0 top-20 left-0 w-full md:w-auto text-center md:text-left bg-zinc-800 opacity-95 md:bg-transparent z-50`}>
           <ul className="flex flex-col p-4 md:p-0 md:flex-row md:space-x-8 rtl:space-x-reverse">
             
             {
