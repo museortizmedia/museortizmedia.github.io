@@ -47,12 +47,12 @@ export default function BioPage({ ChangePage }) {
                         <article className='py-3'>
                             <span className='text-zinc-500 py-5'>{ExperienceData[1].InitAge + " - " + ExperienceData[1].FinishAge}</span>
                             <p className='text-xl text-black dark:text-white'>{ExperienceData[1].Cargo}</p>
-                            <footer onClick={() => { window.open(ExperienceData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{ExperienceData[1].Insitution}</footer>
+                            <footer onClick={() => { window.open(ExperienceData[1].Link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{ExperienceData[1].Insitution}</footer>
                         </article>
                         <article className='py-3'>
                             <span className='text-zinc-500 py-5'>{ExperienceData[0].InitAge + " - " + ExperienceData[0].FinishAge}</span>
                             <p className='text-xl text-black dark:text-white'>{ExperienceData[0].Cargo}</p>
-                            <footer onClick={() => { window.open(ExperienceData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{ExperienceData[0].Insitution}</footer>
+                            <footer onClick={() => { window.open(ExperienceData[0].Link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{ExperienceData[0].Insitution}</footer>
                         </article>
                     </section>
                 </Card>
@@ -66,12 +66,12 @@ export default function BioPage({ ChangePage }) {
                         <article className='py-3'>
                             <span className='text-zinc-500 py-5'>{EducationData[1].InitAge + " - " + EducationData[1].FinishAge}</span>
                             <p className='text-xl text-black dark:text-white'>{EducationData[1].Name}</p>
-                            <footer onClick={() => { window.open(EducationData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[1].Insitution}</footer>
+                            <footer onClick={() => { window.open(EducationData[1].Link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[1].Insitution}</footer>
                         </article>
                         <article className='py-3'>
                             <span className='text-zinc-500 py-5'>{EducationData[0].InitAge + " - " + EducationData[0].FinishAge}</span>
                             <p className='text-xl text-black dark:text-white'>{EducationData[0].Name}</p>
-                            <footer onClick={() => { window.open(EducationData[1].link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[0].Insitution}</footer>
+                            <footer onClick={() => { window.open(EducationData[0].Link, '_blank', 'noopener,noreferrer'); }} className='text-zinc-500 hover:cursor-pointer hover:underline'>{EducationData[0].Insitution}</footer>
                         </article>
                     </section>
                 </Card>

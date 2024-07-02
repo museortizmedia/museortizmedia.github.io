@@ -3,6 +3,8 @@ import TailwindComponents from "../TailwindComponents";
 
 export default function CVPage() {
 
+
+
     return (
         <div className="flex flex-col md:flex-row space-y-24 md:space-y-0">
 
@@ -38,40 +40,48 @@ export default function CVPage() {
                     </article>
 
 
-                    <header className="text-lg text-black dark:text-white uppercase font-semibold mb-3">EXPERIENCIA</header>
+                    <header className="text-lg text-black dark:text-white uppercase font-semibold mb-6">EXPERIENCIA</header>
                     {
                         [...ExperienceData].reverse().map((experence, Index) => (
-                            <article key={Index}>
-                                <p className="text-zinc-600 font-bold text-normal">{experence.InitAge} - {experence.FinishAge}</p>
-                                <p className={`font-semibold text-lg ${TailwindComponents.TextPrincipal} py-2`}>{experence.Cargo}</p>
+                            <article key={Index} className="pb-10">
+                                <span className="text-zinc-600 font-bold text-normal">{experence.InitAge} - {experence.FinishAge}</span>
+                                <header
+                                className={`font-semibold text-lg ${TailwindComponents.TextPrincipal} py-2 cursor-pointer hover:font-black`}
+                                onClick={() => { window.open(experence.Link, '_blank', 'noopener,noreferrer'); }}>
+                                    {experence.Cargo}
+                                </header>
                                 <p className="text-zinc-600 text-sm">{experence.Insitution}</p>
 
-                                <p className="text-black dark:text-white pt-2">{experence.Desc}</p>
+                                <p className="text-black dark:text-white pt-2 whitespace-pre-wrap">{experence.Desc}</p>
                             </article>
                         ))
                     }
 
 
-                    <header className="text-lg text-black dark:text-white uppercase font-semibold mb-3 mt-28">Educación</header>
+                    <header className="text-lg text-black dark:text-white uppercase font-semibold mb-6 mt-28">Educación</header>
                     {
                         [...EducationData].reverse().map((education, Index) => (
-                            <article key={Index}>
-                                <p className="text-zinc-600 font-bold text-normal">{education.InitAge} - {education.FinishAge}</p>
-                                <p className={`font-semibold text-lg ${TailwindComponents.TextPrincipal} py-2`}>{education.Name}</p>
+                            <article key={Index} className="pb-10">
+                                <span className="text-zinc-600 font-bold text-normal">{education.InitAge} - {education.FinishAge}</span>
+                                <header
+                                className={`font-semibold text-lg ${TailwindComponents.TextPrincipal} py-2 cursor-pointer hover:font-black`}
+                                onClick={() => { window.open(education.Link, '_blank', 'noopener,noreferrer'); }}>
+                                    {education.Name}
+                                </header>
                                 <p className="text-zinc-600 text-sm">{education.Insitution}</p>
 
-                                <p className="text-black dark:text-white pt-2">{education.Desc}</p>
+                                <p className="text-black dark:text-white pt-2 whitespace-pre-wrap">{education.Desc}</p>
                             </article>
                         ))
                     }
 
 
                     <header className="text-lg text-black dark:text-white uppercase font-semibold mb-3 mt-28">Habilidades</header>
-                    <div className="columns-2">
+                    <div className="columns-2 space-y-5">
                         {
                             SkillsData.map((skill, Index) => (
-                                <div key={Index} className="col-span-1 my-2">
-                                    <span>{skill.Dominio}%</span>
+                                <div key={Index} className="col-span-1">
+                                    <span className="text-black dark:text-white font-bold">{skill.Dominio}%</span>
                                     <header className="text-black dark:text-white font-medium text-lg">{skill.Nombre}</header>
                                     <p className="text-normal">{skill.Desc}</p>
                                 </div>
@@ -83,9 +93,13 @@ export default function CVPage() {
                     <header className="text-lg text-black dark:text-white uppercase font-semibold mb-3 mt-28">Reconocimientos</header>
                     {
                         CertificationsData.map((diploma, Index) => (
-                            <div key={Index} className="col-span-1 my-2">
+                            <div key={Index} className="col-span-1 my-2 mb-5">
                                 <span>{diploma.Date}</span>
-                                <header className="text-black dark:text-white font-medium text-lg">{diploma.Nombre}</header>
+                                <header
+                                className="text-black dark:text-white font-medium text-lg cursor-pointer"
+                                onClick={() => { window.open(diploma.link, '_blank', 'noopener,noreferrer'); }}>
+                                    {diploma.Nombre}
+                                </header>
                                 <p className="text-normal">{diploma.Desc}</p>
                             </div>
                         ))

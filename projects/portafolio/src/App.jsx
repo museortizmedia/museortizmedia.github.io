@@ -57,7 +57,7 @@ function App() {
     setTimeout(() => {
       setCurrentPage(pageIndex);
 
-      const newUrl = `/details?page=${pages[pageIndex].label}${data!=null?'&data='+data:''}`;
+      const newUrl = `?page=${pages[pageIndex].label}${data!=null?'&data='+data:''}`;
       window.history.pushState(null, '', newUrl);
 
       // Confirmar si hay cambio de datos de la BD antes de actualizar la página

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import TailwindComponents from "../TailwindComponents";
-import { ContactData, SocialData } from '../Data';
+import { ContactData, GeneralData, SocialData, copyToClipboard } from '../Data';
 
 export default function ContactoPage() {
 
@@ -25,19 +25,22 @@ export default function ContactoPage() {
 
                 {
                     ContactData.map((contact) => (
-                        <div key={contact.FaIcon} className="col-span-1 grid grid-cols-2 mr-5 place-items-center">
-                            <span
-                                className={`mx-2 h-[80px] w-[80px] text-center rounded-[20px] ${TailwindComponents.bgCard} text-black dark:text-white`}
-                            >
+                        <div key={contact.FaIcon} className="col-span-1 grid grid-cols-2 mr-5 items-center">
+                            <span className={`mx-2 h-[80px] w-[80px] text-center rounded-[20px] ${TailwindComponents.bgCard} text-black dark:text-white`}>
                                 <i className={`fa ${contact.FaIcon} fa-envelope-o text-4xl m-auto`}></i>
                             </span>
-                            <div className="ml-8 my-2 col-star-2 grid grid-rows-3">
+                            <div className="ml-2 my-2 col-start-2 grid grid-rows-3 items-center">
                                 <span className="uppercase font-semibold">{contact.Name}</span>
-                                <span className="text-gray-300 font-bold">
-                                {contact.Data}
+                                <span
+                                    className="text-gray-300 font-bold cursor-pointer hover:font-black"
+                                    title='Copiar información'
+                                    onClick={() => copyToClipboard(contact.Data)}
+                                >
+                                    {contact.Data}
                                 </span>
                             </div>
                         </div>
+
                     ))
                 }
 
@@ -61,8 +64,8 @@ export default function ContactoPage() {
             <div className="xl:col-span-5 md:col-span-4 col-span-7 mx-4 mt-5 md:mt-0">
                 <div className={`${TailwindComponents.Card} grid grid-cols-1 p-10 space-y-3 h-full`}>
 
-                    <div className="text-4xl text-black dark:text-white font-bold col-span-1 w-full mb-6">
-                        Vamos a trabajar <span className={`font-bold ${TailwindComponents.TextPrincipal}`}>juntos</span>
+                    <div className="text-4xl text-black dark:text-white font-bold col-span-1 w-full my-6">
+                        {GeneralData.CallTo} <span className={`font-bold ${TailwindComponents.TextPrincipal}`}>{GeneralData.Action}</span>
                     </div>
 
                     <input

@@ -18,7 +18,7 @@ export function SocialButtonsCard2() {
                         </div>
 
                     ))
-
+                
                 }
 
             </div>

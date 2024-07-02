@@ -1,3 +1,5 @@
+let CurrentTitle = "";
+
 const API_URL = {
   "dev": "https://script.google.com/macros/s/AKfycbyn8JK5bWymcs4XzM10hnL2s_GthQ4OjP2rpGnRb53Z/dev",
   "prod": "https://script.google.com/macros/s/AKfycbxet14zJsaoyAPrtuJXHYfe6RQvNx8kjkOnv-MxTegy79xHaSlX-nWjMwXHyYfFwfWKMA/exec",
@@ -51,10 +53,6 @@ export const postBookData = async (sheetName, key, value) => {
   }
 };
 
-
-
-
-
 export const fetchBookAllData = async (callback) => {
   const url = `https://script.google.com/macros/s/AKfycbxet14zJsaoyAPrtuJXHYfe6RQvNx8kjkOnv-MxTegy79xHaSlX-nWjMwXHyYfFwfWKMA/exec`;
   try {
@@ -81,6 +79,16 @@ function TodayDateNumberFormat() {
   const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
   return Math.floor(diffInDays); // Redondear para obtener un valor entero
 }
+
+const copyToClipboard = async (text) => {
+  try {
+      await navigator.clipboard.writeText(text);
+      //alert('¡Se ha copiado '+text+' en el portapaleles!');
+  } catch (err) {
+      console.error('No se pudo copiar el texto: ', err);
+  }
+};
+
 
 //CACHEING
 const CACHE_KEY = 'ALLDATA_CACHE';
@@ -109,11 +117,11 @@ const PreLoad = (CB) => {
         ContactData = AllData.ContactData;
         IconPage = AllData.GeneralData.IconPage;
         ArrowIcon = AllData.GeneralData.ArrowIcon;
-        console.log(AllData.GeneralData.Date);
+        //console.log(AllData.GeneralData.Date);
         // Guardar Data y Date
         localStorage.setItem(CACHE_KEY, JSON.stringify(ALLDATA));
         localStorage.setItem(DATE_KEY, AllData.GeneralData.Date);
-        console.log("Cargado y cacheado");
+        //console.log("Cargado y cacheado");
         CB();
       });
   } else {
@@ -140,7 +148,7 @@ const PreLoad = (CB) => {
           // Guardar Data y Date
           localStorage.setItem(CACHE_KEY, JSON.stringify(ALLDATA));
           localStorage.setItem(DATE_KEY, AllData.GeneralData.Date);
-          console.log("Actualizado y cacheado");
+          //console.log("Actualizado y cacheado");
           CB();
         });
     } else {
@@ -159,7 +167,7 @@ const PreLoad = (CB) => {
       ContactData = cachedData.ContactData;
       IconPage = cachedData.GeneralData.IconPage;
       ArrowIcon = cachedData.GeneralData.ArrowIcon;
-      console.log("Cargada info del caché");
+      //console.log("Cargada info del caché");
       CB();
     }
   }
@@ -214,7 +222,7 @@ let EducationData = [
     FinishAge: "2018",
     Insitution: "Servicio Nacional de Aprendizaje SENA",
     Desc: "Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor rhoncus dolor purus non enim praesent in elementum sahas facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etisam dignissim diam quis enim lobortis viverra orci sagittis eu volutpat odio facilisis mauris sit.",
-    link: "",
+    Link: "",
   },
   {
     Name: "Ingeniería en Multimedia",
@@ -222,7 +230,7 @@ let EducationData = [
     FinishAge: "Actualidad",
     Insitution: "Universidad Autónoma de Occidente",
     Desc: "Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor rhoncus dolor purus non enim praesent in elementum sahas facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etisam dignissim diam quis enim lobortis viverra orci sagittis eu volutpat odio facilisis mauris sit.",
-    link: "",
+    Link: "",
   },
 ];
 let ExperienceData = [
@@ -232,7 +240,7 @@ let ExperienceData = [
     FinishAge: "Agosto 2022",
     Insitution: "OpenCode SAS",
     Desc: "Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor rhoncus dolor purus non enim praesent in elementum sahas facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etisam dignissim diam quis enim lobortis viverra orci sagittis eu volutpat odio facilisis mauris sit.",
-    link: "",
+    Link: "",
   },
   {
     Cargo: "Desarrollador Unity",
@@ -240,7 +248,7 @@ let ExperienceData = [
     FinishAge: "Actualidad",
     Insitution: "Corporación Talentum",
     Desc: "Sit amet luctussd fav venenatis, lectus magna fringilla inis urna, porttitor rhoncus dolor purus non enim praesent in elementum sahas facilisis leo, vel fringilla est ullamcorper eget nulla facilisi etisam dignissim diam quis enim lobortis viverra orci sagittis eu volutpat odio facilisis mauris sit.",
-    link: "",
+    Link: "",
   },
 ];
 let SkillsData = [
@@ -474,6 +482,7 @@ let ArrowIcon = "prompt_suggestion";
 
 export {
   PreLoad,
+  copyToClipboard,
 
   PageData,
   GeneralData,
