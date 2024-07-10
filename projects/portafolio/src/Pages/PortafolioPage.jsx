@@ -18,7 +18,7 @@ export default function PortafolioPage({ ChangePage }) {
                     <div
                         key={Index}
                         className={`${TailwindComponents.bgCard} p-5 col-span-3 md:col-span-1 md:row-span-2 cursor-pointer`}
-                        onClick={() => { ChangePage(7, Index) }}
+                        onClick={() => { ChangePage(7, ProyectosData.length-Index) }}
                     >
                         <div className="w-full h-2/3">
                             <img className="h-full w-full justify-center object-cover" src={Proyecto.CoverImage} alt={Proyecto.Subtitle} />
