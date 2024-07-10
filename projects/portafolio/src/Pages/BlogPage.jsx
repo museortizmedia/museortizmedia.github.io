@@ -1,32 +1,25 @@
+import { useEffect, useState } from "react";
+
 import { BlogData } from "../Data";
 import TailwindComponents from "../TailwindComponents";
 import MarkdownRenderer from "../Components/Cards/Contenidos/MarkdownRenderer";
 
 export default function BlogPage() {
-    const currentPage = BlogData[0];
-    const markdownText = `
-    # Título Principal
 
-    ## Subtítulo
+    const [blogPage, setBlogPage] = useState(0);
+    const [tags, setTags] = useState(null);
 
-    - Elemento no numerado
-    - Otro elemento no numerado
+    useEffect(() => {
+        try {
+            const tagsArray = JSON.parse(BlogData[blogPage].Tags);
+            setTags(tagsArray);
+        } catch (error) {
+            console.error('Hay un error con el arreglo de etiquetas de la base de datos:', error);
+        }
+    }, [blogPage]);
 
-    1. Elemento numerado
-    2. Otro elemento numerado
+    const currentPage = BlogData[blogPage];
 
-    \`\`\`javascript
-    console.log('Código de ejemplo');
-    \`\`\`
-
-    **Texto en negrita**
-
-    *Texto en cursiva*
-
-    ![Alt text](https://via.placeholder.com/150)
-
-    [Enlace a Google](https://www.google.com)
-    `;
     return (
         <>
             <span className='text-sm px-5 uppercase font-semibold'>{currentPage.Subtitle}</span>
@@ -41,23 +34,20 @@ export default function BlogPage() {
                 <span className={`text-[40px] material-symbols-outlined select-none`} translate="no">airwave</span>
             </div>
 
-            <div className="grid grid-flow-col grid-cols-3 space-y-3">
-                <section className="col-span-2 p-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                
+                <section className="col-span-1 md:col-span-2 p-5">
                     <img className="w-full my-3 object-center object-cover" src={currentPage.Image} alt={currentPage.Subtitle} />
                     <span className={`text-md ${TailwindComponents.TextPrincipal}`}>
                         {currentPage.Date + " - " + (currentPage.Category == "" ? "Uncategorized" : currentPage.Category)}
                     </span>
 
-                    <MarkdownRenderer markdownText={markdownText} />
-                    
-                    <p className="text-zinc-900 dark:text-zinc-400 whitespace-pre-wrap">
-                        {currentPage.Info}
-                    </p>
+                    <article className="text-zinc-900 dark:text-zinc-400 whitespace-pre-wrap">
+                        <MarkdownRenderer markdownText={currentPage.Info} />
+                    </article>
                 </section>
 
-{/*
-
-                <section className="col-span-1 p-5 space-y-6">
+                <section className="col-span-1 md:col-span-1 p-5 md:col-start-3 md:row-start-1 space-y-6">
                     <div className={`${TailwindComponents.bgCard} w-full`}>
                         <div className="mb-2 ml-3 text-2xl text-zinc-900 dark:text-zinc-500">Search</div>
                         <div className="relative flex items-center space-x-2 w-full">
@@ -86,18 +76,20 @@ export default function BlogPage() {
                         //
                     </div>
 
-                    <div className={`${TailwindComponents.bgCard} w-full`}>
-                        <div className="mb-4 text-2xl text-zinc-900 dark:text-zinc-500">Categorías</div>
-                        <div className="mx-5 my-2 grid space-y-5 text-center text-zinc-500 dark:text-zinc-100">
-                            {
-                                JSON.parse(currentPage.Tags).map((tag, index) => (
-                                    <span key={index} className="bg-zinc-300 text-zinc-500 dark:bg-zinc-600 dark:text-white rounded-lg px-2 py-3">{tag}</span>
-                                ))
-                            }
+                    {tags && (
+                        <div className={`${TailwindComponents.bgCard} w-full`}>
+                            <div className="mb-4 text-2xl text-zinc-900 dark:text-zinc-500">Categorías</div>
+                            <div className="mx-5 my-2 grid space-y-5 text-center text-zinc-500 dark:text-zinc-100">
+                                {
+                                    JSON.parse(currentPage.Tags).map((tag, index) => (
+                                        <span key={index} className="bg-zinc-300 text-zinc-500 dark:bg-zinc-600 dark:text-white rounded-lg px-2 py-3">{tag}</span>
+                                    ))
+                                }
+                            </div>
                         </div>
-                    </div>
+                    )}
 
-                </section>*/}
+                </section>
             </div>
         </>
     )
