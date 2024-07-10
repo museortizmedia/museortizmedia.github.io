@@ -56,24 +56,17 @@ export default function BlogPage() {
                         </div>
                     </div>
 
-                    <div className={`${TailwindComponents.bgCard} w-full p-5`}>
-                        <div className="mb-2 text-2xl text-zinc-900 dark:text-zinc-500">Recientes</div>
-                        <div className="grid grid-flow-row space-y-6 text-zinc-500 dark:text-zinc-100">
-                            {
+                    <div className={`${TailwindComponents.bgCard} w-full`}>
+                        <div className="mb-2 text-2xl text-zinc-900 dark:text-zinc-500">Archivo</div>
+                        {
                                 [...BlogData].reverse().map((Post, Index) => (
                                     <div key={`${Index}-${Post.Title}`}>
-                                        <a href={"#"} className="lowercase">{Post.Title}</a>
+                                        {}
+                                        <a href={Index==blogPage?"#":"#"}>{Post.Title}</a>
                                         <hr />
                                     </div>
                                 ))
                             }
-                        </div>
-
-                    </div>
-
-                    <div className={`${TailwindComponents.bgCard} w-full`}>
-                        <div className="mb-2 text-2xl text-zinc-900 dark:text-zinc-500">Archivo</div>
-                        //
                     </div>
 
                     {tags && (

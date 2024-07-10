@@ -55,15 +55,15 @@ const TailwindComponents = {
   BgPrincipal: 'bg-rose-700',
   MarkDownStyle: {
     Code: 'bg-gray-100 rounded-md overflow-x-auto',
-    H1: 'text-4xl font-bold mb-4',
-    H2: 'text-3xl font-semibold mb-3',
+    H1: 'text-4xl font-bold text-zinc-700 dark:text-zinc-400 mb-4',
+    H2: 'text-3xl font-semibold text-zinc-700 dark:text-zinc-400 mb-3',
     ListDisc: 'list-disc ml-5 mb-1',
     ListDecimal: 'list-decimal ml-5 mb-1',
     Strong: 'font-bold',
     Em: 'italic',
     Img: 'max-w-full h-auto mb-4',
-    A: 'text-blue-500 underline',
-    P: 'mb-4'
+    A: 'text-rose-700 underline',
+    P: 'mb-4 text-zinc-700 dark:text-zinc-400'
   }
 };
 
