@@ -46,8 +46,13 @@ function App() {
     // Precarga los datos de la BD para dar inicio a la web
     PreLoad(() => {
       SetLoading(false);
+
     });
   }, []);
+
+  useEffect(() => {
+    MoverScrollArriba();
+  }, [currentPage]);
   
 
   // FUNCTIONS
@@ -67,6 +72,14 @@ function App() {
 
     }, 1000);
   };
+
+  const MoverScrollArriba = () => {
+    // Mueve el scroll arriba
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // opcional: puedes usar "auto" si no quieres la animación
+    });
+}
 
 
   return (

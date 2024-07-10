@@ -33,11 +33,7 @@ export default function ProyectPage() {
         // Establece el nuevo indice del proyecto
         const currentNumPage = 1 + +numPage >= ProyectosData.length - 1 ? ProyectosData.length - 1 : 1 + +numPage;
 
-        // Mueve el scroll arriba
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth" // opcional: puedes usar "auto" si no quieres la animación
-        });
+        MoverScrollArriba();
 
         // Espera que termine el scroll y cambia los valores
         setTimeout(() => {
@@ -48,8 +44,18 @@ export default function ProyectPage() {
             const params = new URLSearchParams(window.location.search);
             params.set('data', currentNumPage);
             window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
-        }, 300);
+        }, 300)
     }
+
+    const MoverScrollArriba = () => {
+        // Mueve el scroll arriba
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth" // opcional: puedes usar "auto" si no quieres la animación
+        });
+    }
+
+    //MoverScrollArriba();
 
     return (
         <>

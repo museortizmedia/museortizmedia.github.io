@@ -35,9 +35,9 @@ export default function InicioPage({ ChangePage }) {
                     OnCardClick={() => { ChangePage(4) }}
                 >
                     <CardColContent
-                        ImageSrc={GeneralData.PortadaCV}
-                        SubTitle={'Más acerca de mi'}
-                        Title={'Trayectoria'}
+                        ImageSrc={GeneralData.Card_CV.ImgSrc}
+                        SubTitle={GeneralData.Card_CV.Subtitulo}
+                        Title={GeneralData.Card_CV.Titulo}
                     />
                 </Card>
 
@@ -46,9 +46,9 @@ export default function InicioPage({ ChangePage }) {
                     OnCardClick={() => { ChangePage(2) }}
                 >
                     <CardColContent
-                        ImageSrc={GeneralData.PortadaPortafolio}
-                        SubTitle={'Portafolio'}
-                        Title={'Proyectos'}
+                        ImageSrc={GeneralData.Card_Portafolio.ImgSrc}
+                        SubTitle={GeneralData.Card_Portafolio.Subtitulo}
+                        Title={GeneralData.Card_Portafolio.Titulo}
                     />
                 </Card>
             </CardContainer>
@@ -60,9 +60,9 @@ export default function InicioPage({ ChangePage }) {
                 OnCardClick={() => { ChangePage(5) }}
                 >
                     <CardColContent
-                        ImageSrc={GeneralData.PortadaBlog}
-                        SubTitle={'blog'}
-                        Title={'Leer'}
+                        ImageSrc={GeneralData.Card_Blog.ImgSrc}
+                        SubTitle={GeneralData.Card_Blog.Subtitulo}
+                        Title={GeneralData.Card_Blog.Titulo}
                     />
                 </Card>
 
@@ -72,8 +72,8 @@ export default function InicioPage({ ChangePage }) {
                 >
                     <CardContent
                         Component={ContenidoServicesLogos}
-                        SubTitle={'Especialización'}
-                        Title={'Servicios Ofrecidos'}
+                        SubTitle={GeneralData.Card_Serivicos.Subtitulo}
+                        Title={GeneralData.Card_Serivicos.Titulo}
                     />
                 </Card>
 
@@ -83,8 +83,8 @@ export default function InicioPage({ ChangePage }) {
                 >
                     <CardContent
                         Component={SocialButtonsCard2}
-                        SubTitle={'Contacta conmigo'}
-                        Title={'Redes Sociales'}
+                        SubTitle={GeneralData.Card_SocialMedia.Subtitulo}
+                        Title={GeneralData.Card_SocialMedia.Titulo}
                     />
                 </Card>
             </CardContainer>

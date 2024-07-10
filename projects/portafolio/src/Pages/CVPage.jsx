@@ -3,8 +3,6 @@ import TailwindComponents from "../TailwindComponents";
 
 export default function CVPage() {
 
-
-
     return (
         <div className="flex flex-col md:flex-row space-y-24 md:space-y-0">
 

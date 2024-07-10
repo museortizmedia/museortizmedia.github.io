@@ -104,6 +104,16 @@ const PreLoad = (CB) => {
       (AllData) => {
         ALLDATA = AllData;
         GeneralData = AllData.GeneralData;
+        // Metrics
+        GeneralData.Metrics = JSON.parse(GeneralData.Metrics);
+        // Metrics
+        // Cards
+        GeneralData.Card_CV = JSON.parse(GeneralData.Card_CV);
+        GeneralData.Card_Portafolio = JSON.parse(GeneralData.Card_Portafolio);
+        GeneralData.Card_Blog = JSON.parse(GeneralData.Card_Blog);
+        GeneralData.Card_Serivicos = JSON.parse(GeneralData.Card_Serivicos);
+        GeneralData.Card_SocialMedia = JSON.parse(GeneralData.Card_SocialMedia);
+        // Cards
         PageData = AllData.PageData;
         ProfileData = AllData.ProfileData;
         EducationData = AllData.EducationData;
@@ -122,6 +132,7 @@ const PreLoad = (CB) => {
         localStorage.setItem(CACHE_KEY, JSON.stringify(ALLDATA));
         localStorage.setItem(DATE_KEY, AllData.GeneralData.Date);
         //console.log("Cargado y cacheado");
+        console.log(AllData);
         CB();
       });
   } else {
@@ -177,15 +188,37 @@ const PreLoad = (CB) => {
 let ALLDATA = null;
 let GeneralData = {
   Users: "1",
+
   Tagline: "Disponible para prestación de servicios.",
+
   CallTo: "Vamos a trabajar",
   Action: " juntos.",
-  Cifra1: "[{name:'años de experiencia', dato:7, plus:true}]",
-  Cifra2: "[{name:'años de experiencia', dato:7, plus:true}]",
-  Cifra3: "[{name:'años de experiencia', dato:7, plus:true}]",
-  PortadaCV: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png",
-  PortadaPortafolio: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png",
-  PortadaBlog: "https://unity.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ffuvbjjlp%2Fproduction%2Fa8a7d413c81ac8a5cf104d3dab696a61010b8838-1920x1080.jpg&w=1920&q=75"
+
+  Metrics: "[{name:'años de experiencia', dato:7, plus:true},{name:'años de experiencia', dato:7, plus:true},{name:'años de experiencia', dato:7, plus:true}]",
+
+  Card_CV: {
+    Subtitulo: "Más acerca de mi",
+    Titulo: "Trayectoria",
+    ImgSrc: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png"
+  },
+  Card_Portafolio: {
+    Subtitulo: "Portafolio",
+    Titulo: "Proyectos",
+    ImgSrc: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png"
+  },  
+  Card_Blog: {
+    Subtitulo: "Blog",
+    Titulo: "Leer",
+    ImgSrc: "https://unity.com/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Ffuvbjjlp%2Fproduction%2Fa8a7d413c81ac8a5cf104d3dab696a61010b8838-1920x1080.jpg&w=1920&q=75"
+  },
+  Card_Serivicos: {
+    Subtitulo: "Especialización",
+    Titulo: "Servicios Ofrecidos",
+  },
+  Card_SocialMedia: {
+    Subtitulo: "Contacta conmigo",
+    Titulo: "Redes sociales",
+  },
 };
 let PageData = [
   {
@@ -479,6 +512,12 @@ let ContactData = [
 let IconPage = "/react.svg";
 let ArrowIcon = "prompt_suggestion";
 //BD Recovery
+
+  /*Metrics:[
+    {name:"años de experiencia", dato:"7", "plus":false},
+    {name:"años de experiencia", dato:"7", "plus":false},
+    {name:"años de experiencia", dato:"7", "plus":false}
+  ]*/
 
 export {
   PreLoad,

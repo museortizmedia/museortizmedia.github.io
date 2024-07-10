@@ -2,7 +2,7 @@ import Card from "../Components/Cards/Card";
 import { CardColContent, CardContent } from "../Components/Cards/CardContent";
 import { ContenidoCTA } from "../Components/Cards/Contenidos/Contenidos";
 import { SocialButtonsCard2 } from "../Components/SocialButtonsCard";
-import { ServicesData } from "../Data";
+import { GeneralData, ServicesData } from "../Data";
 import TailwindComponents from "../TailwindComponents";
 
 export default function ServicesPage({ ChangePage }) {
@@ -43,9 +43,8 @@ export default function ServicesPage({ ChangePage }) {
                 >
                     <CardContent
                         Component={SocialButtonsCard2}
-                        SubTitle={'Contacta conmigo'}
-                        Title={'Redes Sociales'}
-                        OnButtonClick={() => { }}
+                        SubTitle={GeneralData.Card_SocialMedia.Subtitulo}
+                        Title={GeneralData.Card_SocialMedia.Titulo}
                     />
                 </Card>
             </div>
@@ -66,9 +65,9 @@ export default function ServicesPage({ ChangePage }) {
                     OnCardClick={() => { ChangePage(4); }}
                 >
                     <CardColContent
-                        ImageSrc='https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png'
-                        SubTitle={'Más acerca de mi'}
-                        Title={'Credenciales'}
+                        ImageSrc={GeneralData.Card_CV.ImgSrc}
+                        SubTitle={GeneralData.Card_CV.Subtitulo}
+                        Title={GeneralData.Card_CV.Titulo}
                     />
                 </Card>
             </div>

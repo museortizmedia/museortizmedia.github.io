@@ -1,8 +1,32 @@
 import { BlogData } from "../Data";
 import TailwindComponents from "../TailwindComponents";
+import MarkdownRenderer from "../Components/Cards/Contenidos/MarkdownRenderer";
 
 export default function BlogPage() {
     const currentPage = BlogData[0];
+    const markdownText = `
+    # Título Principal
+
+    ## Subtítulo
+
+    - Elemento no numerado
+    - Otro elemento no numerado
+
+    1. Elemento numerado
+    2. Otro elemento numerado
+
+    \`\`\`javascript
+    console.log('Código de ejemplo');
+    \`\`\`
+
+    **Texto en negrita**
+
+    *Texto en cursiva*
+
+    ![Alt text](https://via.placeholder.com/150)
+
+    [Enlace a Google](https://www.google.com)
+    `;
     return (
         <>
             <span className='text-sm px-5 uppercase font-semibold'>{currentPage.Subtitle}</span>
@@ -23,10 +47,15 @@ export default function BlogPage() {
                     <span className={`text-md ${TailwindComponents.TextPrincipal}`}>
                         {currentPage.Date + " - " + (currentPage.Category == "" ? "Uncategorized" : currentPage.Category)}
                     </span>
-                    <p className="text-zinc-900 dark:text-zinc-400 whitespace-pre-wrap">{currentPage.Info}</p>
+
+                    <MarkdownRenderer markdownText={markdownText} />
+                    
+                    <p className="text-zinc-900 dark:text-zinc-400 whitespace-pre-wrap">
+                        {currentPage.Info}
+                    </p>
                 </section>
 
-
+{/*
 
                 <section className="col-span-1 p-5 space-y-6">
                     <div className={`${TailwindComponents.bgCard} w-full`}>
@@ -68,7 +97,7 @@ export default function BlogPage() {
                         </div>
                     </div>
 
-                </section>
+                </section>*/}
             </div>
         </>
     )

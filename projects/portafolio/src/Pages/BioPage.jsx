@@ -84,8 +84,8 @@ export default function BioPage({ ChangePage }) {
                 >
                     <CardContent
                         Component={SocialButtonsCard2}
-                        SubTitle={'Contacta conmigo'}
-                        Title={'Redes Sociales'}
+                        SubTitle={GeneralData.Card_SocialMedia.Subtitulo}
+                        Title={GeneralData.Card_SocialMedia.Titulo}
                         OnButtonClick={() => { }}
                     />
                 </Card>
@@ -106,9 +106,9 @@ export default function BioPage({ ChangePage }) {
                     OnCardClick={() => { ChangePage(4); }}
                 >
                     <CardColContent
-                        ImageSrc={GeneralData.PortadaCV}
-                        SubTitle={'Más acerca de mi'}
-                        Title={'Credenciales'}
+                        ImageSrc={GeneralData.Card_CV.ImgSrc}
+                        SubTitle={GeneralData.Card_CV.Subtitulo}
+                        Title={GeneralData.Card_CV.Titulo}
                     />
                 </Card>
             </CardContainer>

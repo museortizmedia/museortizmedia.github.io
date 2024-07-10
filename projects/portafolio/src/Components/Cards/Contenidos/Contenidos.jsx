@@ -22,27 +22,16 @@ export const ContenidoCTA = () => {
 export const ContenidoCifras = () => {
     return <>
         <div className={`grid grid-cols-3 h-2/3 w-full space-x-3 place-content-center text-center px-5`}>
-            <div className={`col-span-1 ${TailwindComponents.BotonBgCard} dark:to-[#252525]`}>
-                <div className='relative'>
-                    <strong className='text-4xl after:content'> {JSON.parse(GeneralData.Cifra1).dato} </strong>
-                    <div className={`${JSON.parse(GeneralData.Cifra1).plus||"hidden"} absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
+
+            {GeneralData.Metrics.map((Cifra, Index) => (
+                <div key={"Cifra_" + Index} className={`col-span-1 ${TailwindComponents.BotonBgCard} dark:to-[#252525]`}>
+                    <div className='relative'>
+                        <strong className='text-4xl after:content'> {Cifra.dato} </strong>
+                        <div className={`${Cifra.plus || "hidden"} absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
+                    </div>
+                    <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>{Cifra.name}</p>
                 </div>
-                <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>{JSON.parse(GeneralData.Cifra1).name}</p>
-            </div>
-            <div className={`col-span-1 py-10 ${TailwindComponents.BotonBgCard} dark:to-[#222222]`}>
-                <div className='relative'>
-                    <strong className='text-4xl after:content'>{JSON.parse(GeneralData.Cifra2).dato}</strong>
-                    <div className={`${JSON.parse(GeneralData.Cifra2).plus||"hidden"} absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
-                </div>
-                <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>{JSON.parse(GeneralData.Cifra2).name}</p>
-            </div>
-            <div className={`col-span-1 py-10 ${TailwindComponents.BotonBgCard}`}>
-                <div className='relative'>
-                    <strong className='text-4xl after:content'>{JSON.parse(GeneralData.Cifra3).dato}</strong>
-                    <div className={`${JSON.parse(GeneralData.Cifra3).plus||"hidden"} absolute top-[20%] right-[75%] w-4 h-4`}>+</div>
-                </div>
-                <p className='text-zinc-400 font-normal flex-wrap uppercase text-[0.8vw] pt-2'>{JSON.parse(GeneralData.Cifra3).name}</p>
-            </div>
+            ))}
         </div>
     </>;
 };
