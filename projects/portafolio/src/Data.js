@@ -82,10 +82,10 @@ function TodayDateNumberFormat() {
 
 const copyToClipboard = async (text) => {
   try {
-      await navigator.clipboard.writeText(text);
-      //alert('¡Se ha copiado '+text+' en el portapaleles!');
+    await navigator.clipboard.writeText(text);
+    //alert('¡Se ha copiado '+text+' en el portapaleles!');
   } catch (err) {
-      console.error('No se pudo copiar el texto: ', err);
+    console.error('No se pudo copiar el texto: ', err);
   }
 };
 
@@ -136,6 +136,7 @@ const PreLoad = (CB) => {
         CB();
       });
   } else {
+
     //Verificar si hay un cambio en la fecha del caché y la de hoy
     if (TodayDateNumberFormat() != cachedDate) {
       // Actualizar Datos
@@ -143,6 +144,16 @@ const PreLoad = (CB) => {
         (AllData) => {
           ALLDATA = AllData;
           GeneralData = AllData.GeneralData;
+          // Metrics
+          GeneralData.Metrics = JSON.parse(GeneralData.Metrics);
+          // Metrics
+          // Cards
+          GeneralData.Card_CV = JSON.parse(GeneralData.Card_CV);
+          GeneralData.Card_Portafolio = JSON.parse(GeneralData.Card_Portafolio);
+          GeneralData.Card_Blog = JSON.parse(GeneralData.Card_Blog);
+          GeneralData.Card_Serivicos = JSON.parse(GeneralData.Card_Serivicos);
+          GeneralData.Card_SocialMedia = JSON.parse(GeneralData.Card_SocialMedia);
+          // Cards
           PageData = AllData.PageData;
           ProfileData = AllData.ProfileData;
           EducationData = AllData.EducationData;
@@ -194,7 +205,7 @@ let GeneralData = {
   CallTo: "Vamos a trabajar",
   Action: " juntos.",
 
-  Metrics: "[{name:'años de experiencia', dato:7, plus:true},{name:'años de experiencia', dato:7, plus:true},{name:'años de experiencia', dato:7, plus:true}]",
+  Metrics: [{ name: 'años de experiencia', dato: 7, plus: true }, { name: 'años de experiencia', dato: 7, plus: true }, { name: 'años de experiencia', dato: 7, plus: true }],
 
   Card_CV: {
     Subtitulo: "Más acerca de mi",
@@ -205,7 +216,7 @@ let GeneralData = {
     Subtitulo: "Portafolio",
     Titulo: "Proyectos",
     ImgSrc: "https://wpriverthemes.com/gridx/wp-content/uploads/2023/04/my-works.png"
-  },  
+  },
   Card_Blog: {
     Subtitulo: "Blog",
     Titulo: "Leer",
@@ -513,11 +524,11 @@ let IconPage = "/react.svg";
 let ArrowIcon = "prompt_suggestion";
 //BD Recovery
 
-  /*Metrics:[
-    {name:"años de experiencia", dato:"7", "plus":false},
-    {name:"años de experiencia", dato:"7", "plus":false},
-    {name:"años de experiencia", dato:"7", "plus":false}
-  ]*/
+/*Metrics:[
+  {name:"años de experiencia", dato:"7", "plus":false},
+  {name:"años de experiencia", dato:"7", "plus":false},
+  {name:"años de experiencia", dato:"7", "plus":false}
+]*/
 
 export {
   PreLoad,

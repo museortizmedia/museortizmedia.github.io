@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import TailwindComponents from "../TailwindComponents";
 import { ContactData, GeneralData, SocialData, copyToClipboard } from '../Data';
 
@@ -16,6 +16,11 @@ export default function ContactoPage() {
         const { id, value } = e.target;
         setFormData({ ...formData, [id]: value });
     };
+
+    useEffect(()=>{
+        console.log(JSON.stringify(formData))
+    },
+    [formData])
 
     return (
         <div className="grid grid-cols-7 gap-5">

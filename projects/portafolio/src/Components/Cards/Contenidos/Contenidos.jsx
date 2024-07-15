@@ -22,7 +22,6 @@ export const ContenidoCTA = () => {
 export const ContenidoCifras = () => {
     return <>
         <div className={`grid grid-cols-3 h-2/3 w-full space-x-3 place-content-center text-center px-5`}>
-
             {GeneralData.Metrics.map((Cifra, Index) => (
                 <div key={"Cifra_" + Index} className={`col-span-1 ${TailwindComponents.BotonBgCard} dark:to-[#252525]`}>
                     <div className='relative'>

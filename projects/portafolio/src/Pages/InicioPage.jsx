@@ -78,7 +78,7 @@ export default function InicioPage({ ChangePage }) {
                 </Card>
 
                 <Card
-                gridClasses={{ 'md:col-span': 2, 'xl:col-span': 1, 'md:col-span': 4  }}
+                gridClasses={{ 'xl:col-span': 1, 'md:col-span': 4  }}
                 OnCardClick={() => { ChangePage(3) }}
                 >
                     <CardContent

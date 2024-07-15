@@ -4,7 +4,7 @@ import TailwindComponents from "../TailwindComponents"
 
 export default function Footer( {OnItemClick = null}) {
 
-    const [hide, SetHide] = useState("");
+    const [hide, SetHide] = useState("hidden");
     const [personaCount, SetPersonaCount] = useState(0);
     const HandlePersonas = (e) => {
         e.preventDefault();
