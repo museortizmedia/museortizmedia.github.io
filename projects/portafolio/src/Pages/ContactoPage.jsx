@@ -26,7 +26,7 @@ export default function ContactoPage() {
         <div className="grid grid-cols-7 gap-5">
 
             <div className="xl:col-span-2 md:col-span-3 col-span-7 space-y-10">
-                <p className="col-span-1 uppercase text-black dark:text-white font-semibold text-lg " >contacto</p>
+                <p className="col-span-1 uppercase text-black dark:text-white font-semibold text-lg" >Contact</p>
 
                 {
                     ContactData.map((contact) => (
@@ -77,33 +77,33 @@ export default function ContactoPage() {
                         type="text"
                         id="name"
                         className={TailwindComponents.Input}
-                        placeholder="Nombre *"
+                        placeholder="Your name *"
                     />
 
                     <input
                         type="email"
                         id="email"
                         className={TailwindComponents.Input}
-                        placeholder="Email *"
+                        placeholder="Your email *"
                     />
                     <input
                         type="text"
                         id="asunto"
                         className={TailwindComponents.Input}
-                        placeholder="Tu Asunto *"
+                        placeholder="Subject *"
                     />
                     <textarea
                         type="text"
                         id="mensaje"
                         className={`${TailwindComponents.Input} h-56`}
-                        placeholder="Tu mensaje *"
+                        placeholder="Message *"
                     />
                     <button
                         type="submit"
                         className={`${TailwindComponents.Boton} py-4`}
                         onClick={handleSubmit}
                     >
-                        Enviar
+                        Send
                     </button>
 
                 </div>

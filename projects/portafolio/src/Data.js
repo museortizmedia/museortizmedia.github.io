@@ -1,12 +1,13 @@
-let CurrentTitle = "";
-
 const API_URL = {
-  "dev": "https://script.google.com/macros/s/AKfycbyn8JK5bWymcs4XzM10hnL2s_GthQ4OjP2rpGnRb53Z/dev",
-  "prod": "https://script.google.com/macros/s/AKfycbxet14zJsaoyAPrtuJXHYfe6RQvNx8kjkOnv-MxTegy79xHaSlX-nWjMwXHyYfFwfWKMA/exec",
+  "ES": "https://script.google.com/macros/s/AKfycbxet14zJsaoyAPrtuJXHYfe6RQvNx8kjkOnv-MxTegy79xHaSlX-nWjMwXHyYfFwfWKMA/exec",
+  "EN": "https://script.google.com/macros/s/AKfycbzlFuDO-WTpUZ7OrKk3uHvi-Jkriy2RdQE_xBYFiPzHxAb7-eflFGW0xYtczaePhy2W8Q/exec"
 }
-
-const API_version = "prod";
 const endpoint = "?sheetName=";
+let API_version = "ES";
+
+const setLanguage = async (language) => {
+  API_version = API_version == "ES" ? "EN" : "ES";
+};
 
 //Funcion Fetch para cualquier uso
 export const fetchBookData = async (bookName) => {
@@ -54,7 +55,7 @@ export const postBookData = async (sheetName, key, value) => {
 };
 
 export const fetchBookAllData = async (callback) => {
-  const url = `https://script.google.com/macros/s/AKfycbxet14zJsaoyAPrtuJXHYfe6RQvNx8kjkOnv-MxTegy79xHaSlX-nWjMwXHyYfFwfWKMA/exec`;
+  const url = API_URL[API_version];
   try {
     const response = await fetch(url, {
       redirect: "follow",
@@ -94,11 +95,47 @@ const copyToClipboard = async (text) => {
 const CACHE_KEY = 'ALLDATA_CACHE';
 const DATE_KEY = 'TOKEN_DATE';
 
-const PreLoad = (CB) => {
-  const cachedData = JSON.parse(localStorage.getItem(CACHE_KEY));
+const PreLoad = (CB, setLenguage = null) => {
+  console.log("Tratando de cambiar a "+setLenguage+" de "+API_version+" | "+(setLenguage==API_version.toString()));
+
+  if(setLenguage==API_version.toString())
+    { 
+      console.log("No se actualiza el lenguaje porque la web ya está en ese idioma");
+      CB();
+      return;
+    }
+
+  if (setLenguage != null) { API_version = setLenguage; }
+
+  const cacheDataKey = CACHE_KEY + "-" + API_version;
+  const cachedData = JSON.parse(localStorage.getItem(cacheDataKey));
   const cachedDate = localStorage.getItem(DATE_KEY);
 
-  if (cachedDate == null || cachedData == null) {
+  // Si hay un cambio de idioma y está el lenguaje en caché
+  if (setLenguage != null && cachedData!=null) {
+    GeneralData = cachedData.GeneralData;
+    PageData = cachedData.PageData;
+    ProfileData = cachedData.ProfileData;
+    EducationData = cachedData.EducationData;
+    ExperienceData = cachedData.ExperienceData;
+    SkillsData = cachedData.SkillsData;
+    CertificationsData = cachedData.CertificationsData;
+    SocialData = cachedData.SocialData;
+    ProyectosData = cachedData.ProyectosData;
+    ServicesData = cachedData.ServicesData;
+    BlogData = cachedData.BlogData;
+    ContactData = cachedData.ContactData;
+    IconPage = cachedData.GeneralData.IconPage;
+    ArrowIcon = cachedData.GeneralData.ArrowIcon;
+    console.log("actualizado idioma al "+cacheDataKey);
+    CB();
+    return;
+  }
+
+  if (cachedDate == null || cachedData == null || setLenguage != null) {
+    // Borrar datos de otros idiomas
+    localStorage.removeItem(CACHE_KEY + "-ES");
+    localStorage.removeItem(CACHE_KEY + "-EN");
     // Conseguir Data
     fetchBookAllData(
       (AllData) => {
@@ -129,16 +166,18 @@ const PreLoad = (CB) => {
         ArrowIcon = AllData.GeneralData.ArrowIcon;
         //console.log(AllData.GeneralData.Date);
         // Guardar Data y Date
-        localStorage.setItem(CACHE_KEY, JSON.stringify(ALLDATA));
+        localStorage.setItem(cacheDataKey, JSON.stringify(ALLDATA));
         localStorage.setItem(DATE_KEY, AllData.GeneralData.Date);
         //console.log("Cargado y cacheado");
         console.log(AllData);
         CB();
       });
   } else {
-
     //Verificar si hay un cambio en la fecha del caché y la de hoy
     if (TodayDateNumberFormat() != cachedDate) {
+      // Borrar datos de otros idiomas
+      localStorage.removeItem(CACHE_KEY + "-ES");
+      localStorage.removeItem(CACHE_KEY + "-EN");
       // Actualizar Datos
       fetchBookAllData(
         (AllData) => {
@@ -168,7 +207,7 @@ const PreLoad = (CB) => {
           IconPage = AllData.GeneralData.IconPage;
           ArrowIcon = AllData.GeneralData.ArrowIcon;
           // Guardar Data y Date
-          localStorage.setItem(CACHE_KEY, JSON.stringify(ALLDATA));
+          localStorage.setItem(cacheDataKey, JSON.stringify(ALLDATA));
           localStorage.setItem(DATE_KEY, AllData.GeneralData.Date);
           //console.log("Actualizado y cacheado");
           CB();
@@ -524,15 +563,19 @@ let IconPage = "/react.svg";
 let ArrowIcon = "prompt_suggestion";
 //BD Recovery
 
-/*Metrics:[
-  {name:"años de experiencia", dato:"7", "plus":false},
-  {name:"años de experiencia", dato:"7", "plus":false},
-  {name:"años de experiencia", dato:"7", "plus":false}
-]*/
+
+// Drive Data Base
+const DriveDB_API = "https://script.google.com/macros/s/AKfycbwUo05mr_A96sgXfxQ96PpmqtBAAWqVz1-WnmM7BeaSY7E7vwvdqdzrGnIlI6lueYg0RA/exec";
+const DriveFile = (fileID)=>{
+  return DriveDB_API + '?fileId=' + fileID;
+}
+
 
 export {
   PreLoad,
   copyToClipboard,
+
+  API_version,
 
   PageData,
   GeneralData,
@@ -549,4 +592,6 @@ export {
 
   IconPage,
   ArrowIcon,
+
+  DriveFile,
 };

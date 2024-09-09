@@ -1,8 +1,8 @@
-import { useState, useEffect  } from "react"
-import { IconPage, PageData, GeneralData, fetchBookData, postBookData } from "../Data"
+import { useState, useEffect } from "react"
+import { IconPage, PageData, GeneralData, fetchBookData, postBookData, API_version } from "../Data"
 import TailwindComponents from "../TailwindComponents"
 
-export default function Footer( {OnItemClick = null}) {
+export default function Footer({ OnItemClick = null }) {
 
     const [hide, SetHide] = useState("hidden");
     const [personaCount, SetPersonaCount] = useState(0);
@@ -21,9 +21,9 @@ export default function Footer( {OnItemClick = null}) {
         }).catch((error) => {
           console.error('Fetch error:', error);
         });*/
-      }, [personaCount]);
-    
-    const AddVoteHandle = ( ) => {
+    }, [personaCount]);
+
+    const AddVoteHandle = () => {
         /*postBookData("GeneralData", "Users", (1+ +personaCount))
       .then((data) => {
         SetHide("");
@@ -60,17 +60,40 @@ export default function Footer( {OnItemClick = null}) {
                 </ul>
 
                 <div className="text-center grid grid-flow-row gap-4">
-                    <p className="dark:text-white font-medium text-lg">Hazme saber que estuviste aquí</p>
-                    <button className={hide?TailwindComponents.Boton:"text-white text-lg font-medium cursor-default hover:underline"} onClick={(e)=>{HandlePersonas(e)}}>{hide?"¡Presióname!":`¡Somos ${GeneralData.Users}!`}</button>
+                    <p className="dark:text-white font-medium text-lg">
+
+                        {API_version.toString() == "ES" ? "Hazme saber que estuviste aquí" : "Let me know you were here"}
+                    </p>
+
+                    {
+                        API_version.toString() == "ES" && <button className={hide ? TailwindComponents.Boton : "text-white text-lg font-medium cursor-default hover:underline"} onClick={(e) => { HandlePersonas(e) }}>
+                            {hide ? "¡Presióname!" : `¡Somos ${GeneralData.Users}!`}
+                        </button>
+                    }
+                    {
+                        API_version.toString() == "EN" && <button className={hide ? TailwindComponents.Boton : "text-white text-lg font-medium cursor-default hover:underline"} onClick={(e) => { HandlePersonas(e) }}>
+                            {hide ? "Press me!" : `We are ${GeneralData.Users}!`}
+                        </button>
+                    }
+
                 </div>
 
                 <p className="text-center">
-                    © Copyrigth 2025 Made with ♥ for me.
+
+                    {API_version.toString() == "ES" ? "© Copyrigth 2025 Hecho con ♥ por mi." : "© Copyrigth 2025 Made with ♥ for me."}
                 </p>
-                <br/>
-                <p className="text-center text-xs pb-5">
-                    This is a React Adaptation of <a className="hover:underline" href="https://wpriverthemes.com/gridx/" target="_blank" rel="noopener noreferrer">this</a> theme made for me.
-                </p>
+                <br />
+                {
+                    API_version.toString() == "EN" && <p className="text-center text-xs pb-5">
+                        This is a React Adaptation of <a className="hover:underline" href="https://wpriverthemes.com/gridx/" target="_blank" rel="noopener noreferrer">this</a> theme made for me.
+                    </p>
+                }
+                {
+                    API_version.toString() == "ES" && <p className="text-center text-xs pb-5">
+                        Esta web es una adaptación en React de <a className="hover:underline" href="https://wpriverthemes.com/gridx/" target="_blank" rel="noopener noreferrer">este</a> tema realizado por mi.
+                    </p>
+                }
+
             </div>
         </>
     )

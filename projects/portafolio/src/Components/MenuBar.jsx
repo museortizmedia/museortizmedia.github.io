@@ -1,14 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import TailwindComponents from '../TailwindComponents';
-import { IconPage, PageData } from '../Data';
+import { API_version, IconPage, PageData } from '../Data';
 
-export default function MenuBar({ OnItemClick = null, currentPage }) {
+export default function MenuBar({ OnItemClick = null, currentPage, SetLenguage }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [IsDark, setIsDark] = useState(DARKMODEVAR);
-
- /* useEffect(() => {
-    console.log(currentPage);
-  }, [currentPage]);*/
 
   return (
     <div className='menu w-full h-[10vh] mb-10'>
@@ -55,15 +51,28 @@ export default function MenuBar({ OnItemClick = null, currentPage }) {
           <button className={`select-none transition duration-300 ease-out hover:ease-in  dark:hover:text-white hover:text-black`} onClick={() => { if(IsDark){DisactiveDarkMood(); setIsDark(false);}else{ActiveDarkMood(); setIsDark(true);} }}>{!IsDark?<i className="fa fa-moon-o"></i>:<i className="fa fa-sun-o"></i>}</button>
         </div>
 
-        <div className={'hidden' + ' relative flex place-content-center top-2 z-50'}>
-          <button className='hover:text-white' onClick={() => { }}>ES</button>
+        <div className={' relative flex place-content-center top-2 z-50'}>
+          <button className={`${API_version=="ES"?'text-black dark:text-white':'hover:text-black dark:hover:text-white'}`}
+          onClick={() => { SetLenguage("ES") }}>ES</button> 
+
           <span className='px-1'>/</span>
-          <button className='hover:text-white' onClick={() => { }}>EN</button>
+
+          <button className={`${API_version=="EN"?'text-black dark:text-white':'hover:text-black dark:hover:text-white'}`}
+          onClick={() => { SetLenguage("EN") }}>EN</button>
         </div>
 
-        <button className={`${TailwindComponents.Boton} disabled`} onClick={() => { if (currentPage.id != 3) OnItemClick(3) }}>
-          Lets talk
-        </button>
+        {
+          (currentPage.label==="Bio"||currentPage.label==="Portafolio"||currentPage.label==="Contacto")
+          &&
+          <button className={`${TailwindComponents.Boton} disabled`} onClick={() => {  window.open('https://drive.google.com/uc?export=download&id=1SbLrC5_VvbtvxBRRZ-PplwudTUYdkzlQ', '_blank'); }}>
+          {API_version.toString()=="ES"?"Descargar CV":"Download CV"}
+          </button>
+          ||
+          <button className={`${TailwindComponents.Boton} disabled`} onClick={() => { if (currentPage.id != 3) OnItemClick(3) }}>
+          {API_version.toString()=="ES"?"Hablemos":"Lets talk"}
+          </button>
+        }
+       
       </div>
     </div>
   );
