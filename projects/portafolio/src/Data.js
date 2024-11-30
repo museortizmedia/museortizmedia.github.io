@@ -240,6 +240,48 @@ const DeleteLocalDate = () =>
   window.location.reload();
 }
 
+
+//MailContact - Servicio de gestión de formularios de contacto y suscripciones
+/**
+ * Función que envía un correo o mensaje a través de la API de Google Apps Script.
+ * 
+ * @param {string} destino - Correo electrónico del destinatario.
+ * @param {string} mail - Correo electrónico del suscriptor.
+ * @param {string} content - Contenido del mensaje (opcional).
+ */
+function sendMailContact(destino, mail, content, SUCCES = ()=>{}, FAIL = ()=>{}, ERROR = ()=>{}) {
+  // Verifica que los parámetros sean válidos antes de hacer la solicitud
+  if (destino && mail && content) {
+    let url = "https://script.google.com/macros/s/AKfycbyK55uuLztnh0fc7iKq3NpZrNS5pKULLBh_9ywazgE5xEtkinJLVcKtac3vUABWaYvBig/exec?";
+    url += "destino=" + destino + "&mail=" + mail + "&content=" + encodeURIComponent(content);
+
+    // Realizar la solicitud GET con fetch
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        //console.log("Respuesta de la API:", data);
+
+        // Dependiendo de la respuesta, manejar la lógica
+        if (data === "100") {
+          SUCCES();
+        } else {
+          FAIL();
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        //console.log("Hubo un problema con la solicitud.");
+        ERROR("¡Ups! Parece que las cosas no van bien allá en la nube, inténtalo de nuevo más tarde.");
+      });
+  } else {
+    //console.log("Por favor, completa todos los campos.");
+    ERROR("Por favor, completa todos los campos.");
+  }
+}
+
+
+
+
 //BD Recovery
 let ALLDATA = null;
 
@@ -603,4 +645,6 @@ export {
   ArrowIcon,
 
   DriveFile,
+
+  sendMailContact
 };

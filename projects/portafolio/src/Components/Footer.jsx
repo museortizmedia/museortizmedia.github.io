@@ -30,7 +30,6 @@ export default function Footer({ OnItemClick = null }) {
     const HandleRerfesh = (e) => {
         e.preventDefault();
         DeleteLocalDate();
-        //
     }
 
     useEffect(() => {
