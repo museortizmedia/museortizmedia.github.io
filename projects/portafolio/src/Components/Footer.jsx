@@ -1,38 +1,53 @@
 import { useState, useEffect } from "react"
-import { IconPage, PageData, GeneralData, fetchBookData, postBookData, API_version } from "../Data"
+import { IconPage, PageData, GeneralData, fetchBookData, postBookData, API_version, DeleteLocalDate } from "../Data"
 import TailwindComponents from "../TailwindComponents"
 
 export default function Footer({ OnItemClick = null }) {
 
     const [hide, SetHide] = useState("hidden");
     const [personaCount, SetPersonaCount] = useState(0);
+
     const HandlePersonas = (e) => {
         e.preventDefault();
-        e.target.disabled = true;
+
+        // Si no se ha tocado esta sesión
         if (hide == "hidden") {
-            AddVoteHandle()
+            fetchBookData("GeneralData")
+                .then((e) => {
+                    var currentUsers = e["Users"].replace(/"/g, '');
+                    var curentNewUser = parseFloat(currentUsers) + 1;
+                    SetPersonaCount(curentNewUser);
+                    //console.log(personaCount);
+                    //console.log("somos " + curentNewUser);
+                    SetHide("");
+                }).catch((error) => {
+                    console.error('Fetch error:', error);
+                });
+            e.target.disabled = true;
         }
     }
 
+    const HandleRerfesh = (e) => {
+        e.preventDefault();
+        DeleteLocalDate();
+        //
+    }
+
     useEffect(() => {
-        /*fetchBookData("GeneralData").then((e) => {
-          SetPersonaCount(parseFloat(e.Users.replace(/"/g, '')));
-          console.log("somos " + personaCount);
-        }).catch((error) => {
-          console.error('Fetch error:', error);
-        });*/
+        if (hide === "") {
+            AddVoteHandle();
+            //console.log("SI PUEDE ACTUALIZAR " + personaCount);
+        }
     }, [personaCount]);
 
     const AddVoteHandle = () => {
-        /*postBookData("GeneralData", "Users", (1+ +personaCount))
-      .then((data) => {
-        SetHide("");
-        SetPersonaCount(1+ +personaCount);
-        console.log(JSON.stringify(data));
-      })
-      .catch((error) => {
-        console.log('Error: '+error);
-      });*/
+        postBookData("GeneralData", "Users", `"${personaCount}"`)
+            .then((data) => {
+                //console.log(JSON.stringify(data));
+            })
+            .catch((error) => {
+                console.log('Error: ' + error);
+            });
     }
 
     return (
@@ -67,14 +82,15 @@ export default function Footer({ OnItemClick = null }) {
 
                     {
                         API_version.toString() == "ES" && <button className={hide ? TailwindComponents.Boton : "text-white text-lg font-medium cursor-default hover:underline"} onClick={(e) => { HandlePersonas(e) }}>
-                            {hide ? "¡Presióname!" : `¡Somos ${GeneralData.Users}!`}
+                            {hide ? "¡Presióname!" : `¡Somos ${personaCount || GeneralData.Users}!`}
                         </button>
                     }
                     {
                         API_version.toString() == "EN" && <button className={hide ? TailwindComponents.Boton : "text-white text-lg font-medium cursor-default hover:underline"} onClick={(e) => { HandlePersonas(e) }}>
-                            {hide ? "Press me!" : `We are ${GeneralData.Users}!`}
+                            {hide ? "Press me!" : `We are ${personaCount || GeneralData.Users}!`}
                         </button>
                     }
+                    <span className={`material-symbols-outlined cursor-pointer hover:text-white hover:animate-spin`} title={API_version.toString() == "EN" ? "Refresh page data" : "Actualizar datos de la página"} onClick={(e) => { HandleRerfesh(e) }} translate="no">autorenew</span>
 
                 </div>
 

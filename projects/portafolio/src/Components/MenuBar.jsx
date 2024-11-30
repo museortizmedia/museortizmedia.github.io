@@ -64,7 +64,7 @@ export default function MenuBar({ OnItemClick = null, currentPage, SetLenguage }
         {
           (currentPage.label==="Bio"||currentPage.label==="Portafolio"||currentPage.label==="Contacto")
           &&
-          <button className={`${TailwindComponents.Boton} disabled`} onClick={() => {  window.open('https://drive.google.com/uc?export=download&id=1SbLrC5_VvbtvxBRRZ-PplwudTUYdkzlQ', '_blank'); }}>
+          <button className={`${TailwindComponents.Boton} disabled`} onClick={ ()=>{ if(API_version.toString() == "EN") {  window.open('https://drive.google.com/uc?export=download&id=1SbLrC5_VvbtvxBRRZ-PplwudTUYdkzlQ', '_blank');}else{  window.open('https://drive.google.com/uc?export=download&id=1SbLrC5_VvbtvxBRRZ-PplwudTUYdkzlQ', '_blank') } }}>
           {API_version.toString()=="ES"?"Descargar CV":"Download CV"}
           </button>
           ||

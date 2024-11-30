@@ -27,7 +27,7 @@ export const fetchBookData = async (bookName) => {
 
 //Funcion Post para cualquier uso
 export const postBookData = async (sheetName, key, value) => {
-  const url = API_URL;
+  const url = API_URL["ES"];
   const params = new URLSearchParams();
   params.append('sheetName', sheetName);
   params.append('key', key);
@@ -96,7 +96,7 @@ const CACHE_KEY = 'ALLDATA_CACHE';
 const DATE_KEY = 'TOKEN_DATE';
 
 const PreLoad = (CB, setLenguage = null) => {
-  console.log("Tratando de cambiar a "+setLenguage+" de "+API_version+" | "+(setLenguage==API_version.toString()));
+  //console.log("Tratando de cambiar a "+setLenguage+" de "+API_version+" | "+(setLenguage==API_version.toString()));
 
   if(setLenguage==API_version.toString())
     { 
@@ -127,7 +127,7 @@ const PreLoad = (CB, setLenguage = null) => {
     ContactData = cachedData.ContactData;
     IconPage = cachedData.GeneralData.IconPage;
     ArrowIcon = cachedData.GeneralData.ArrowIcon;
-    console.log("actualizado idioma al "+cacheDataKey);
+    //console.log("actualizado idioma al "+cacheDataKey);
     CB();
     return;
   }
@@ -169,7 +169,7 @@ const PreLoad = (CB, setLenguage = null) => {
         localStorage.setItem(cacheDataKey, JSON.stringify(ALLDATA));
         localStorage.setItem(DATE_KEY, AllData.GeneralData.Date);
         //console.log("Cargado y cacheado");
-        console.log(AllData);
+        //console.log(AllData);
         CB();
       });
   } else {
@@ -234,8 +234,15 @@ const PreLoad = (CB, setLenguage = null) => {
   }
 }
 
+const DeleteLocalDate = () =>
+{
+  localStorage.removeItem(DATE_KEY);
+  window.location.reload();
+}
+
 //BD Recovery
 let ALLDATA = null;
+
 let GeneralData = {
   Users: "1",
 
@@ -560,6 +567,7 @@ let ContactData = [
   },
 ]
 let IconPage = "/react.svg";
+// Material Icon Reference
 let ArrowIcon = "prompt_suggestion";
 //BD Recovery
 
@@ -573,6 +581,7 @@ const DriveFile = (fileID)=>{
 
 export {
   PreLoad,
+  DeleteLocalDate,
   copyToClipboard,
 
   API_version,
