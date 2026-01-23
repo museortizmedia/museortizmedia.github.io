@@ -32,11 +32,11 @@ function App() {
               Construyamos algo increíble juntos.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="solid" icon={<SendHorizonalIcon />} href="#contact">
-                PING_ME
+              <Button variant="solid" icon={<SendHorizonalIcon />} href="https://wa.me/573197293775" target="_blank">
+                WHATSAPP_ME
               </Button>
-              <Button variant="outline" icon={<File />} href="#experience">
-                VIEW_RESUME
+              <Button variant="outline" icon={<SendIcon />} href="mailto:museortiz@gmail.com">
+                EMAIL_DIRECT
               </Button>
             </div>
           </div>
@@ -50,9 +50,9 @@ function App() {
         {/* Footer Bottom */}
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-xs font-bold tracking-widest mt-12">
           <div className="flex gap-8">
-            <a className="hover:text-primary transition-colors uppercase" href="#">GitHub</a>
-            <a className="hover:text-primary transition-colors uppercase" href="#">LinkedIn</a>
-            <a className="hover:text-primary transition-colors uppercase" href="#">Behance</a>
+            <a className="hover:text-primary transition-colors uppercase" href="https://github.com/museortizmedia" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a className="hover:text-primary transition-colors uppercase" href="https://museortizmedia.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
+            <a className="hover:text-primary transition-colors uppercase" href="mailto:museortiz@gmail.com">Email</a>
           </div>
           <div className="uppercase">
             © {new Date().getFullYear()} MUSE ORTIZ MEDIA // ALL RIGHTS RESERVED

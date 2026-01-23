@@ -20,11 +20,11 @@ export default function Header() {
                 <div className="flex items-center gap-4 cursor-pointer relative" onClick={() => window.location.href = "#home"}>
                     <div className="flex flex-col relative">
                         <span className="font-display font-bold text-2xl tracking-tighter text-white flex items-center gap-1 group-hover:text-[var(--primary)] transition-colors">
-                            {headerData.logo}
+                            MUSE_ORTIZ_MEDIA<span className="text-[var(--primary)] animate-pulse">.</span>
                         </span>
 
                         <span className="text-[10px] text-[var(--primary)] tracking-widest uppercase font-mono mt-0.5 opacity-80">
-                            {headerData.tagline}
+                            DEVELOPMENT_STUDIO
                         </span>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ export default function Header() {
                         variant="solid"
                         icon={<Download size={14} />}
                         className="px-6 py-2"
-                        href="/DiegoOrtiz-HV.pdf"
+                        href="./DiegoOrtiz-HV.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -78,8 +78,15 @@ export default function Header() {
                                 {item.label}
                             </a>
                         ))}
-                        <Button variant="solid" icon={<Zap size={14} />} className="w-full">
-                            EXECUTE
+                        <Button
+                            variant="solid"
+                            icon={<Download size={14} />}
+                            className="w-full"
+                            href="./DiegoOrtiz-HV.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            EXECUTE /CV
                         </Button>
                     </div>
                 </div>

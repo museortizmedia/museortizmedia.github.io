@@ -29,9 +29,9 @@ export default function Hero() {
                     {/* Left: Message */}
                     <div className="space-y-8 relative z-10">
                         {/* Status Badge - Static */}
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary-background)] border border-[var(--primary)] text-[var(--primary)] text-xs font-bold uppercase tracking-widest shadow-[0_0_10px_rgba(127,19,236,0.2)]">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary-background)] border border-[var(--primary)] text-[var(--primary)] text-xs font-black uppercase tracking-widest shadow-[0_0_15px_rgba(110,18,203,0.3)]">
                             <Activity size={12} />
-                            COLOMBIA_NODE // ONLINE
+                            STUDIO // MUSE_ORTIZ_MEDIA
                         </div>
 
                         {/* Name - Static*/}

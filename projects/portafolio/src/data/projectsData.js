@@ -2,12 +2,13 @@ export const projectCards = [
     {
         id: 0,
         title: "Digital Transformation Suite",
-        description: "Liderazgo Frontend en +14 proyectos de estado para la transformación digital del Valle del Cauca. Gestión de estados complejos, reportes y dashboards.",
+        description: "Liderazgo Frontend en +14 proyectos del estado Colombiano y Gobernación para la transformación digital del Valle del Cauca. Gestión de estados complejos, proyectos, contrataciones, reportes y dashboards.",
         image: "🏛️",
         imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
         tags: ["Vue (Lead)", "Pinia", "Tailwind"],
         category: "SOLUCIONES_WEB",
-        size: "large"
+        size: "large",
+        isLegacy: false
     },
     {
         id: 1,
@@ -17,8 +18,9 @@ export const projectCards = [
         imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
         tags: ["React", "SaaS", "UX"],
         category: "SOLUCIONES_WEB",
-        size: "medium", // Changed to medium to pair with id 0 (large)
-        link: "https://tu-order-app.vercel.app/landing"
+        size: "medium",
+        link: "https://tu-order-app.vercel.app/landing",
+        isLegacy: false
     },
     {
         id: 11,
@@ -28,7 +30,30 @@ export const projectCards = [
         imageUrl: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=800&q=80",
         tags: ["Unity", "Narrativa", "Lowpoly"],
         category: "VIDEOJUEGOS",
-        size: "medium"
+        size: "medium",
+        isLegacy: false
+    },
+    {
+        id: 6,
+        title: "Sapere Aude",
+        description: "Videojuego educativo publicado en la Play Store. Participación en procesos de debugging y optimización técnica.",
+        image: "🧠",
+        imageUrl: "https://play-lh.googleusercontent.com/_dleroqkMYRXs5zojKyEl9DjXDwv-CLPhyqgRAlki2NXpeD54NQ80jjb6I4w9pbnd6u5=w2560-h1440-rw",
+        tags: ["Unity", "Play Store"],
+        category: "VIDEOJUEGOS",
+        size: "medium",
+        isLegacy: false
+    },
+    {
+        id: 9,
+        title: "Regional II",
+        description: "Mundo interactivo regional en 3D. Participación en el diseño de juego (Game Designer).",
+        image: "🏗️",
+        imageUrl: "https://github.com/museortizmedia/museortizmedia.github.io/blob/main/Content/Portafolio/TalentumCover.PNG?raw=true",
+        tags: ["Game Design", "3D"],
+        category: "VIDEOJUEGOS",
+        size: "medium",
+        isLegacy: false
     },
     {
         id: 10,
@@ -38,7 +63,8 @@ export const projectCards = [
         imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&q=80",
         tags: ["Unity", "RPG", "Multijugador"],
         category: "VIDEOJUEGOS",
-        size: "large"
+        size: "large",
+        isLegacy: false
     },
     {
         id: 12,
@@ -48,18 +74,8 @@ export const projectCards = [
         imageUrl: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&q=80",
         tags: ["Unity", "FPS", "Multijugador"],
         category: "VIDEOJUEGOS",
-        size: "medium" // Pairs with id 10 (large)
-    },
-    {
-        id: 5,
-        title: "The Itarok Web",
-        description: "Estrategia transmedia para reconocer árboles notables de Cali mediante códigos QR y contenido interactivo.",
-        image: "🌳",
-        imageUrl: "https://raw.githubusercontent.com/museortizmedia/museortizmedia.github.io/refs/heads/main/Content/Portafolio/mq3.webp",
-        tags: ["Web", "QR", "Transmedia"],
-        category: "SOLUCIONES_WEB",
-        size: "medium", // Moved up and resized to balance the grid
-        isLegacy: false // Re-evaluating legacy for layout fill if needed
+        size: "medium",
+        isLegacy: false
     },
     {
         id: 2,
@@ -69,8 +85,8 @@ export const projectCards = [
         imageUrl: "https://img.itch.zone/aW1hZ2UvMzEzNjM4OS8xODc0MDI0My5qcGVn/250x600/w6m6qn.jpeg",
         tags: ["Unity", "Educativo", "C#"],
         category: "VIDEOJUEGOS",
-        size: "small",
-        isLegacy: true
+        size: "medium",
+        isLegacy: false
     },
     {
         id: 3,
@@ -95,17 +111,6 @@ export const projectCards = [
         isLegacy: true
     },
     {
-        id: 9,
-        title: "Regional II",
-        description: "Mundo interactivo regional en 3D. Participación en el diseño de juego (Game Designer).",
-        image: "🏗️",
-        imageUrl: "https://github.com/museortizmedia/museortizmedia.github.io/blob/main/Content/Portafolio/TalentumCover.PNG?raw=true",
-        tags: ["Game Design", "3D"],
-        category: "VIDEOJUEGOS",
-        size: "small",
-        isLegacy: true
-    },
-    {
         id: 7,
         title: "Seguridad Vial 3D",
         description: "Juego de simulación para educación vial liberado por el estado colombiano. Desarrollo de mecánicas 3D.",
@@ -123,17 +128,6 @@ export const projectCards = [
         image: "🌌",
         imageUrl: "https://play-lh.googleusercontent.com/5inHZnIBcx7G6attdGgbT0kgMdx845N6gPwYVGW-CjlEfT1Q5aN05TySNha9mRJ3tEAn=w2560-h1440-rw",
         tags: ["Unity", "C#"],
-        category: "VIDEOJUEGOS",
-        size: "small",
-        isLegacy: true
-    },
-    {
-        id: 6,
-        title: "Sapere Aude",
-        description: "Videojuego educativo publicado en la Play Store. Participación en procesos de debugging y optimización técnica.",
-        image: "🧠",
-        imageUrl: "https://play-lh.googleusercontent.com/_dleroqkMYRXs5zojKyEl9DjXDwv-CLPhyqgRAlki2NXpeD54NQ80jjb6I4w9pbnd6u5=w2560-h1440-rw",
-        tags: ["Unity", "Play Store"],
         category: "VIDEOJUEGOS",
         size: "small",
         isLegacy: true

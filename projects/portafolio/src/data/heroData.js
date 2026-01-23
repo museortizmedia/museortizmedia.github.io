@@ -6,8 +6,8 @@ export const heroData = {
         description: "Especialista en desarrollo web inmersivo, experiencias 3D y arquitectura de software de alto rendimiento. Creando el futuro digital, pixel a pixel.",
         profileImage: "https://github.com/museortizmedia.png",
         socialLinks: [
-            { id: 1, label: "GitHub", handle: "@museortizmedia", url: "https://github.com/museortizmedia" },
-            { id: 2, label: "LinkedIn", handle: "@museortizmedia", url: "https://linkedin.com/in/museortizmedia" }
+            { id: 1, label: "GitHub", handle: "museortizmedia", url: "https://github.com/museortizmedia" },
+            { id: 2, label: "Itch.io", handle: "museortizmedia", url: "https://museortizmedia.itch.io/" }
         ]
     },
     statistics: [
