@@ -101,15 +101,16 @@ export default function Hero() {
                                         <svg className="absolute inset-0 w-full h-full rotate-[-90deg]" viewBox="0 0 100 100">
                                             {/* Background Circle */}
                                             <circle cx="50" cy="50" r="45" fill="none" stroke="#7f13ec30" strokeWidth="1.5" />
-                                            {/* Progress Arc - Static */}
+                                            {/* Progress Arc - Dynamic */}
                                             <circle
                                                 cx="50" cy="50" r="45"
                                                 fill="none"
                                                 stroke="var(--primary)"
                                                 strokeWidth="4"
-                                                strokeDasharray="280"
-                                                strokeDashoffset="100"
+                                                strokeDasharray="282.7"
+                                                strokeDashoffset={282.7 - (282.7 * stat.value) / 100}
                                                 strokeLinecap="round"
+                                                className="transition-all duration-1000 ease-out"
                                             />
                                         </svg>
                                         <div className="flex flex-col items-center z-10">

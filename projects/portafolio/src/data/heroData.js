@@ -11,9 +11,9 @@ export const heroData = {
         ]
     },
     statistics: [
-        { id: 1, value: "95", label: "Unity Engine", icon: "C# / SHADER GRAPH", iconName: "terminal" },
-        { id: 2, value: "85", label: "Unreal Engine", icon: "C++ / BLUEPRINTS", iconName: "box" },
-        { id: 3, value: "90", label: "React / Web", icon: "NEXT.JS / TS", iconName: "code" },
-        { id: 4, value: "80", label: "Three.js", icon: "WEBGL / R3F", iconName: "monitor" }
+        { id: 1, value: "95", label: "Unity Ecosystem", icon: "MASTERY // C#", iconName: "terminal" },
+        { id: 2, value: "93", label: "Systems Architecture", icon: "CLEAN_CODE / SCALABLE", iconName: "box" },
+        { id: 3, value: "94", label: "Full-Stack Strategy", icon: "VUE / REACT / NODE", iconName: "code" },
+        { id: 4, value: "90", label: "UX & Interactivity", icon: "NARRATIVE / PRODUCT", iconName: "monitor" }
     ]
 };
