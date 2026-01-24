@@ -50,7 +50,9 @@ function App() {
         {/* Footer Bottom */}
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-xs font-bold tracking-widest mt-12">
           <div className="flex gap-8">
+            <a className="hover:text-primary transition-colors uppercase" href="https://www.linkedin.com/in/museortizmedia/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a className="hover:text-primary transition-colors uppercase" href="https://github.com/museortizmedia" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a className="hover:text-primary transition-colors uppercase" href="https://museortizmedia.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
             <a className="hover:text-primary transition-colors uppercase" href="https://museortizmedia.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
             <a className="hover:text-primary transition-colors uppercase" href="mailto:museortiz@gmail.com">Email</a>
           </div>
