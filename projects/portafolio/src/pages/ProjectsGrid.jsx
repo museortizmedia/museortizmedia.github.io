@@ -97,7 +97,7 @@ export default function ProjectsGrid() {
                         </div>
 
                         {/* Tag Selector - Minimalist */}
-                        <div className="flex items-center gap-3 bg-black/40 px-4 py-2 rounded-2xl border border-white/5 group hover:border-primary/30 transition-all">
+                        <div className="flex items-center gap-3 bg-black/40 p-[0.8em] rounded-2xl border border-white/5 group hover:border-primary/30 transition-all">
                             <Tag size={14} className="text-primary" />
                             <select
                                 value={activeTag}

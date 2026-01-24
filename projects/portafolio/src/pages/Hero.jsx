@@ -29,7 +29,7 @@ export default function Hero() {
                     {/* Left: Message */}
                     <div className="space-y-8 relative z-10">
                         {/* Status Badge - Static */}
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary-background)] border border-[var(--primary)] text-[var(--primary)] text-xs font-black uppercase tracking-widest shadow-[0_0_15px_rgba(110,18,203,0.3)]">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--primary-background)] border border-[var(--primary)] text-[var(--primary)] text-xs font-black uppercase tracking-widest drop-shadow-md shadow-[0_0_10px_rgba(127,19,236,0.2)] hover:shadow-[0_0_25px_rgba(127,19,236,0.4)] transition-all duration-300">
                             <Activity size={12} />
                             STUDIO // MUSE_ORTIZ_MEDIA
                         </div>
@@ -94,7 +94,7 @@ export default function Hero() {
                             return (
                                 <div
                                     key={stat.id}
-                                    className="group relative bg-[var(--primary-background)] border border-[var(--primary)] p-6 rounded-xl flex flex-col items-center justify-center text-center overflow-hidden drop-shadow-md shadow-[0_0_10px_rgba(127,19,236,0.2)]"
+                                    className="group relative bg-[var(--primary-background)] border border-[var(--primary)] p-6 rounded-xl flex flex-col items-center justify-center text-center overflow-hidden drop-shadow-md shadow-[0_0_10px_rgba(127,19,236,0.2)] hover:shadow-[0_0_25px_rgba(127,19,236,0.4)] transition-all duration-300 hover:-translate-y-1"
                                 >
                                     {/* HUD Ring SVG (Static) */}
                                     <div className="relative w-28 h-28 mb-4 flex items-center justify-center">
@@ -114,14 +114,14 @@ export default function Hero() {
                                             />
                                         </svg>
                                         <div className="flex flex-col items-center z-10">
-                                            <span className="text-2xl font-black text-[var(--primary)] tracking-tighter">{stat.value}%</span>
+                                            <span className="text-2xl font-black text-[var(--primary)] tracking-tighter group-hover:scale-110 transition-all duration-300">{stat.value}%</span>
                                         </div>
                                     </div>
 
-                                    <h3 className="font-black text-md tracking-widest uppercase mb-1 text-white">
+                                    <h3 className="font-black text-md tracking-widest uppercase mb-1 text-white group-hover:scale-110 transition-all duration-300">
                                         {stat.label}
                                     </h3>
-                                    <p className="text-xs text-slate-500 uppercase tracking-wider font-mono px-2 py-1 rounded">
+                                    <p className="text-xs text-slate-500 uppercase tracking-wider font-mono px-2 py-1 rounded group-hover:scale-110 transition-all duration-300">
                                         {stat.icon}
                                     </p>
 
