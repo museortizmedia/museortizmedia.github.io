@@ -68,7 +68,7 @@ export default function Hero() {
                             {/* Social Media Slug */}
                             <div className="flex flex-col justify-center">
                                 <h3 className="text-white font-black text-xl leading-none uppercase tracking-tighter mb-2">
-                                    Diego<span className="text-[var(--primary)]">_</span>Ortiz
+                                    Diego<span className="text-[var(--primary)]">_</span>Ortiz<span className="text-[var(--primary)]">_</span>Hurtado
                                 </h3>
                                 <div className="flex flex-wrap gap-x-4 gap-y-1">
                                     {heroData.message.socialLinks.map(link => (

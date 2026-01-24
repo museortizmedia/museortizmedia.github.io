@@ -145,9 +145,12 @@ export default function ProjectsGrid() {
                                         )}
 
                                     </div>
-                                    <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all shadow-2xl group-hover:shadow-[0_0_20px_rgba(110,18,203,0.5)]">
-                                        <ExternalLink size={16} className="text-white" />
-                                    </div>
+                                    {project.link && (
+
+                                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all shadow-2xl group-hover:shadow-[0_0_20px_rgba(110,18,203,0.5)]">
+                                            <ExternalLink size={16} className="text-white" />
+                                        </div>
+                                    )}
                                 </div>
 
                                 <div>
@@ -155,7 +158,7 @@ export default function ProjectsGrid() {
                                         {project.title}
                                     </h3>
                                     <div className="h-[1px] w-full bg-white/10 mb-4 group-hover:bg-primary/50 transition-colors origin-left"></div>
-                                    <p className="text-slate-400 text-sm line-clamp-2 mb-4 group-hover:text-slate-300 transition-colors">
+                                    <p className="text-slate-400 text-sm line-clamp-6 mb-4 group-hover:text-slate-300 transition-colors">
                                         {project.description}
                                     </p>
                                     <div className="flex flex-wrap gap-2">

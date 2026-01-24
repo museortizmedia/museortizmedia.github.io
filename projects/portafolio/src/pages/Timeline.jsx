@@ -48,27 +48,27 @@ export default function Timeline() {
                                         <div className="absolute right-0 top-1 w-3 h-3 rounded-full bg-black border-2 border-primary translate-x-[7px] hidden md:block z-10 group-hover:scale-125 group-hover:bg-primary transition-all duration-300 shadow-[0_0_10px_var(--primary)]"></div>
 
                                         {/* Content Card */}
-                                        <div className="p-8 transition-all duration-300 relative overflow-hidden">
+                                        <div className="p-8 transition-all duration-300 relative overflow-hidden hover:scale-105">
                                             <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150"></div>
 
                                             <div className="relative z-10">
-                                                <div className="text-primary font-bold text-xs mb-3 tracking-[0.2em] uppercase flex items-center gap-2 md:justify-end">
+                                                <div className="text-primary font-bold text-xs mb-3 tracking-[0.2em] uppercase flex items-center gap-2 md:justify-end group-hover:text-white">
                                                     <Calendar size={12} />
                                                     {job.period}
                                                 </div>
                                                 <h4 className="text-xl font-black group-hover:text-primary transition-colors text-white mb-1">
                                                     {job.position}
                                                 </h4>
-                                                <p className="text-slate-500 text-xs mb-6 font-bold uppercase tracking-wider">
+                                                <p className="text-slate-500 text-xs mb-6 font-bold uppercase tracking-wider group-hover:text-white">
                                                     {job.company}
                                                 </p>
-                                                <p className="text-sm text-slate-400 leading-relaxed mb-6 font-light">
+                                                <p className="text-sm text-slate-400 leading-relaxed mb-6 font-light group-hover:text-white">
                                                     {job.description}
                                                 </p>
                                                 <ul className="space-y-2">
                                                     {job.achievements.map((achievement, idx) => (
-                                                        <li key={idx} className="text-slate-500 text-xs flex items-start gap-3 md:justify-end">
-                                                            <Trophy size={10} className="text-primary mt-0.5 md:order-2 shrink-0" />
+                                                        <li key={idx} className="text-slate-500 text-sm flex items-start gap-3 md:justify-end group-hover:text-white">
+                                                            <Trophy size={15} className="text-primary mt-0.5 md:order-2 shrink-0" />
                                                             <span className="md:order-1 italic">{achievement}</span>
                                                         </li>
                                                     ))}
@@ -99,27 +99,27 @@ export default function Timeline() {
                                         <div className="absolute left-0 top-1 w-3 h-3 rounded-full bg-black border-2 border-primary -translate-x-[5px] hidden md:block z-10 group-hover:scale-125 group-hover:bg-primary transition-all duration-300 shadow-[0_0_10px_var(--primary)]"></div>
 
                                         {/* Content Card */}
-                                        <div className="p-8 transition-all duration-300 relative overflow-hidden">
-                                            <div className="absolute top-0 left-0 w-20 h-20 bg-primary/5 rounded-br-full -ml-10 -mt-10 transition-transform group-hover:scale-150"></div>
+                                        <div className="p-8 transition-all duration-300 relative overflow-hidden group-hover:scale-105">
+                                            <div className="absolute top-0 left-0 w-20 h-20 bg-primary/5 rounded-br-full -ml-10 -mt-10 transition-transform "></div>
 
                                             <div className="relative z-10">
-                                                <div className="text-primary font-bold text-xs mb-3 tracking-[0.2em] uppercase flex items-center gap-2">
+                                                <div className="text-primary font-bold text-xs mb-3 tracking-[0.2em] uppercase flex items-center gap-2 group-hover:text-white">
                                                     <Calendar size={12} />
                                                     {edu.period}
                                                 </div>
                                                 <h4 className="text-xl font-black group-hover:text-primary transition-colors text-white mb-1">
                                                     {edu.degree}
                                                 </h4>
-                                                <p className="text-slate-500 text-xs mb-6 font-bold uppercase tracking-wider">
+                                                <p className="text-slate-500 text-xs mb-6 font-bold uppercase tracking-wider group-hover:text-white">
                                                     {edu.institution}
                                                 </p>
-                                                <p className="text-sm text-slate-400 leading-relaxed mb-6 font-light">
+                                                <p className="text-sm text-slate-400 leading-relaxed mb-6 font-light group-hover:text-white">
                                                     {edu.description}
                                                 </p>
                                                 <ul className="space-y-2">
                                                     {edu.highlights.map((highlight, idx) => (
-                                                        <li key={idx} className="text-slate-500 text-xs flex items-start gap-3">
-                                                            <BookOpen size={10} className="text-primary mt-0.5 shrink-0" />
+                                                        <li key={idx} className="text-slate-500 text-sm flex items-start gap-3 group-hover:text-white">
+                                                            <BookOpen size={15} className="text-primary mt-0.5 shrink-0" />
                                                             <span className="italic">{highlight}</span>
                                                         </li>
                                                     ))}

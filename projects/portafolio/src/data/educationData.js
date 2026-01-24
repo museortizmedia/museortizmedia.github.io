@@ -14,7 +14,7 @@ export const education = [
     {
         id: 2,
         degree: "Tecnología en Producción Multimedia",
-        institution: "SENA",
+        institution: "Centro de Diseño Tecnológico Industrial | SENA",
         period: "2018",
         description: "Desarrollo técnico de contenidos multimedia digitales.",
         highlights: [
