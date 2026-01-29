@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { projectCards } from '../data/projectsData';
 import {
     Filter,
@@ -116,65 +116,7 @@ export default function ProjectsGrid() {
                 {/* Masonry Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[280px] gap-6">
                     {filteredProjects.map((project) => (
-                        <div
-                            key={project.id}
-                            onClick={() => project.link && window.open(project.link, '_blank')}
-                            className={`group relative overflow-hidden rounded-2xl bg-[#070707] border border-white/5 hover:border-primary/50 transition-all duration-500 cursor-pointer ${getSizeClasses(project.size)}`}
-                        >
-                            {/* Background Image */}
-                            <div
-                                className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-20 transition-all duration-700 group-hover:scale-105"
-                                style={{ backgroundImage: `url(${project.imageUrl})` }}
-                            >
-                                {/* Image Overlay Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-100"></div>
-                            </div>
-
-                            {/* Content */}
-                            <div className="absolute inset-0 p-10 flex flex-col justify-between z-10">
-                                <div className="flex justify-between items-start">
-                                    <div className="flex flex-row gap-2">
-                                        <div className="bg-purple-950/70 backdrop-blur-md border border-[var(--primary-background)] px-3 py-1 rounded text-[9px] font-black tracking-[0.2em] text-[var(--primary)] uppercase w-fit">
-                                            {project.category.replace('_', ' ')}
-
-                                        </div>
-                                        {project.isLegacy && (
-                                            <div className="bg-slate-900/80 backdrop-blur-md border border-slate-800 px-3 py-1 rounded text-[8px] font-black tracking-[0.2em] text-slate-500 uppercase w-fit">
-                                                ARCHIVED_DATA
-                                            </div>
-                                        )}
-
-                                    </div>
-                                    {project.link && (
-
-                                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all shadow-2xl group-hover:shadow-[0_0_20px_rgba(110,18,203,0.5)]">
-                                            <ExternalLink size={16} className="text-white" />
-                                        </div>
-                                    )}
-                                </div>
-
-                                <div>
-                                    <h3 className="text-2xl font-bold text-white mb-2 tracking-tight group-hover:translate-x-1 transition-transform">
-                                        {project.title}
-                                    </h3>
-                                    <div className="h-[1px] w-full bg-white/10 mb-4 group-hover:bg-primary/50 transition-colors origin-left"></div>
-                                    <p className="text-slate-400 text-sm line-clamp-6 mb-4 group-hover:text-slate-300 transition-colors">
-                                        {project.description}
-                                    </p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {project.tags.map(tag => (
-                                            <span
-                                                key={tag}
-                                                className="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[9px] uppercase tracking-widest text-slate-500 font-bold flex items-center gap-1 group-hover:border-primary/30 group-hover:text-slate-300 transition-all"
-                                            >
-                                                <Hash size={8} className="text-primary/50" />
-                                                {tag}
-                                            </span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <ProjectCard key={project.id} project={project} getSizeClasses={getSizeClasses} />
                     ))}
                 </div>
 
@@ -192,5 +134,83 @@ export default function ProjectsGrid() {
                 </div>
             </div>
         </section>
+    );
+}
+
+function ProjectCard({ project, getSizeClasses }) {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isHovered, setIsHovered] = useState(false);
+
+    useEffect(() => {
+        let interval;
+        if (isHovered && project.images?.length > 1) {
+            interval = setInterval(() => {
+                setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+            }, 1500); // Cambia cada 1.5 segundos
+        } else {
+            setCurrentImageIndex(0);
+        }
+
+        return () => clearInterval(interval);
+    }, [isHovered, project.images]);
+
+    return (
+        <div
+            onClick={() => project.link && window.open(project.link, '_blank')}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className={`group relative overflow-hidden rounded-2xl bg-[#070707] border border-white/5 hover:border-primary/50 transition-all duration-500 cursor-pointer ${getSizeClasses(project.size)}`}
+        >
+            {/* Background Image */}
+            <div
+                className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-20 transition-all duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${project.images?.[currentImageIndex]})` }}
+            >
+                {/* Image Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-100"></div>
+            </div>
+
+            {/* Content */}
+            <div className="absolute inset-0 p-10 flex flex-col justify-between z-10">
+                <div className="flex justify-between items-start">
+                    <div className="flex flex-row gap-2">
+                        <div className="bg-purple-950/70 backdrop-blur-md border border-[var(--primary-background)] px-3 py-1 rounded text-[9px] font-black tracking-[0.2em] text-[var(--primary)] uppercase w-fit">
+                            {project.category.replace('_', ' ')}
+                        </div>
+                        {project.isLegacy && (
+                            <div className="bg-slate-900/80 backdrop-blur-md border border-slate-800 px-3 py-1 rounded text-[8px] font-black tracking-[0.2em] text-slate-500 uppercase w-fit">
+                                ARCHIVED_DATA
+                            </div>
+                        )}
+                    </div>
+                    {project.link && (
+                        <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all shadow-2xl group-hover:shadow-[0_0_20px_rgba(110,18,203,0.5)]">
+                            <ExternalLink size={16} className="text-white" />
+                        </div>
+                    )}
+                </div>
+
+                <div>
+                    <h3 className="text-2xl font-bold text-white mb-2 tracking-tight group-hover:translate-x-1 transition-transform">
+                        {project.title}
+                    </h3>
+                    <div className="h-[1px] w-full bg-white/10 mb-4 group-hover:bg-primary/50 transition-colors origin-left"></div>
+                    <p className="text-slate-400 text-sm line-clamp-6 mb-4 group-hover:text-slate-300 transition-colors">
+                        {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                        {project.tags.map(tag => (
+                            <span
+                                key={tag}
+                                className="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[9px] uppercase tracking-widest text-slate-500 font-bold flex items-center gap-1 group-hover:border-primary/30 group-hover:text-slate-300 transition-all"
+                            >
+                                <Hash size={8} className="text-primary/50" />
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
     );
 }
