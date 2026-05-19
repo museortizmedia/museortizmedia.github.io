@@ -18,7 +18,7 @@ export const projectCards = [
     {
         id: 1,
         title: "SuperListo!",
-        description: "SaaS que asiste a negocios de domicilios por WhatsApp con una tienda y dashboard web. Enfocado en la inmediatez, sin creación de cuentas.",
+        description: "Software diseñado apra restaurantes que buscan independencia, permitiendo gestioanr pedidos online, menús QR en mesa y domicilios sin comisiones de terceros",
         images: ["https://superlisto.com.co/assets/landingpage/mobile-cart.webp", "https://superlisto.com.co/assets/defaultLogo.png"],
         tags: ["React", "SaaS", "UX", "Fullstack", "Frontend", "Backend"],
         category: "SOLUCIONES_WEB",
