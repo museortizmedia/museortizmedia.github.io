@@ -17,13 +17,13 @@ export const projectCards = [
     },
     {
         id: 1,
-        title: "Listo!",
+        title: "SuperListo!",
         description: "SaaS que asiste a negocios de domicilios por WhatsApp con una tienda y dashboard web. Enfocado en la inmediatez, sin creación de cuentas.",
-        images: ["https://yepdystrtpfmdcdqimws.supabase.co/storage/v1/object/public/productos/TuOrderApp/Mockups.webp"],
+        images: ["https://superlisto.com.co/assets/landingpage/mobile-cart.webp", "https://superlisto.com.co/assets/defaultLogo.png"],
         tags: ["React", "SaaS", "UX", "Fullstack", "Frontend", "Backend"],
         category: "SOLUCIONES_WEB",
         size: "medium",
-        link: "https://tu-order-app.vercel.app/landing",
+        link: "https://superlisto.com.co/",
         isLegacy: false
     },
     {
