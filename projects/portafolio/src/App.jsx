@@ -4,8 +4,39 @@ import ProjectsGrid from './pages/ProjectsGrid'
 import Timeline from './pages/Timeline'
 import Button from './componentes/Button'
 import { File, SendHorizonalIcon, SendIcon } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import Footer from './componentes/Footer'
+import LiterarySection from './pages/LiterarySection'
 
 function App() {
+  const [currentHash, setCurrentHash] = useState(window.location.hash || '#home');
+
+  useEffect(() => {
+    const handleHashChange = () => setCurrentHash(window.location.hash || '#home');
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Wrappers
+  const LiteraryPage = () => (
+    <div className="min-h-screen bg-[var(--background)] text-white">
+      <Header />
+      <LiterarySection />
+      <Footer />
+    </div>
+  )
+
+  const externalPages = [
+    { hash: '#literary', component: LiteraryPage },
+  ];
+
+  const activePage = externalPages.find(page => page.hash === currentHash);
+
+  if (activePage) {
+    const ComponentToRender = activePage.component;
+    return <ComponentToRender />;
+  }
+
   return (
     <div className="min-h-screen bg-[var(--background)] text-white">
       {/* Header Menu */}
@@ -13,14 +44,11 @@ function App() {
 
       {/* Hero Section: Message + Statistics */}
       <Hero />
-
       {/* Projects Grid: Masonry Layout with Filters */}
       <ProjectsGrid />
-
       {/* Dual Timeline: Work Experience + Education */}
       <Timeline />
-
-      {/* Footer / Contact */}
+      {/* FooterBanner */}
       <div id="contact" className="mt-20 mb-12 px-6">
         <div className="max-w-7xl mx-auto text-center relative overflow-hidden p-16 rounded-3xl bg-[radial-gradient(circle_at_center,_var(--primary-background)_0%,_transparent_120%)] border border-[var(--primary-background)]">
           <div className="relative z-10">
@@ -45,26 +73,8 @@ function App() {
         </div>
       </div>
 
-      <footer id="contact" className="mt-20 mb-12 px-6 border-t border-[var(--primary-background)]">
-
-        {/* Footer Bottom */}
-        <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-xs font-bold tracking-widest mt-12">
-          <div className="flex gap-8">
-            <a className="hover:text-primary transition-colors uppercase" href="https://www.linkedin.com/in/museortizmedia/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a className="hover:text-primary transition-colors uppercase" href="https://github.com/museortizmedia" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a className="hover:text-primary transition-colors uppercase" href="https://museortizmedia.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
-            <a className="hover:text-primary transition-colors uppercase" href="https://museortizmedia.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
-            <a className="hover:text-primary transition-colors uppercase" href="mailto:museortiz@gmail.com">Email</a>
-          </div>
-          <div className="uppercase">
-            © {new Date().getFullYear()} MUSE ORTIZ MEDIA // ALL RIGHTS RESERVED
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse"></span>
-            BUILD_VERSION_1.0.0
-          </div>
-        </div>
-      </footer>
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }
