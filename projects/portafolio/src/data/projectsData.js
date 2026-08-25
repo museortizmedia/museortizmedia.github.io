@@ -2,22 +2,14 @@
 import auroraSkyImage1 from "../assets/AuroraSky.png";
 import auroraSkyImage2 from "../assets/001.png";
 import auroraSkyImage3 from "../assets/006.png";
-import hargozImage1 from "../assets/Hargoz01.png"
+import hargozImage1 from "../assets/Hargoz01.png";
+import uugImage1 from "../assets/UUGCali.png";
+import SondOfSilenceImage1 from "../assets/SoS.png"
 
 export const projectCards = [
+  // --- PROYECTOS PRINCIPALES Y ACTIVOS ---
   {
     id: 1,
-    title: "SISET - Digital Transformation | Tech Government",
-    description: "Liderazgo Frontend en +8 proyectos del estado Colombiano y Gobernación para la transformación digital del Valle del Cauca. Gestión de estados complejos, proyectos, contrataciones, reportes y dashboards.",
-    images: ["https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"],
-    tags: ["Vue", "Laravel", "Tailwind", "Frontend"],
-    category: "SOLUCIONES_WEB",
-    size: "large",
-    link: "https://www.google.com/search?q=SSISET",
-    isLegacy: true
-  },
-  {
-    id: 2,
     title: "SuperListo!",
     description: "Software diseñado para restaurantes que buscan independencia, permitiendo gestionar pedidos online, menús QR en mesa y domicilios sin comisiones de terceros",
     images: ["https://superlisto.com.co/assets/landingpage/mobile-cart.webp", "https://superlisto.com.co/assets/defaultLogo.png"],
@@ -28,10 +20,14 @@ export const projectCards = [
     isLegacy: false
   },
   {
-    id: 3,
+    id: 2,
     title: "Andoke Recorridos",
-    description: "Plataforma interactiva como parte de la estrategia de transformación digital del Centro de Ciencias y Museo Natural Mariposario Andoke. Permite la autogestión de rutas en la zona y escuchar un guía virtual.",
-    images: ["https://andoke.com.co/wp-content/uploads/2025/12/Portadas-blogs.png", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLx1Dm5YxoZ0OaJfhybCtwtlHdBp8Kx3Y3C3X0PmSCOvgwQGOq_auPs68&s=10", "https://estaticos.elcolombiano.com/binrepository/1280x1002/0c141/1280d720/none/11101/KJKM/andoke-mariposario-cali-turismo-regenrativo_45852515_20240819195705.jpg"],
+    description: "Plataforma interactiva (intranet) como parte de la estrategia de transformación digital del Centro de Ciencias y Museo Natural Mariposario Andoke. Permite la autogestión de rutas en la zona y escuchar un guía virtual.",
+    images: [
+      "https://andoke.com.co/wp-content/uploads/2025/12/Portadas-blogs.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLx1Dm5YxoZ0OaJfhybCtwtlHdBp8Kx3Y3C3X0PmSCOvgwQGOq_auPs68&s=10",
+      "https://estaticos.elcolombiano.com/binrepository/1280x1002/0c141/1280d720/none/11101/KJKM/andoke-mariposario-cali-turismo-regenrativo_45852515_20240819195705.jpg"
+    ],
     tags: ["PWA", "UX", "GuíaVirtual", "TransformaciónDigital", "Frontend"],
     category: "SOLUCIONES_WEB",
     size: "large",
@@ -39,18 +35,18 @@ export const projectCards = [
     isLegacy: false
   },
   {
-    id: 4,
+    id: 3,
     title: "Unity Users Group Cali - Portal",
-    description: "Portal para el grupo de usuarios de Unity de la ciudad de Cali, Colombia. No solo muestra los eventos siguientes sino que es una biblioteca de packages con enlace Git y proyectos indie caleños.",
-    images: ["https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&q=80"],
+    description: "Portal para el grupo de usuarios de Unity de la ciudad de Cali, Colombia. No solo muestra los eventos siguientes sino que es una biblioteca de packages de Unity con enlace Git y proyectos hechos con Unity caleños.",
+    images: [uugImage1],
     tags: ["React", "Unity", "Comunidad", "OpenSource", "Frontend"],
     category: "SOLUCIONES_WEB",
-    size: "medium",
+    size: "large",
     link: "https://museortizmedia.github.io/UnityUsersGroupCaliPortal/#/",
     isLegacy: false
   },
   {
-    id: 5,
+    id: 4,
     title: "Museo Pioneros de la Salsa Caleña: Music",
     description: "Experiencia web interactiva que utiliza tecnología de llaveros NFC para la reproducción de música y contenido patrimonial en el museo.",
     images: ["https://www.mupisacali.com/wp-content/uploads/2023/12/1.png"],
@@ -61,10 +57,10 @@ export const projectCards = [
     isLegacy: false
   },
   {
-    id: 6,
+    id: 5,
     title: "Sonido Hargoz",
     description: "Portal y portafolio web para un grupo de dobladores caleños. Permite exhibir sus demos de voz, muestras de trabajo y perfiles de talento.",
-    images: ["hargozImage1"],
+    images: [hargozImage1],
     tags: ["Portafolio", "Audio", "Doblaje", "Frontend", "UX"],
     category: "SOLUCIONES_WEB",
     size: "medium",
@@ -72,18 +68,7 @@ export const projectCards = [
     isLegacy: false
   },
   {
-    id: 7,
-    title: "TeamLine",
-    description: "Red social basada en líneas de tiempo para compartir fotos y videos junto a equipos o grupos. Ideal para seguimiento deportivo o álbumes familiares colaborativos.",
-    images: ["https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"],
-    tags: ["RedSocial", "React", "Fullstack", "Timeline", "Media", "PWA"],
-    category: "SOLUCIONES_WEB",
-    size: "large",
-    link: "https://teamline-opal.vercel.app/",
-    isLegacy: false
-  },
-  {
-    id: 8,
+    id: 6,
     title: "Aurora Sky",
     description: "Desarrollo Propio (Solo Dev). Juego lowpoly futurista con fuerte enfoque en narrativa mitopoética y exploración atmosférica.",
     images: [
@@ -98,29 +83,18 @@ export const projectCards = [
     isLegacy: false
   },
   {
-    id: 9,
-    title: "PixMind",
-    description: "(Fullstack) Motor API de Inteligencia Artificial para inferencia de imágenes. Permite validar modelos de negocio con visión artificial al instante y sin entrenamiento previo. Actualmente en standby, funcional e íntegro.",
-    images: ["https://img.youtube.com/vi/t-2dc6K4M2w/maxresdefault.jpg"],
-    tags: ["MVP", "React", "API", "Node", "Frontend", "Backend", "Fullstack"],
-    category: "SOLUCIONES_WEB",
-    size: "large",
-    link: "https://pixmind-frontend.onrender.com/",
-    isLegacy: false
-  },
-  {
-    id: 10,
+    id: 7,
     title: "Guardianes Planetarios",
     description: "(Developer) Experiencia interactiva de aprendizaje en 2D que busca enseñar a niños de 6 a 12 años sobre el desecho de elementos eléctricos y electrónicos y la protección del planeta.",
     images: ["https://temp.talentumline.edu.co/wp-content/uploads/2025/03/tl_poster_guardianes_v1_1_1x.webp"],
     tags: ["Talentum", "Game Design", "2D", "Unity", "QA", "Debugging"],
     category: "VIDEOJUEGOS",
-    size: "medium",
+    size: "small",
     link: "https://temp.talentumline.edu.co/universos-narrativos/#",
     isLegacy: false
   },
   {
-    id: 11,
+    id: 8,
     title: "Regional II",
     description: "Mundo interactivo regional en 3D. Participación en el diseño de juego (Game Designer). Arquitectura y desarrollo.",
     images: ["https://img.youtube.com/vi/TY9GnXJ4cBk/maxresdefault.jpg"],
@@ -129,6 +103,41 @@ export const projectCards = [
     size: "small",
     link: "https://si.aulasregionalfase2.com/menu",
     isLegacy: false
+  },
+
+  // --- PROYECTOS ARCHIVADOS / LEGACY ---
+  {
+    id: 9,
+    title: "SISET - Digital Transformation | Tech Government",
+    description: "Liderazgo Frontend en +8 proyectos del estado Colombiano y Gobernación para la transformación digital del Valle del Cauca. Gestión de estados complejos, proyectos, contrataciones, reportes y dashboards.",
+    images: ["https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"],
+    tags: ["Vue", "Laravel", "Tailwind", "Frontend"],
+    category: "SOLUCIONES_WEB",
+    size: "large",
+    link: "https://www.google.com/search?q=SSISET",
+    isLegacy: true
+  },
+  {
+    id: 10,
+    title: "TeamLine",
+    description: "Red social basada en líneas de tiempo para compartir fotos y videos junto a equipos o grupos. Ideal para seguimiento deportivo o álbumes familiares colaborativos.",
+    images: ["https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80"],
+    tags: ["RedSocial", "React", "Fullstack", "Timeline", "Media", "PWA"],
+    category: "SOLUCIONES_WEB",
+    size: "large",
+    link: "https://teamline-opal.vercel.app/",
+    isLegacy: true
+  },
+  {
+    id: 11,
+    title: "PixMind",
+    description: "(Fullstack) Motor API de Inteligencia Artificial para inferencia de imágenes. Permite validar modelos de negocio con visión artificial al instante y sin entrenamiento previo. Actualmente en standby, funcional e íntegro.",
+    images: ["https://img.youtube.com/vi/t-2dc6K4M2w/maxresdefault.jpg"],
+    tags: ["MVP", "React", "API", "Node", "Frontend", "Backend", "Fullstack"],
+    category: "SOLUCIONES_WEB",
+    size: "large",
+    link: "https://pixmind-frontend.onrender.com/",
+    isLegacy: true
   },
   {
     id: 12,
@@ -156,7 +165,7 @@ export const projectCards = [
     id: 14,
     title: "Sounds of Silence",
     description: "Aventura onírica donde usas tu propia voz (micrófono) para resolver problemas psicológicos.",
-    images: ["https://img.itch.zone/aW1hZ2UvMjQ5MTA4NC8xNxA1MjcxMC5wbmc=/original/30HiSB.png"],
+    images: [SondOfSilenceImage1],
     tags: ["Unity", "Micrófono"],
     category: "VIDEOJUEGOS",
     size: "medium",

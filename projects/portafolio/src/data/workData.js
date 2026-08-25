@@ -3,7 +3,7 @@ export const workExperience = [
         id: 1,
         position: "Frontend Vue Developer Lead",
         company: "OPEN CODE SAS",
-        period: "05/2025 - actualidad",
+        period: "05/2025 - 07/2026",
         description: "Dirigir la arquitectura frontend y optimizar la integración entre sistemas en proyectos de soporte.",
         achievements: [
             "Arquitectura frontend para 7 proyectos de soporte",
