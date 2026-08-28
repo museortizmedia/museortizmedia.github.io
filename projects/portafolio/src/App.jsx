@@ -7,6 +7,7 @@ import { File, SendHorizonalIcon, SendIcon } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import Footer from './componentes/Footer'
 import LiterarySection from './pages/LiterarySection'
+import LinkTreeSection from './pages/LinkTreeSection'
 
 function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash || '#home');
@@ -28,6 +29,7 @@ function App() {
 
   const externalPages = [
     { hash: '#literary', component: LiteraryPage },
+    { hash: '#links', component:  LinkTreeSection },
   ];
 
   const activePage = externalPages.find(page => page.hash === currentHash);
