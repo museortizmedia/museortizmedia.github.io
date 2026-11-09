@@ -30,26 +30,32 @@ const SOCIAL_LINKS = [
 const MAIN_BUTTONS = [
     {
         title: "Noticias Ñoñas con Diego Ortiz",
-        subtitle: "Recibe diariamente en tu mail las últimas noticias científicas del mundo en ESPAÑOL.",
+        subtitle: "Enterate de las últimas noticias de ciencia antes que nadie más. En tu correo y en español.",
         url: "https://script.google.com/macros/s/AKfycbxA50nqYoKdUxH3oJv5lDHRREidqgDZLIUQD7DnnT3K_OCfaW_ACZRUY_Wh2UDK0Lgzyg/exec",
         image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=300&auto=format&fit=crop&q=80",
         color: "bg-purple-950/30 border-purple-800/40 hover:border-purple-500/60"
     },
     {
+        title: "Literatura",
+        subtitle: "Mi puñado de cuentos e historias de fantasía oscura",
+        url: "#literary",
+        image: "https://images.unsplash.com/photo-1419640303358-44f0d27f48e7?w=300&auto=format&fit=crop&q=80",
+    },
+    {
         title: "Unity Users Group Cali - UUGCali",
-        subtitle: "Únete a la comunidad: meetup, discord y nuestra web",
+        subtitle: "Juntos hacemos más. Únete a la comunidad de desarrolladores de videojuegos en Unity del Valle del Cauca, Colombia",
         url: "https://museortizmedia.github.io/UnityUsersGroupCaliPortal/",
         image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=300&auto=format&fit=crop&q=80",
     },
     {
         title: "¡Super Listo!",
-        subtitle: "Monta tu restaurante a otro nivel",
+        subtitle: "Lleva tu restaurante a otro nivel con nuestro software de gestión de pedidos",
         url: "https://superlisto.com.co/",
         image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=300&auto=format&fit=crop&q=80",
     },
     {
-        title: "Más Proyectos",
-        subtitle: "Mira todo mi portafolio de proyectos",
+        title: "Portafolio de Proyectos",
+        subtitle: "Conoce mi historia y mis proyectos de desarrollo web, videojuegos y más",
         url: "/",
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&auto=format&fit=crop&q=80",
     },
